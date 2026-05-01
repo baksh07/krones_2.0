@@ -287,7 +287,7 @@ def build_cfg():
     # === Schedule: cascade is heavier, batch 8 instead of 12 ===
     cfg.SOLVER.IMS_PER_BATCH = 8
     cfg.SOLVER.BASE_LR = 0.01                   # 0.015 * (8/12) linear scaling
-    cfg.SOLVER.MAX_ITER = 16000                 # v0 peaked at iter 16000
+    cfg.SOLVER.MAX_ITER = 20000                 # v0 peaked at iter 16000
     cfg.SOLVER.STEPS = (12000, 14500)           # 75% / 90% decay
     cfg.SOLVER.WARMUP_ITERS = 1500
     cfg.SOLVER.CHECKPOINT_PERIOD = 2000
