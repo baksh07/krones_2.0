@@ -11,6 +11,8 @@ krones/
 venv/
 env/
 .venv/
+Dataset/cropped_images/
+Dataset/yolo/
 
 # IDE
 .vscode/
