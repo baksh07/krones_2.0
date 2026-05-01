@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+krones/
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Model artifacts (transferred to PC, kept out of git)
+output/
+*.pth
+*.pkl
+*.pt
+
+# Caches and temporary
+*.tmp
+*.log
+.DS_Store
+.ipynb_checkpoints/
+
+# Large derived dataset files (regenerable from build_krones_coco.py)
+# Keep krones_classes.json (small + useful as a record)
+Dataset/coco/krones_train.json
+Dataset/coco/krones_val.json
