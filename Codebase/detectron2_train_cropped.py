@@ -250,16 +250,19 @@ def build_cfg():
     cfg.MODEL.ROI_HEADS.NUM_CLASSES = NUM_CLASSES
     cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 512
 
-    # === Overnight run: batch x2.67 from v0 + extended schedule ===
+    # === Overnight long-soak run: 9-10 hours, ~37 effective epochs ===
     # batch=32 lands ~17-19 GB on cropped data (was 13.8 GB at batch=24, 7 GB at 12).
-    # LR linearly scaled (0.015 * 32/12 = 0.040). Total samples-seen 480k = 2x v0's 240k,
-    # i.e. ~22 effective epochs. Run takes ~6 hours overnight.
+    # LR linearly scaled (0.015 * 32/12 = 0.040). Total samples-seen 800k = ~3.3x v0's
+    # 240k, ~37 effective epochs. The intent is to see whether the cropped model
+    # benefits from extended training or starts overfitting on the long-tail (Insect 26
+    # train images, Straw 31, etc.). Checkpoints every 2000 iters give us 12 snapshots
+    # to find the peak in case it overfits before iter 25000.
     cfg.SOLVER.IMS_PER_BATCH = 32
     cfg.SOLVER.BASE_LR = 0.040
-    cfg.SOLVER.MAX_ITER = 15000
-    cfg.SOLVER.STEPS = (10000, 13000)
-    cfg.SOLVER.WARMUP_ITERS = 1000
-    cfg.SOLVER.CHECKPOINT_PERIOD = 1500
+    cfg.SOLVER.MAX_ITER = 25000
+    cfg.SOLVER.STEPS = (17000, 22000)
+    cfg.SOLVER.WARMUP_ITERS = 1500
+    cfg.SOLVER.CHECKPOINT_PERIOD = 2000
 
     # === Resize ranges adjusted for cropped images ===
     # Cropped images are ~612-856 px on short edge (typical 612-712).
@@ -270,7 +273,7 @@ def build_cfg():
     cfg.INPUT.MAX_SIZE_TEST = 1024
     cfg.INPUT.MASK_FORMAT = 'polygon'
 
-    cfg.TEST.EVAL_PERIOD = 1500   # 10 evals across the run (matches CHECKPOINT_PERIOD)
+    cfg.TEST.EVAL_PERIOD = 2000   # 12 evals across the run (matches CHECKPOINT_PERIOD)
     cfg.TEST.DETECTIONS_PER_IMAGE = 60
 
     cfg.OUTPUT_DIR = str(OUTPUT_DIR)
