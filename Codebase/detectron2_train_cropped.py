@@ -54,7 +54,7 @@ DATA_ROOT = Path('/home/dll0202/baksh/dataset/1st-krones-vision-ai-challenge')
 COCO_DIR = REPO_ROOT / 'Dataset' / 'coco_cropped'
 IMG_DIR = str(REPO_ROOT / 'Dataset' / 'cropped_images')
 TRAIN_CSV = DATA_ROOT / 'train.csv'
-OUTPUT_DIR = REPO_ROOT / 'output' / 'maskrcnn_r50_cropped'
+OUTPUT_DIR = REPO_ROOT / 'output' / 'maskrcnn_r50_cropped_20k'
 
 with open(COCO_DIR / 'krones_classes.json') as f:
     KRONES_CLASSES: list[str] = json.load(f)
@@ -250,17 +250,17 @@ def build_cfg():
     cfg.MODEL.ROI_HEADS.NUM_CLASSES = NUM_CLASSES
     cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 512
 
-    # === Pre-reboot run: ~4h 30min, finishes by ~04:30 (system reboot at 05:00) ===
+    # === 20k-iter run mirroring v0's schedule shape (v0 peaked iter 15999) ===
     # batch=32 (~18 GB GPU). LR 0.040 (linear-scaled from v0's 0.015 at batch=12).
-    # Total samples-seen 352k = ~1.5x v0's 240k, ~16 effective epochs.
-    # LR decays at 68% / 88% of training. 7 checkpoints saved (every 1500 iters)
-    # so we can pick the best mid-training checkpoint if late epochs overfit.
+    # MAX_ITER + STEPS identical to v0's 20000/(12000,14500) so the LR decay
+    # lands at the same training fraction (60% / 72.5%). Effective samples-seen
+    # at peak = 32*15999 = 512k vs v0's 12*15999 = 192k — 2.67x more data.
     cfg.SOLVER.IMS_PER_BATCH = 32
     cfg.SOLVER.BASE_LR = 0.040
-    cfg.SOLVER.MAX_ITER = 11000
-    cfg.SOLVER.STEPS = (7500, 9700)
+    cfg.SOLVER.MAX_ITER = 20000
+    cfg.SOLVER.STEPS = (12000, 14500)
     cfg.SOLVER.WARMUP_ITERS = 1000
-    cfg.SOLVER.CHECKPOINT_PERIOD = 1500
+    cfg.SOLVER.CHECKPOINT_PERIOD = 2000
 
     # === Resize ranges adjusted for cropped images ===
     # Cropped images are ~612-856 px on short edge (typical 612-712).
@@ -271,7 +271,7 @@ def build_cfg():
     cfg.INPUT.MAX_SIZE_TEST = 1024
     cfg.INPUT.MASK_FORMAT = 'polygon'
 
-    cfg.TEST.EVAL_PERIOD = 1500   # 7 evals across the run (matches CHECKPOINT_PERIOD)
+    cfg.TEST.EVAL_PERIOD = 2000   # 10 evals across the run (matches CHECKPOINT_PERIOD)
     cfg.TEST.DETECTIONS_PER_IMAGE = 60
 
     cfg.OUTPUT_DIR = str(OUTPUT_DIR)

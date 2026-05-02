@@ -1,0 +1,84 @@
+======================================================================
+COCO v2 BUILD SUMMARY
+======================================================================
+crops dir (referenced): /home/dll0202/baksh/dataset/1st-krones-vision-ai-challenge/audit_output/crops
+output dir:             /home/dll0202/baksh/krones_2.0/Dataset/coco_v2
+classes:                22 (dropped 5)
+images skipped:         no_meta=0, no_split=0
+annotations kept:       48,348
+annotations dropped:    0 (poly fully outside crop)
+
+train: 28273 images (18989 with kept anns),  38409 anns
+  per-class image counts (train):
+    Air bubble                           1719
+    Break / Crack                         237
+    Chip                                  542
+    Circlip                                31
+    Contamination dark                   3937
+    Contamination light                   755
+    Crown cap                            1621
+    Foil / Semitransparent                 33
+    Foreign object - manual cleaning      638
+    Foreign object - washing machine      349
+    Glass imperfection                    134
+    Glass shard                           469
+    Insect                                 25
+    Label                                 195
+    Liquid                                 61
+    Mold                                 1549
+    No base visible                      2900
+    Paint residue                          42
+    Scuffing                             2466
+    Scuffing heavy                        303
+    Straw                                  28
+    Yeast residue                        3669
+
+val  :  3536 images (2376 with kept anns),   5019 anns
+  per-class image counts (val):
+    Air bubble                            237
+    Break / Crack                          32
+    Chip                                   70
+    Circlip                                 4
+    Contamination dark                    500
+    Contamination light                   110
+    Crown cap                             201
+    Foil / Semitransparent                  5
+    Foreign object - manual cleaning       80
+    Foreign object - washing machine       40
+    Glass imperfection                     16
+    Glass shard                            65
+    Insect                                  2
+    Label                                  24
+    Liquid                                  8
+    Mold                                  197
+    No base visible                       362
+    Paint residue                           5
+    Scuffing                              303
+    Scuffing heavy                         31
+    Straw                                   3
+    Yeast residue                         466
+
+test :  3533 images (2372 with kept anns),   4920 anns
+  per-class image counts (test):
+    Air bubble                            224
+    Break / Crack                          31
+    Chip                                   69
+    Circlip                                 4
+    Contamination dark                    498
+    Contamination light                   102
+    Crown cap                             202
+    Foil / Semitransparent                  3
+    Foreign object - manual cleaning       81
+    Foreign object - washing machine       41
+    Glass imperfection                     18
+    Glass shard                            62
+    Insect                                  2
+    Label                                  25
+    Liquid                                  7
+    Mold                                  193
+    No base visible                       363
+    Paint residue                           5
+    Scuffing                              311
+    Scuffing heavy                         30
+    Straw                                   4
+    Yeast residue                         460
