@@ -5,19 +5,25 @@ ResNet-50 (ImageNet-pretrained) fine-tuned on expanded-ROI crops.
 
 Pipeline:
   - Dataloader uses WeightedRandomSampler (1/n_dominant_class) for class balance
-  - Loss: BCEWithLogitsLoss
+  - Loss: BCEWithLogitsLoss (optional pos_weight to rebalance FP vs FN penalty)
   - Optimizer: AdamW with cosine schedule + linear warmup
+  - Optional EMA of weights (smooths noisy val curve, often gives ensemble effect)
   - Mixed precision (BF16) on by default
-  - Best checkpoint kept by val F1
-  - TensorBoard logs: train/val loss, val F1/precision/recall, LR, confusion matrix
+  - Best checkpoint kept by val F1 (on EMA weights if --ema enabled)
+  - TensorBoard logs: train/val loss, val F1/precision/recall, LR, per-class val acc
 
 Usage:
-    python train.py --root /path/to/dataset --epochs 20 --batch-size 32
+    # baseline (your previous successful run)
+    python train.py --root /path/to/dataset --epochs 25 --batch-size 32
+
+    # experiment 1: pos_weight + EMA stacked
+    python train.py --root /path/to/dataset --epochs 25 --batch-size 32 \\
+            --pos-weight 0.7 --ema --out-dir runs/resnet50_640_exp1
 
 For a quick smoke test:
     python train.py --root ... --epochs 1 --max-steps 50
 """
-import os, argparse, time, math
+import os, argparse, time, math, copy
 from pathlib import Path
 import numpy as np
 import torch
@@ -48,6 +54,20 @@ def cosine_warmup_lr(step, total_steps, warmup_steps, base_lr):
         return base_lr * (step + 1) / warmup_steps
     progress = (step - warmup_steps) / max(1, total_steps - warmup_steps)
     return base_lr * 0.5 * (1.0 + math.cos(math.pi * progress))
+
+
+# ---------------------------------------------------------------------------
+@torch.no_grad()
+def update_ema(ema_model, model, decay):
+    """In-place EMA update: ema = decay * ema + (1 - decay) * model."""
+    msd = (model._orig_mod.state_dict()
+           if hasattr(model, "_orig_mod") else model.state_dict())
+    for k, v in ema_model.state_dict().items():
+        if v.dtype.is_floating_point:
+            v.mul_(decay).add_(msd[k].detach(), alpha=1 - decay)
+        else:
+            # buffers like batchnorm running counts: just copy
+            v.copy_(msd[k])
 
 
 # ---------------------------------------------------------------------------
@@ -93,11 +113,10 @@ def main(args):
                              splits_csv=args.splits_csv)
     print(f"train: {len(train_ds)}  val: {len(val_ds)}  classes: {len(train_ds.classes)}")
 
-    # WeightedRandomSampler balances by dominant defect class
     sampler_weights = train_ds.make_sampler_weights()
     sampler = WeightedRandomSampler(
         weights=sampler_weights,
-        num_samples=len(train_ds),       # one "epoch" = one full dataset pass worth of draws
+        num_samples=len(train_ds),
         replacement=True,
     )
 
@@ -118,15 +137,39 @@ def main(args):
     model = build_model(num_classes=1, pretrained=True).to(device)
     if args.compile:
         model = torch.compile(model)
-    criterion = nn.BCEWithLogitsLoss()
+
+    # BCE with optional pos_weight to rebalance FP vs FN penalty.
+    # pos_weight < 1 -> false positives get penalized more (model becomes more
+    # conservative about predicting Faulty -- targets the Scuffing-FP bias we
+    # diagnosed). pos_weight = 1 (default) is standard unweighted BCE.
+    if args.pos_weight is not None and abs(args.pos_weight - 1.0) > 1e-8:
+        pw = torch.tensor([args.pos_weight], device=device)
+        criterion = nn.BCEWithLogitsLoss(pos_weight=pw)
+        print(f"      loss: BCE with pos_weight={args.pos_weight}")
+    else:
+        criterion = nn.BCEWithLogitsLoss()
+        print(f"      loss: BCE (unweighted)")
+
     optimizer = torch.optim.AdamW(model.parameters(),
                                   lr=args.lr, weight_decay=args.weight_decay)
+
+    # EMA shadow model. Updated every step. At eval time, val is run on the EMA
+    # copy if --ema is enabled, and the EMA weights are saved as best.pt.
+    # Effect: val curve is smoother, often equivalent to a small ensemble.
+    ema_model = None
+    if args.ema:
+        ema_model = copy.deepcopy(model._orig_mod
+                                  if hasattr(model, "_orig_mod") else model)
+        ema_model = ema_model.to(device).eval()
+        for p in ema_model.parameters():
+            p.requires_grad_(False)
+        print(f"      EMA: enabled, decay={args.ema_decay}")
 
     total_steps = args.epochs * len(train_loader)
     warmup_steps = max(100, int(0.05 * total_steps))   # 5% of total, min 100 steps
 
     autocast_dtype = torch.bfloat16 if args.precision == "bf16" else torch.float16
-    scaler = GradScaler(enabled=(args.precision == "fp16"))   # bf16 doesn't need scaler   # bf16 doesn't need scaler
+    scaler = GradScaler(enabled=(args.precision == "fp16"))
 
     # -----------------------------------------------------------------
     # logging + checkpointing
@@ -157,7 +200,6 @@ def main(args):
             imgs   = imgs.to(device,   non_blocking=True)
             labels = labels.to(device, non_blocking=True)
 
-            # update LR with manual schedule (so we can log it cleanly)
             lr = cosine_warmup_lr(global_step, total_steps, warmup_steps, args.lr)
             for g in optimizer.param_groups:
                 g["lr"] = lr
@@ -175,6 +217,10 @@ def main(args):
                 loss.backward()
                 optimizer.step()
 
+            # EMA update happens AFTER the optimizer step
+            if ema_model is not None:
+                update_ema(ema_model, model, args.ema_decay)
+
             running_loss += loss.item() * imgs.size(0)
             n_seen += imgs.size(0)
             global_step += 1
@@ -190,34 +236,73 @@ def main(args):
         print(f"epoch {epoch} done. avg_loss {avg_loss:.4f}  time {epoch_time:.0f}s")
 
         # ---------------- val ----------------
-        val_metrics = evaluate(model, val_loader, device, autocast_dtype)
+        # If EMA enabled, validate on the EMA model (this is what gets saved
+        # as best.pt). Also run val on the live model for comparison logging.
+        eval_model = ema_model if ema_model is not None else model
+        val_metrics = evaluate(eval_model, val_loader, device, autocast_dtype)
         f1, prec, rec = val_metrics["f1"], val_metrics["precision"], val_metrics["recall"]
         cm = val_metrics["confusion"]
-        print(f"  val: F1 {f1:.4f}  P {prec:.4f}  R {rec:.4f}")
+        which = "EMA" if ema_model is not None else "live"
+        print(f"  val ({which}): F1 {f1:.4f}  P {prec:.4f}  R {rec:.4f}")
         print(f"  confusion (rows=true, cols=pred):\n{cm}")
         writer.add_scalar("val/f1",        f1,   epoch)
         writer.add_scalar("val/precision", prec, epoch)
         writer.add_scalar("val/recall",    rec,  epoch)
         writer.add_scalar("train/avg_loss", avg_loss, epoch)
 
-        # save last
+        # If EMA, also log the live-model F1 so we can compare in TB
+        if ema_model is not None:
+            live_metrics = evaluate(model, val_loader, device, autocast_dtype)
+            writer.add_scalar("val_live/f1",        live_metrics["f1"],        epoch)
+            writer.add_scalar("val_live/precision", live_metrics["precision"], epoch)
+            writer.add_scalar("val_live/recall",    live_metrics["recall"],    epoch)
+            print(f"  val (live for comparison): F1 {live_metrics['f1']:.4f}")
+
+        # per-class accuracy on val. Track classes that have been the primary
+        # failure modes so we can see in real-time which lever moves them.
+        v_labels  = val_metrics["labels"]
+        v_classes = val_metrics["classes"]
+        v_probs   = torch.sigmoid(val_metrics["logits"])
+        v_preds   = (v_probs >= 0.5).long()
+        watch_classes = ["Scuffing", "Air bubble", "Contamination light",
+                         "Glass imperfection", "Scuffing heavy", "Good_no_defect",
+                         "Contamination dark"]
+        for cname in watch_classes:
+            if cname not in train_ds.class_to_idx:
+                continue
+            cidx = train_ds.class_to_idx[cname]
+            mask = (v_classes == cidx)
+            if mask.sum() == 0: continue
+            acc = (v_labels[mask] == v_preds[mask]).float().mean().item()
+            tag = f"val_per_class/{cname.replace(' ', '_').replace('/', '_')}"
+            writer.add_scalar(tag, acc, epoch)
+            if cname == "Scuffing":
+                print(f"  val Scuffing acc: {acc:.4f}  ({mask.sum().item()} samples)")
+
+        # -------------- save checkpoints --------------
+        # When EMA is active, the saved weights ARE the EMA weights, because
+        # that's the model we want at inference/submission time.
+        save_state = (ema_model.state_dict() if ema_model is not None
+                      else (model._orig_mod.state_dict()
+                            if hasattr(model, "_orig_mod") else model.state_dict()))
+
         torch.save({
             "epoch": epoch, "global_step": global_step,
-            "model": (model._orig_mod.state_dict() if hasattr(model, "_orig_mod")
-                      else model.state_dict()),
+            "model": save_state,
             "optimizer": optimizer.state_dict(),
             "val_f1": f1, "args": vars(args),
             "classes": train_ds.classes,
+            "ema": ema_model is not None,
         }, last_ckpt_path)
-        # save best
+
         if f1 > best_val_f1:
             best_val_f1 = f1
             torch.save({
                 "epoch": epoch, "global_step": global_step,
-                "model": (model._orig_mod.state_dict() if hasattr(model, "_orig_mod")
-                          else model.state_dict()),
+                "model": save_state,
                 "val_f1": f1, "args": vars(args),
                 "classes": train_ds.classes,
+                "ema": ema_model is not None,
             }, ckpt_path)
             print(f"  saved new best -> val F1 {f1:.4f}")
 
@@ -249,5 +334,13 @@ if __name__ == "__main__":
                    help="stop after this many steps (for smoke testing)")
     p.add_argument("--compile",     action="store_true",
                    help="torch.compile the model (PyTorch 2.0+)")
+    # ---- new in this version ----
+    p.add_argument("--pos-weight",  type=float, default=None,
+                   help="BCE pos_weight. <1 penalizes FP more, >1 penalizes FN more. "
+                        "Default unset = standard unweighted BCE.")
+    p.add_argument("--ema",         action="store_true",
+                   help="enable EMA of model weights for evaluation/saving")
+    p.add_argument("--ema-decay",   type=float, default=0.999,
+                   help="EMA decay rate. Higher = slower averaging. 0.999 is standard.")
     args = p.parse_args()
     main(args)

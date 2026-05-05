@@ -1,0 +1,3534 @@
+label,pred05,predbest,prob,class_idx,class
+1,1,1,0.99999523,14,Label
+1,1,1,0.9999999,16,Mold
+1,1,1,0.98998636,4,Contamination dark
+1,1,1,0.9999999,6,Crown cap
+1,1,1,0.99999166,22,Yeast residue
+1,1,1,0.9999993,3,Circlip
+1,1,1,0.9999975,16,Mold
+0,0,0,0.055005286,12,Good_no_defect
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,0.9974491,22,Yeast residue
+1,1,1,0.9999993,13,Insect
+1,1,1,0.99992037,22,Yeast residue
+1,1,1,0.9999994,11,Glass shard
+1,1,1,0.9999893,22,Yeast residue
+0,0,0,0.068537496,12,Good_no_defect
+1,1,1,0.9998511,4,Contamination dark
+1,1,1,0.94165415,4,Contamination dark
+1,1,1,0.99997723,22,Yeast residue
+0,0,0,0.00096975197,0,Air bubble
+1,1,1,0.9999995,6,Crown cap
+1,1,1,0.9999546,5,Contamination light
+1,1,1,1.0,6,Crown cap
+0,0,0,0.055005286,19,Scuffing
+1,1,1,0.9999993,17,No base visible
+1,1,1,0.9688562,4,Contamination dark
+1,1,1,0.99948066,19,Scuffing
+0,0,0,0.0022518474,12,Good_no_defect
+1,1,1,1.0,1,Break / Crack
+0,0,0,0.012821214,12,Good_no_defect
+1,1,1,1.0,1,Break / Crack
+1,1,1,0.99999976,6,Crown cap
+1,1,1,1.0,17,No base visible
+1,1,1,0.9999994,4,Contamination dark
+1,1,1,0.99999833,17,No base visible
+1,1,1,1.0,22,Yeast residue
+0,0,0,0.012821214,12,Good_no_defect
+0,0,0,0.0007793661,12,Good_no_defect
+1,1,1,1.0,7,Foil / Semitransparent
+0,0,0,0.012053779,12,Good_no_defect
+0,0,1,0.47377896,19,Scuffing
+0,0,0,0.005060332,12,Good_no_defect
+1,1,1,0.6090592,19,Scuffing
+1,1,1,1.0,18,Paint residue
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,0.99999845,17,No base visible
+0,0,0,0.06278921,19,Scuffing
+0,0,0,0.18952109,12,Good_no_defect
+1,1,1,0.99999976,17,No base visible
+1,1,1,0.99999976,6,Crown cap
+1,1,1,0.99948066,22,Yeast residue
+1,1,1,0.99999917,2,Chip
+1,1,1,0.91367656,4,Contamination dark
+1,1,1,1.0,6,Crown cap
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,0.99999905,15,Liquid
+1,1,1,0.99999905,22,Yeast residue
+1,0,0,0.1847675,19,Scuffing
+1,1,1,0.99999845,17,No base visible
+1,1,1,1.0,4,Contamination dark
+0,0,0,0.03114383,12,Good_no_defect
+1,1,1,0.99978346,22,Yeast residue
+1,1,1,0.99999845,17,No base visible
+1,1,1,0.9999999,4,Contamination dark
+1,1,1,0.99999964,17,No base visible
+1,1,1,0.99996877,4,Contamination dark
+1,1,1,0.9999999,22,Yeast residue
+0,0,0,0.39233685,12,Good_no_defect
+0,0,0,0.0047552,0,Air bubble
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.0071214284,12,Good_no_defect
+0,0,0,0.0094125895,12,Good_no_defect
+0,0,0,0.026355354,19,Scuffing
+1,1,1,1.0,6,Crown cap
+0,0,0,0.036220055,12,Good_no_defect
+1,1,1,1.0,8,Foreign object - manual cleaning
+0,0,0,0.0017007225,12,Good_no_defect
+1,1,1,0.9999999,22,Yeast residue
+1,1,1,0.9998511,22,Yeast residue
+0,0,0,0.15002882,19,Scuffing
+0,0,0,0.0012448432,0,Air bubble
+0,0,0,0.065604836,12,Good_no_defect
+1,1,1,1.0,22,Yeast residue
+0,0,0,0.028870907,12,Good_no_defect
+0,0,0,0.0015978456,12,Good_no_defect
+1,1,1,1.0,22,Yeast residue
+1,1,1,0.99999607,11,Glass shard
+0,0,0,0.08632348,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+0,0,0,0.0433658,0,Air bubble
+0,0,0,0.22135067,19,Scuffing
+0,0,0,0.0013250224,0,Air bubble
+1,1,1,0.999987,11,Glass shard
+0,0,0,0.009708476,12,Good_no_defect
+1,1,1,0.9999151,16,Mold
+0,0,0,0.001867566,12,Good_no_defect
+1,1,1,0.9999893,16,Mold
+1,1,1,0.9999988,17,No base visible
+1,1,1,0.9999151,4,Contamination dark
+1,1,1,0.99999917,17,No base visible
+1,1,1,1.0,6,Crown cap
+0,0,0,0.013222822,12,Good_no_defect
+1,1,1,0.9999485,22,Yeast residue
+1,1,1,0.9984988,16,Mold
+1,1,1,0.99963164,22,Yeast residue
+0,0,0,0.013222822,12,Good_no_defect
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,1.0,11,Glass shard
+1,1,1,0.99999845,6,Crown cap
+1,1,1,1.0,21,Straw
+1,1,1,0.9999926,14,Label
+0,0,0,0.005220126,12,Good_no_defect
+0,0,0,0.0064882697,12,Good_no_defect
+1,1,1,0.99963164,4,Contamination dark
+0,0,0,0.00058840885,12,Good_no_defect
+0,0,0,0.011687257,12,Good_no_defect
+1,1,1,0.9999852,2,Chip
+0,0,0,0.018833129,12,Good_no_defect
+1,1,1,1.0,16,Mold
+1,1,1,0.99999857,17,No base visible
+0,1,1,0.6959583,19,Scuffing
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,0.5865228,19,Scuffing
+0,0,0,0.00040448149,12,Good_no_defect
+1,1,1,0.99992514,16,Mold
+0,0,0,0.100878626,12,Good_no_defect
+0,0,0,0.012053779,0,Air bubble
+0,0,0,0.016914913,19,Scuffing
+0,0,0,0.0033766122,0,Air bubble
+0,0,0,0.017442483,12,Good_no_defect
+1,1,1,0.9911527,4,Contamination dark
+0,0,0,0.01798621,19,Scuffing
+1,1,1,0.9999999,6,Crown cap
+1,1,1,0.99998856,6,Crown cap
+0,0,0,0.008847355,12,Good_no_defect
+1,1,1,0.99999213,22,Yeast residue
+0,0,0,0.008315778,12,Good_no_defect
+1,1,1,0.99999726,22,Yeast residue
+1,1,1,1.0,4,Contamination dark
+0,1,1,0.93991333,12,Good_no_defect
+1,1,1,1.0,22,Yeast residue
+1,1,1,0.99999833,17,No base visible
+1,1,1,1.0,22,Yeast residue
+1,1,1,0.99999857,17,No base visible
+1,1,1,1.0,2,Chip
+1,1,1,0.9999999,22,Yeast residue
+1,0,0,0.096705794,19,Scuffing
+0,0,0,0.0064882697,12,Good_no_defect
+1,1,1,1.0,4,Contamination dark
+0,0,0,0.10521054,12,Good_no_defect
+0,0,0,0.0057302467,12,Good_no_defect
+1,1,1,0.97903574,19,Scuffing
+0,0,0,0.0055549247,19,Scuffing
+1,1,1,0.99553156,2,Chip
+0,0,0,0.001284308,12,Good_no_defect
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,0.9863631,2,Chip
+1,1,1,0.99997985,22,Yeast residue
+1,1,1,0.9997546,11,Glass shard
+0,0,0,0.003945407,12,Good_no_defect
+1,1,1,0.99999714,16,Mold
+0,0,0,0.13477592,12,Good_no_defect
+1,1,1,1.0,16,Mold
+1,1,1,0.99993396,4,Contamination dark
+1,1,1,0.99989104,11,Glass shard
+1,1,1,0.99961996,4,Contamination dark
+0,0,0,0.16995624,12,Good_no_defect
+0,0,0,0.003707253,12,Good_no_defect
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.027585283,19,Scuffing
+0,0,0,0.07696084,12,Good_no_defect
+0,0,0,0.02442309,12,Good_no_defect
+1,1,1,0.9979493,22,Yeast residue
+0,0,0,0.008847355,12,Good_no_defect
+1,1,1,0.99999917,18,Paint residue
+1,1,1,0.9999988,17,No base visible
+1,1,1,0.98866826,9,Foreign object - washing machine
+1,1,1,0.9999993,22,Yeast residue
+0,0,0,0.006289902,12,Good_no_defect
+0,0,0,0.04401865,19,Scuffing
+0,0,0,0.020023443,12,Good_no_defect
+1,1,1,0.99995995,4,Contamination dark
+1,1,1,0.99999917,17,No base visible
+1,1,1,0.9999999,4,Contamination dark
+1,1,1,1.0,16,Mold
+1,1,1,1.0,8,Foreign object - manual cleaning
+0,0,0,0.026759284,12,Good_no_defect
+1,1,1,0.9974491,22,Yeast residue
+1,1,1,0.9999988,17,No base visible
+1,1,1,0.99999976,6,Crown cap
+0,0,0,0.006692851,12,Good_no_defect
+1,1,1,0.9999757,8,Foreign object - manual cleaning
+1,1,1,1.0,6,Crown cap
+0,0,0,0.05033063,12,Good_no_defect
+1,1,1,0.97324073,2,Chip
+1,0,0,0.4472189,19,Scuffing
+1,1,1,1.0,17,No base visible
+0,0,0,0.0075772414,12,Good_no_defect
+1,1,1,0.99854493,15,Liquid
+1,1,1,0.9997546,4,Contamination dark
+0,0,0,0.019419348,12,Good_no_defect
+0,0,0,0.08269734,12,Good_no_defect
+0,0,0,0.006097562,12,Good_no_defect
+0,0,0,0.0064882697,12,Good_no_defect
+1,0,0,0.06656919,14,Label
+0,0,0,0.0075772414,12,Good_no_defect
+1,1,1,0.99939287,4,Contamination dark
+1,1,1,0.94417685,19,Scuffing
+1,1,1,0.99999964,5,Contamination light
+0,0,0,0.025178842,12,Good_no_defect
+0,0,0,0.006903838,12,Good_no_defect
+0,0,0,0.0057302467,12,Good_no_defect
+1,1,1,1.0,4,Contamination dark
+1,1,1,0.9998977,4,Contamination dark
+0,0,0,0.012821214,12,Good_no_defect
+1,1,1,0.99999833,22,Yeast residue
+1,1,1,0.99999845,17,No base visible
+0,1,1,0.9999646,19,Scuffing
+1,1,1,0.99999833,22,Yeast residue
+1,1,1,1.0,17,No base visible
+1,1,1,0.9999994,17,No base visible
+0,0,0,0.004198795,12,Good_no_defect
+0,0,0,0.01450358,12,Good_no_defect
+1,1,1,0.9999999,6,Crown cap
+1,1,1,0.97702265,16,Mold
+0,0,0,0.035144847,19,Scuffing
+0,0,0,0.05749328,12,Good_no_defect
+1,1,1,1.0,16,Mold
+1,1,1,0.99999976,14,Label
+0,0,0,0.0075772414,12,Good_no_defect
+1,1,1,0.9999893,22,Yeast residue
+1,1,1,0.9991959,4,Contamination dark
+1,1,1,0.9928786,4,Contamination dark
+1,1,1,0.9802808,4,Contamination dark
+1,1,1,1.0,9,Foreign object - washing machine
+0,0,0,0.007815889,12,Good_no_defect
+1,1,1,1.0,22,Yeast residue
+0,0,0,0.001455063,12,Good_no_defect
+0,0,0,0.002472623,12,Good_no_defect
+1,1,1,1.0,5,Contamination light
+0,1,1,0.84695786,12,Good_no_defect
+1,1,1,0.99999857,17,No base visible
+1,1,1,0.99999344,16,Mold
+0,0,0,0.003945407,0,Air bubble
+0,0,0,0.046033904,12,Good_no_defect
+0,0,0,0.0046095722,12,Good_no_defect
+0,0,0,0.13296424,12,Good_no_defect
+0,0,0,0.006692851,12,Good_no_defect
+1,1,1,0.9999989,22,Yeast residue
+0,0,0,0.0038244836,12,Good_no_defect
+1,1,1,0.9998416,4,Contamination dark
+1,1,1,1.0,17,No base visible
+0,0,0,0.004198795,12,Good_no_defect
+0,0,0,0.09947021,12,Good_no_defect
+1,1,1,0.9999994,17,No base visible
+0,0,0,0.0140636265,12,Good_no_defect
+0,0,0,0.04813677,12,Good_no_defect
+1,1,1,0.9980122,4,Contamination dark
+0,0,0,0.0071214284,12,Good_no_defect
+0,0,0,0.012053779,0,Air bubble
+0,0,0,0.034100424,0,Air bubble
+1,1,1,0.746139,19,Scuffing
+0,0,0,0.006692851,12,Good_no_defect
+1,1,1,0.99997413,22,Yeast residue
+1,1,1,0.9999993,17,No base visible
+1,1,1,0.9999999,6,Crown cap
+1,1,1,0.9999982,22,Yeast residue
+1,1,1,0.9999995,22,Yeast residue
+1,1,1,0.9999994,8,Foreign object - manual cleaning
+1,1,1,0.99980897,1,Break / Crack
+1,1,1,0.99999714,22,Yeast residue
+1,1,1,0.58794314,4,Contamination dark
+0,0,0,0.0033766122,12,Good_no_defect
+0,0,0,0.0047552,12,Good_no_defect
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.2893717,5,Contamination light
+0,0,0,0.00062633416,12,Good_no_defect
+1,1,1,0.99999046,22,Yeast residue
+0,0,0,0.007345827,12,Good_no_defect
+1,1,1,0.9999926,22,Yeast residue
+1,1,1,0.99999917,6,Crown cap
+1,0,0,0.3424616,19,Scuffing
+1,1,1,0.9993333,22,Yeast residue
+1,1,1,0.99999905,17,No base visible
+1,1,1,1.0,4,Contamination dark
+0,0,0,0.052618954,19,Scuffing
+0,0,0,0.009708476,12,Good_no_defect
+0,0,0,0.22678363,19,Scuffing
+1,1,1,0.9999988,17,No base visible
+1,0,0,0.19682622,8,Foreign object - manual cleaning
+0,0,0,0.0017546144,12,Good_no_defect
+0,0,0,0.0057302467,12,Good_no_defect
+1,1,1,1.0,17,No base visible
+0,0,0,0.34598863,12,Good_no_defect
+1,1,1,0.9908744,10,Glass imperfection
+0,0,0,0.0023231625,12,Good_no_defect
+0,0,0,0.003945407,0,Air bubble
+1,1,1,0.99999917,17,No base visible
+1,1,1,0.99939287,22,Yeast residue
+1,1,1,0.9999485,22,Yeast residue
+0,0,0,0.008061991,12,Good_no_defect
+0,0,0,0.090092994,12,Good_no_defect
+1,1,1,0.999987,4,Contamination dark
+0,0,0,0.007815889,12,Good_no_defect
+1,1,1,0.99999845,17,No base visible
+0,0,0,0.0094125895,12,Good_no_defect
+1,1,1,1.0,22,Yeast residue
+0,0,0,0.0031726826,0,Air bubble
+1,1,1,0.99999106,22,Yeast residue
+0,0,0,0.0033766122,19,Scuffing
+0,0,0,0.007345827,0,Air bubble
+1,1,1,1.0,6,Crown cap
+1,1,1,0.9999999,22,Yeast residue
+0,0,0,0.022629201,12,Good_no_defect
+0,0,0,0.00075540564,12,Good_no_defect
+1,1,1,1.0,17,No base visible
+0,0,0,0.39513415,19,Scuffing
+0,0,0,0.047425874,12,Good_no_defect
+0,0,0,0.30404165,12,Good_no_defect
+1,1,1,0.9999988,22,Yeast residue
+1,1,1,0.99937373,22,Yeast residue
+0,0,0,0.034100424,12,Good_no_defect
+0,0,0,0.015424552,12,Good_no_defect
+1,1,1,0.9999995,6,Crown cap
+0,0,0,0.0075772414,12,Good_no_defect
+1,1,1,0.99999905,6,Crown cap
+1,1,1,1.0,22,Yeast residue
+1,1,1,0.99999964,4,Contamination dark
+1,1,1,0.99854493,16,Mold
+1,1,1,0.9999999,6,Crown cap
+1,1,1,0.9879462,4,Contamination dark
+1,1,1,0.9999994,17,No base visible
+1,1,1,0.99999905,22,Yeast residue
+1,1,1,0.97838473,5,Contamination light
+0,0,0,0.07263671,12,Good_no_defect
+0,0,0,0.0094125895,0,Air bubble
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.23651622,19,Scuffing
+1,1,1,0.9975274,4,Contamination dark
+1,1,1,0.99996674,16,Mold
+0,0,0,0.005220126,12,Good_no_defect
+1,1,1,0.99998105,4,Contamination dark
+1,1,1,0.98201376,19,Scuffing
+0,0,0,0.0034834242,12,Good_no_defect
+1,0,0,0.07263671,4,Contamination dark
+0,0,0,0.018833129,12,Good_no_defect
+1,1,1,0.9999987,17,No base visible
+0,0,0,0.008315778,12,Good_no_defect
+0,0,0,0.0064882697,12,Good_no_defect
+0,0,0,0.0019267347,12,Good_no_defect
+0,0,0,0.015424552,12,Good_no_defect
+1,1,1,0.99999464,19,Scuffing
+0,0,0,0.018833129,12,Good_no_defect
+0,0,0,0.012053779,12,Good_no_defect
+0,0,0,0.0053849383,12,Good_no_defect
+0,0,0,0.06278921,12,Good_no_defect
+0,0,0,0.027169233,0,Air bubble
+0,0,0,0.004905406,0,Air bubble
+1,0,0,0.256832,4,Contamination dark
+0,0,0,0.004905406,12,Good_no_defect
+1,1,1,0.99999857,17,No base visible
+1,1,1,0.9981324,4,Contamination dark
+0,0,0,0.023689471,12,Good_no_defect
+0,0,0,0.011687257,12,Good_no_defect
+1,1,1,1.0,17,No base visible
+1,1,1,0.99890125,22,Yeast residue
+0,0,0,0.0022518474,12,Good_no_defect
+1,1,1,0.99999905,17,No base visible
+1,1,1,0.99999964,17,No base visible
+1,1,1,0.87321484,4,Contamination dark
+1,1,1,0.99961996,22,Yeast residue
+0,0,0,0.0031726826,12,Good_no_defect
+1,1,1,0.9999999,4,Contamination dark
+1,1,1,0.9999999,14,Label
+0,0,0,0.0025509123,12,Good_no_defect
+0,0,0,0.003945407,12,Good_no_defect
+0,0,0,0.002396731,12,Good_no_defect
+0,0,0,0.02096424,19,Scuffing
+0,0,0,0.002396731,12,Good_no_defect
+1,1,1,1.0,22,Yeast residue
+0,0,0,0.004468384,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+0,1,1,0.7592254,19,Scuffing
+0,0,0,0.004905406,12,Good_no_defect
+0,0,0,0.05749328,0,Air bubble
+1,1,1,0.99979657,22,Yeast residue
+0,0,0,0.037892427,12,Good_no_defect
+1,1,1,0.99999964,17,No base visible
+1,1,1,0.8418256,4,Contamination dark
+0,0,0,0.008315778,12,Good_no_defect
+1,1,1,1.0,17,No base visible
+1,1,1,0.9999995,19,Scuffing
+0,0,0,0.05749328,12,Good_no_defect
+0,0,0,0.04813677,12,Good_no_defect
+0,0,0,0.0021827165,12,Good_no_defect
+0,0,0,0.015906392,12,Good_no_defect
+1,1,1,0.99997246,22,Yeast residue
+1,1,1,1.0,16,Mold
+1,1,1,0.9999987,17,No base visible
+1,1,1,0.99997723,4,Contamination dark
+1,1,1,0.99966466,22,Yeast residue
+1,1,1,0.6279512,19,Scuffing
+0,0,0,0.022286186,12,Good_no_defect
+1,1,1,0.99999547,7,Foil / Semitransparent
+1,0,0,0.43014735,16,Mold
+0,0,0,0.004331502,12,Good_no_defect
+1,1,1,0.99996674,22,Yeast residue
+0,0,0,0.003945407,12,Good_no_defect
+0,0,0,0.04885778,12,Good_no_defect
+1,1,1,0.99998987,22,Yeast residue
+0,0,0,0.013222822,12,Good_no_defect
+1,1,1,0.99999976,11,Glass shard
+0,0,0,0.038466193,19,Scuffing
+0,0,0,0.0007793661,12,Good_no_defect
+1,1,1,0.999884,22,Yeast residue
+1,1,1,0.9999893,22,Yeast residue
+0,0,0,0.0034834242,12,Good_no_defect
+1,1,1,0.9999988,17,No base visible
+1,1,1,0.9999151,22,Yeast residue
+1,1,1,0.9999999,22,Yeast residue
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99999464,9,Foreign object - washing machine
+1,1,1,0.9999988,6,Crown cap
+1,1,1,0.9999999,6,Crown cap
+0,0,0,0.008315778,12,Good_no_defect
+1,1,1,0.9999989,17,No base visible
+0,0,0,0.03567855,12,Good_no_defect
+1,1,1,0.9999999,8,Foreign object - manual cleaning
+1,1,1,0.99711037,16,Mold
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.019419348,0,Air bubble
+1,1,1,0.99580115,16,Mold
+1,1,1,1.0,17,No base visible
+1,1,1,0.99997413,11,Glass shard
+0,0,0,0.019419348,12,Good_no_defect
+0,0,0,0.046724956,12,Good_no_defect
+0,0,0,0.019419348,12,Good_no_defect
+0,0,0,0.011331754,12,Good_no_defect
+1,1,1,0.9991441,16,Mold
+1,1,1,0.99986017,22,Yeast residue
+0,0,0,0.016403032,12,Good_no_defect
+0,0,0,0.033589505,12,Good_no_defect
+0,0,0,0.008577486,12,Good_no_defect
+0,0,0,0.21337718,12,Good_no_defect
+1,1,1,0.99999654,22,Yeast residue
+1,1,1,0.9914225,19,Scuffing
+1,1,1,0.99993396,22,Yeast residue
+0,0,0,0.0071214284,12,Good_no_defect
+1,1,1,0.99993396,22,Yeast residue
+0,0,0,0.020332353,12,Good_no_defect
+0,0,0,0.036769465,12,Good_no_defect
+1,1,1,0.96323055,20,Scuffing heavy
+1,1,1,0.9995695,4,Contamination dark
+1,1,1,0.983597,17,No base visible
+1,1,1,0.99999845,17,No base visible
+1,1,1,0.99939287,22,Yeast residue
+1,1,1,0.99999857,17,No base visible
+1,1,1,0.9995827,16,Mold
+1,1,1,0.9994967,16,Mold
+0,0,0,0.010652511,12,Good_no_defect
+1,1,1,0.97966766,16,Mold
+0,0,0,0.03963884,12,Good_no_defect
+1,1,1,1.0,1,Break / Crack
+1,0,0,0.010328152,4,Contamination dark
+1,1,1,0.999987,11,Glass shard
+1,1,1,0.99999166,22,Yeast residue
+1,1,1,0.99999857,17,No base visible
+1,1,1,0.99996877,22,Yeast residue
+1,0,0,0.007345827,5,Contamination light
+1,1,1,0.99711037,16,Mold
+0,0,0,0.025957357,0,Air bubble
+1,1,1,0.9999999,6,Crown cap
+0,0,0,0.0019267347,12,Good_no_defect
+0,0,0,0.038466193,12,Good_no_defect
+1,1,1,1.0,8,Foreign object - manual cleaning
+0,0,0,0.020332353,12,Good_no_defect
+0,0,0,0.0032730652,12,Good_no_defect
+1,1,1,0.99999833,17,No base visible
+1,1,1,0.9999999,1,Break / Crack
+1,1,1,0.9999453,11,Glass shard
+1,1,1,0.9999995,17,No base visible
+1,1,1,0.9999999,17,No base visible
+1,1,1,0.9933072,22,Yeast residue
+0,0,0,0.027169233,12,Good_no_defect
+1,1,1,0.99911696,4,Contamination dark
+1,1,1,0.9999949,4,Contamination dark
+1,0,0,0.068537496,4,Contamination dark
+1,1,1,0.99999976,22,Yeast residue
+0,0,0,0.17106119,12,Good_no_defect
+0,0,0,0.025565214,12,Good_no_defect
+0,0,0,0.017442483,12,Good_no_defect
+0,0,0,0.44384146,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+0,1,1,0.66366893,5,Contamination light
+0,0,0,0.2043419,19,Scuffing
+0,0,0,0.004331502,12,Good_no_defect
+1,1,1,0.9991704,13,Insect
+1,1,1,1.0,6,Crown cap
+0,0,0,0.005911069,12,Good_no_defect
+1,1,1,0.99986863,11,Glass shard
+1,1,1,0.999608,4,Contamination dark
+0,1,1,0.54237854,12,Good_no_defect
+1,1,1,0.9999999,8,Foreign object - manual cleaning
+0,0,0,0.015424552,12,Good_no_defect
+1,1,1,0.9999999,14,Label
+0,0,0,0.01450358,12,Good_no_defect
+0,0,0,0.002631674,12,Good_no_defect
+0,0,0,0.004905406,12,Good_no_defect
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.1422319,19,Scuffing
+1,1,1,0.9999877,2,Chip
+1,1,1,0.99999976,17,No base visible
+1,1,1,0.9999485,22,Yeast residue
+1,1,1,0.99999845,17,No base visible
+1,1,1,0.99996674,10,Glass imperfection
+1,1,1,1.0,8,Foreign object - manual cleaning
+0,0,0,0.008577486,12,Good_no_defect
+1,1,1,0.99999964,17,No base visible
+0,0,0,0.0140636265,12,Good_no_defect
+1,1,1,1.0,1,Break / Crack
+0,0,0,0.008315778,12,Good_no_defect
+1,1,1,1.0,17,No base visible
+1,1,1,0.99999106,22,Yeast residue
+1,1,1,0.97737074,4,Contamination dark
+0,0,0,0.007345827,12,Good_no_defect
+0,0,0,0.042722195,19,Scuffing
+1,1,1,0.9999994,2,Chip
+0,0,0,0.0008040859,0,Air bubble
+0,0,0,0.0047552,12,Good_no_defect
+1,1,1,0.983597,4,Contamination dark
+0,0,0,0.034100424,12,Good_no_defect
+0,0,0,0.032589745,12,Good_no_defect
+1,1,1,0.99999785,22,Yeast residue
+0,0,0,0.03308598,12,Good_no_defect
+1,1,1,0.9999988,22,Yeast residue
+0,0,0,0.10818896,19,Scuffing
+1,1,1,0.9999995,17,No base visible
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99999917,16,Mold
+0,0,0,0.0021827165,12,Good_no_defect
+1,1,1,0.9964064,2,Chip
+1,1,1,1.0,16,Mold
+1,1,1,1.0,22,Yeast residue
+1,1,1,0.9969246,4,Contamination dark
+0,0,0,0.051845465,0,Air bubble
+0,0,0,0.03308598,12,Good_no_defect
+1,1,1,1.0,8,Foreign object - manual cleaning
+0,0,0,0.00307537,12,Good_no_defect
+0,1,1,0.7676898,19,Scuffing
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99993396,4,Contamination dark
+1,1,1,0.94815457,19,Scuffing
+1,1,1,0.99942964,16,Mold
+1,1,1,0.99999607,4,Contamination dark
+0,0,0,0.008847355,12,Good_no_defect
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,0.99999976,17,No base visible
+0,0,0,0.0055549247,12,Good_no_defect
+0,0,0,0.0008295892,0,Air bubble
+0,0,0,0.0094125895,12,Good_no_defect
+1,1,1,1.0,11,Glass shard
+1,1,1,0.55326396,4,Contamination dark
+1,1,1,1.0,6,Crown cap
+1,1,1,0.9994967,16,Mold
+0,0,0,0.010986943,12,Good_no_defect
+1,1,1,0.9999995,6,Crown cap
+0,0,0,0.0025509123,12,Good_no_defect
+1,1,1,0.7648916,16,Mold
+0,0,0,0.22405544,19,Scuffing
+0,0,0,0.00307537,12,Good_no_defect
+1,1,1,0.96691406,16,Mold
+0,0,0,0.087563835,12,Good_no_defect
+1,1,1,0.99999976,6,Crown cap
+0,0,0,0.03567855,12,Good_no_defect
+0,0,0,0.083890386,20,Scuffing heavy
+1,1,1,0.98173577,5,Contamination light
+1,1,1,0.9991704,4,Contamination dark
+1,1,1,0.9999995,8,Foreign object - manual cleaning
+0,0,0,0.018546565,12,Good_no_defect
+0,0,0,0.019719128,12,Good_no_defect
+0,1,1,0.5884162,19,Scuffing
+0,0,0,0.0057302467,12,Good_no_defect
+1,1,1,0.994615,8,Foreign object - manual cleaning
+1,1,1,1.0,16,Mold
+1,1,1,0.99999964,4,Contamination dark
+1,1,1,0.9999999,6,Crown cap
+0,0,0,0.0015011822,12,Good_no_defect
+1,1,1,0.99993396,22,Yeast residue
+1,1,1,0.99999905,6,Crown cap
+1,1,1,0.9998977,2,Chip
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99999666,11,Glass shard
+0,0,0,0.13386749,12,Good_no_defect
+0,0,0,0.016403032,12,Good_no_defect
+1,1,1,1.0,22,Yeast residue
+0,0,0,0.24220563,12,Good_no_defect
+0,0,0,0.006692851,12,Good_no_defect
+1,1,1,1.0,17,No base visible
+0,1,1,0.6406359,12,Good_no_defect
+1,1,1,0.9999995,22,Yeast residue
+0,0,0,0.006097562,12,Good_no_defect
+1,0,0,0.26894143,4,Contamination dark
+1,1,1,0.9999999,6,Crown cap
+1,1,1,0.99999964,22,Yeast residue
+0,0,0,0.010328152,12,Good_no_defect
+0,0,0,0.006289902,19,Scuffing
+1,1,1,0.9999999,6,Crown cap
+0,0,0,0.0019267347,12,Good_no_defect
+0,0,0,0.0029810327,12,Good_no_defect
+0,0,0,0.0075772414,12,Good_no_defect
+1,1,1,0.997285,22,Yeast residue
+1,1,1,0.99999833,17,No base visible
+1,1,1,0.99998426,22,Yeast residue
+0,0,0,0.010328152,12,Good_no_defect
+1,1,1,0.99890125,22,Yeast residue
+1,1,1,0.9999987,17,No base visible
+1,1,1,0.9997695,22,Yeast residue
+0,0,0,0.02931223,12,Good_no_defect
+1,1,1,0.9999453,22,Yeast residue
+0,0,0,0.10521054,12,Good_no_defect
+1,1,1,0.99979657,9,Foreign object - washing machine
+1,1,1,0.99999166,16,Mold
+1,0,0,0.08632348,16,Mold
+1,1,1,0.9980732,5,Contamination light
+0,0,0,0.052618954,12,Good_no_defect
+0,0,0,0.06097518,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+1,1,1,0.94417685,4,Contamination dark
+0,0,0,0.02096424,12,Good_no_defect
+1,1,1,0.9999987,17,No base visible
+1,1,1,0.9999995,22,Yeast residue
+1,1,1,1.0,4,Contamination dark
+0,0,0,0.006903838,12,Good_no_defect
+1,1,1,0.9997546,4,Contamination dark
+1,1,1,1.0,11,Glass shard
+0,0,0,0.012821214,19,Scuffing
+1,1,1,0.99999976,6,Crown cap
+1,0,0,0.45713672,22,Yeast residue
+0,0,0,0.001648483,12,Good_no_defect
+1,1,1,0.99999976,10,Glass imperfection
+0,0,0,0.032589745,12,Good_no_defect
+1,1,1,0.7520126,19,Scuffing
+1,1,1,0.99996877,9,Foreign object - washing machine
+0,0,0,0.0005703157,12,Good_no_defect
+0,0,0,0.020645931,12,Good_no_defect
+0,0,0,0.01001357,12,Good_no_defect
+0,0,0,0.04813677,12,Good_no_defect
+0,0,0,0.0047552,12,Good_no_defect
+1,1,1,0.6173973,4,Contamination dark
+0,1,1,0.56745726,20,Scuffing heavy
+1,1,1,1.0,4,Contamination dark
+1,1,1,0.9999989,17,No base visible
+0,0,0,0.28616926,12,Good_no_defect
+1,1,1,0.99997854,22,Yeast residue
+0,0,0,0.027169233,12,Good_no_defect
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.021948254,12,Good_no_defect
+1,1,1,1.0,1,Break / Crack
+0,0,0,0.19314739,19,Scuffing
+0,0,0,0.047425874,12,Good_no_defect
+1,1,1,0.9999893,16,Mold
+1,1,1,1.0,4,Contamination dark
+0,0,0,0.016403032,12,Good_no_defect
+1,1,1,0.9999757,22,Yeast residue
+0,0,0,0.0046095722,12,Good_no_defect
+1,1,1,1.0,19,Scuffing
+0,0,0,0.01450358,12,Good_no_defect
+0,0,0,0.0027149853,12,Good_no_defect
+0,0,0,0.055005286,5,Contamination light
+1,1,1,0.99999607,16,Mold
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,0.9999989,16,Mold
+0,0,0,0.022286186,12,Good_no_defect
+0,0,0,0.004331502,12,Good_no_defect
+1,1,1,0.9921841,19,Scuffing
+1,1,1,0.99999523,22,Yeast residue
+1,1,1,0.98998636,19,Scuffing
+1,1,1,0.9999151,22,Yeast residue
+1,1,1,0.9952448,4,Contamination dark
+0,0,0,0.0033766122,12,Good_no_defect
+1,1,1,0.99999166,22,Yeast residue
+1,1,1,0.99973875,16,Mold
+0,0,0,0.0071214284,0,Air bubble
+1,1,1,0.9994967,22,Yeast residue
+0,0,0,0.0022518474,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99893504,4,Contamination dark
+0,0,0,0.010328152,12,Good_no_defect
+0,0,0,0.046724956,12,Good_no_defect
+0,0,0,0.001032231,12,Good_no_defect
+1,1,1,0.99999845,17,No base visible
+0,0,0,0.013636836,12,Good_no_defect
+0,0,0,0.010652511,12,Good_no_defect
+0,0,0,0.0017546144,12,Good_no_defect
+1,1,1,1.0,14,Label
+1,1,1,0.51586384,4,Contamination dark
+1,1,1,0.99824536,1,Break / Crack
+1,1,1,0.9999852,14,Label
+1,1,1,1.0,11,Glass shard
+0,0,0,0.01450358,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99948066,4,Contamination dark
+1,1,1,0.9998511,22,Yeast residue
+0,1,1,0.5798763,0,Air bubble
+1,1,1,1.0,6,Crown cap
+1,0,0,0.0040701376,4,Contamination dark
+1,1,1,0.9999573,4,Contamination dark
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.008847355,12,Good_no_defect
+1,1,1,0.9999999,2,Chip
+0,0,0,0.030214587,12,Good_no_defect
+1,0,0,0.1066906,4,Contamination dark
+1,1,1,0.9830851,9,Foreign object - washing machine
+0,0,0,0.004905406,12,Good_no_defect
+1,1,1,0.99890125,11,Glass shard
+0,0,0,0.006692851,12,Good_no_defect
+1,1,1,0.94966936,5,Contamination light
+1,1,1,0.93991333,4,Contamination dark
+1,1,1,0.98677725,4,Contamination dark
+0,0,0,0.008847355,12,Good_no_defect
+0,0,0,0.001648483,12,Good_no_defect
+0,0,0,0.004331502,12,Good_no_defect
+1,1,1,0.99999964,10,Glass imperfection
+1,1,1,1.0,6,Crown cap
+0,0,0,0.005060332,12,Good_no_defect
+0,0,0,0.008061991,12,Good_no_defect
+1,1,1,0.9999417,4,Contamination dark
+1,1,1,0.99999964,17,No base visible
+0,0,0,0.002800927,12,Good_no_defect
+0,0,0,0.1666754,19,Scuffing
+1,1,1,0.9999646,16,Mold
+1,1,1,1.0,22,Yeast residue
+0,0,0,0.008577486,12,Good_no_defect
+0,0,1,0.48060057,0,Air bubble
+1,1,1,0.950411,5,Contamination light
+1,1,1,1.0,4,Contamination dark
+0,1,1,0.96691406,19,Scuffing
+1,1,1,0.9999862,4,Contamination dark
+1,1,1,0.99999857,17,No base visible
+1,1,1,0.99999833,17,No base visible
+1,1,1,0.9999151,16,Mold
+0,0,0,0.005911069,12,Good_no_defect
+0,0,0,0.020023443,12,Good_no_defect
+0,0,0,0.041462272,12,Good_no_defect
+0,0,0,0.13117322,20,Scuffing heavy
+1,1,1,0.99970406,16,Mold
+1,1,1,0.9566342,19,Scuffing
+1,1,1,1.0,6,Crown cap
+0,0,0,0.010986943,12,Good_no_defect
+0,0,0,0.014957086,12,Good_no_defect
+0,0,0,0.004905406,12,Good_no_defect
+1,1,1,0.99999046,22,Yeast residue
+0,1,1,0.6706083,19,Scuffing
+0,0,0,0.002889581,12,Good_no_defect
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99998856,4,Contamination dark
+1,1,1,0.99999166,10,Glass imperfection
+1,1,1,0.99863297,4,Contamination dark
+0,0,0,0.010328152,19,Scuffing
+0,0,0,0.011687257,12,Good_no_defect
+1,1,1,0.99999964,17,No base visible
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99999845,6,Crown cap
+0,0,0,0.007815889,0,Air bubble
+0,0,0,0.1943678,12,Good_no_defect
+1,1,1,0.999987,4,Contamination dark
+0,0,0,0.0004583129,12,Good_no_defect
+1,1,1,0.99999666,16,Mold
+1,1,1,0.99944717,22,Yeast residue
+1,1,1,0.99999654,6,Crown cap
+0,0,0,0.060086653,12,Good_no_defect
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,0.99999213,22,Yeast residue
+1,1,1,0.99999774,6,Crown cap
+1,1,1,0.85776806,5,Contamination light
+1,1,1,1.0,11,Glass shard
+1,1,1,0.99999905,16,Mold
+0,0,0,0.044680867,0,Air bubble
+1,1,1,0.99999774,6,Crown cap
+0,0,0,0.005060332,12,Good_no_defect
+0,0,0,0.0013670257,12,Good_no_defect
+0,0,0,0.0022518474,12,Good_no_defect
+1,1,1,0.7577944,4,Contamination dark
+1,1,1,0.99999106,22,Yeast residue
+0,0,0,0.0020507434,12,Good_no_defect
+0,0,0,0.45859116,19,Scuffing
+1,1,1,0.9999573,5,Contamination light
+1,1,1,0.99566853,16,Mold
+1,1,1,0.99553156,4,Contamination dark
+1,1,1,0.99992967,4,Contamination dark
+1,1,1,0.9999485,16,Mold
+1,1,1,0.9999999,6,Crown cap
+1,1,1,0.99999964,1,Break / Crack
+0,0,0,0.0012065897,0,Air bubble
+0,0,0,0.28298813,19,Scuffing
+0,0,0,0.011687257,12,Good_no_defect
+0,0,0,0.004905406,12,Good_no_defect
+0,0,0,0.020645931,12,Good_no_defect
+0,0,0,0.009125637,12,Good_no_defect
+0,0,0,0.25534365,19,Scuffing
+0,0,0,0.0033766122,12,Good_no_defect
+0,0,0,0.04023794,12,Good_no_defect
+1,1,1,0.99999917,22,Yeast residue
+0,0,0,0.005060332,0,Air bubble
+0,0,0,0.01798621,12,Good_no_defect
+1,1,1,0.9999994,6,Crown cap
+1,1,1,0.999608,9,Foreign object - washing machine
+1,1,1,0.99999046,22,Yeast residue
+0,0,0,0.016914913,12,Good_no_defect
+0,0,0,0.06097518,12,Good_no_defect
+0,0,0,0.0055549247,12,Good_no_defect
+0,0,0,0.006903838,12,Good_no_defect
+0,0,0,0.037326887,12,Good_no_defect
+1,1,1,0.99999964,6,Crown cap
+1,1,1,0.9999994,17,No base visible
+0,0,0,0.0032730652,12,Good_no_defect
+1,1,1,0.9999862,22,Yeast residue
+1,1,1,1.0,11,Glass shard
+1,1,1,0.99986863,16,Mold
+0,0,0,0.012053779,12,Good_no_defect
+1,1,1,0.99999917,17,No base visible
+0,0,0,0.0031726826,12,Good_no_defect
+0,0,0,0.01798621,12,Good_no_defect
+1,1,1,0.99999106,22,Yeast residue
+1,1,1,0.99999845,17,No base visible
+0,0,0,0.001455063,12,Good_no_defect
+0,0,0,0.0033766122,0,Air bubble
+1,1,1,0.950411,5,Contamination light
+0,0,1,0.4763361,19,Scuffing
+1,1,1,1.0,6,Crown cap
+1,1,1,0.9968273,4,Contamination dark
+0,0,0,0.08882029,12,Good_no_defect
+1,0,1,0.47840697,19,Scuffing
+0,0,0,0.2120688,12,Good_no_defect
+1,1,1,0.9999988,17,No base visible
+0,0,0,0.010328152,12,Good_no_defect
+1,1,1,0.99999964,2,Chip
+1,1,1,0.99992037,4,Contamination dark
+1,1,1,0.94165415,16,Mold
+1,1,1,1.0,4,Contamination dark
+1,1,1,0.9999994,17,No base visible
+0,0,0,0.28061637,0,Air bubble
+1,1,1,0.9999999,6,Crown cap
+1,1,1,0.99993396,9,Foreign object - washing machine
+1,1,1,0.99999964,17,No base visible
+1,1,1,1.0,8,Foreign object - manual cleaning
+0,0,0,0.08151976,19,Scuffing
+0,0,0,0.037326887,12,Good_no_defect
+0,0,0,0.0071214284,12,Good_no_defect
+1,1,1,0.99029154,19,Scuffing
+1,1,1,0.9207897,4,Contamination dark
+1,1,1,0.99999607,22,Yeast residue
+1,1,1,0.99999845,17,No base visible
+0,0,0,0.008315778,12,Good_no_defect
+1,1,1,0.65577704,19,Scuffing
+1,1,1,0.99999845,17,No base visible
+1,1,1,1.0,22,Yeast residue
+0,0,0,0.0075772414,12,Good_no_defect
+0,0,0,0.0019877742,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+1,1,1,0.9999999,2,Chip
+1,1,1,0.66104823,20,Scuffing heavy
+1,1,1,0.9977482,2,Chip
+0,0,0,0.004468384,12,Good_no_defect
+1,1,1,0.9999987,22,Yeast residue
+1,1,1,0.99999976,22,Yeast residue
+0,0,0,0.034100424,12,Good_no_defect
+1,1,1,0.99996233,22,Yeast residue
+1,1,1,0.99954176,22,Yeast residue
+1,1,1,0.9999982,17,No base visible
+1,1,1,0.99566853,16,Mold
+0,0,0,0.009125637,19,Scuffing
+0,0,0,0.036220055,12,Good_no_defect
+1,1,1,0.53339744,19,Scuffing
+1,1,1,0.99999917,17,No base visible
+1,1,1,0.9999994,22,Yeast residue
+0,0,0,0.010328152,12,Good_no_defect
+0,0,0,0.004331502,12,Good_no_defect
+1,1,1,1.0,16,Mold
+1,1,1,0.9999999,6,Crown cap
+0,0,0,0.013636836,12,Good_no_defect
+1,1,1,0.99995995,2,Chip
+0,0,0,0.012821214,12,Good_no_defect
+1,1,1,0.99998987,16,Mold
+1,1,1,0.9999646,4,Contamination dark
+1,1,1,0.9999989,17,No base visible
+0,0,0,0.010986943,12,Good_no_defect
+0,0,0,0.018546565,12,Good_no_defect
+0,0,0,0.0022518474,0,Air bubble
+0,0,0,0.020023443,12,Good_no_defect
+1,1,1,0.9997695,4,Contamination dark
+0,0,0,0.006289902,12,Good_no_defect
+1,1,1,0.99444515,4,Contamination dark
+1,1,1,0.9184803,4,Contamination dark
+1,1,1,0.9999417,4,Contamination dark
+0,0,0,0.006097562,12,Good_no_defect
+0,0,0,0.01001357,12,Good_no_defect
+0,0,0,0.0038244836,12,Good_no_defect
+1,1,1,0.9999999,22,Yeast residue
+1,1,1,0.99896777,16,Mold
+1,1,1,0.99999905,17,No base visible
+1,1,1,0.9999963,22,Yeast residue
+1,1,1,0.99999964,14,Label
+1,1,1,0.99972194,22,Yeast residue
+1,1,1,0.91730267,4,Contamination dark
+0,0,0,0.026759284,12,Good_no_defect
+0,1,1,0.97838473,19,Scuffing
+0,0,0,0.04401865,19,Scuffing
+1,0,0,0.0705596,4,Contamination dark
+1,1,1,0.9999994,17,No base visible
+1,0,0,0.41584745,19,Scuffing
+1,1,1,0.9546474,4,Contamination dark
+1,1,1,1.0,16,Mold
+1,1,1,0.99999976,22,Yeast residue
+1,1,1,1.0,6,Crown cap
+1,1,1,0.56001204,19,Scuffing
+0,0,0,0.21076629,19,Scuffing
+1,1,1,0.9999988,17,No base visible
+0,0,0,0.12085322,19,Scuffing
+0,0,0,0.0040701376,12,Good_no_defect
+1,1,1,0.9999757,4,Contamination dark
+0,0,0,0.008315778,12,Good_no_defect
+0,0,0,0.004905406,12,Good_no_defect
+0,0,0,0.012821214,12,Good_no_defect
+1,1,1,0.9978173,22,Yeast residue
+0,0,0,0.017442483,12,Good_no_defect
+1,1,1,0.99997413,22,Yeast residue
+1,1,1,1.0,22,Yeast residue
+0,0,0,0.36116472,12,Good_no_defect
+1,1,1,1.0,3,Circlip
+0,0,0,0.0021157034,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+0,0,0,0.0021157034,12,Good_no_defect
+1,1,1,0.9999938,22,Yeast residue
+1,1,1,1.0,17,No base visible
+1,1,1,0.9999943,11,Glass shard
+1,1,1,0.9999646,4,Contamination dark
+1,1,1,0.99979657,22,Yeast residue
+1,1,1,0.9997695,22,Yeast residue
+0,0,0,0.011687257,19,Scuffing
+1,1,1,0.9999993,22,Yeast residue
+1,1,1,0.9914225,4,Contamination dark
+1,1,1,0.9999931,22,Yeast residue
+1,1,1,0.9999999,6,Crown cap
+1,1,1,0.9032942,16,Mold
+0,0,0,0.0031726826,12,Good_no_defect
+1,1,1,0.9999852,4,Contamination dark
+1,1,1,0.9999994,22,Yeast residue
+0,0,0,0.12085322,0,Air bubble
+0,0,0,0.007345827,12,Good_no_defect
+0,0,0,0.004331502,5,Contamination light
+1,1,1,0.9591543,4,Contamination dark
+1,1,1,0.98866826,9,Foreign object - washing machine
+0,0,0,0.042722195,12,Good_no_defect
+1,1,1,0.9999999,17,No base visible
+1,1,1,0.99992514,22,Yeast residue
+0,0,0,0.08269734,12,Good_no_defect
+0,0,0,0.011687257,19,Scuffing
+1,1,1,0.99997985,4,Contamination dark
+0,0,0,0.004905406,19,Scuffing
+1,1,1,0.99863297,4,Contamination dark
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99999845,17,No base visible
+0,0,0,0.0027149853,12,Good_no_defect
+0,0,0,0.016914913,12,Good_no_defect
+0,0,0,0.0029810327,12,Good_no_defect
+1,1,1,0.99999845,17,No base visible
+1,1,1,0.9999517,4,Contamination dark
+1,1,1,0.9999999,6,Crown cap
+0,0,0,0.017442483,19,Scuffing
+1,1,1,1.0,17,No base visible
+1,1,1,0.99999917,6,Crown cap
+0,0,0,0.009125637,12,Good_no_defect
+0,1,1,0.9005298,19,Scuffing
+1,1,1,0.9999989,6,Crown cap
+0,0,0,0.0047552,12,Good_no_defect
+0,0,0,0.09401018,19,Scuffing
+1,0,1,0.48511183,19,Scuffing
+0,0,0,0.28696787,19,Scuffing
+1,1,1,0.9999999,17,No base visible
+1,1,1,0.9998977,4,Contamination dark
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99986017,2,Chip
+1,1,1,0.99999976,17,No base visible
+0,0,0,0.046033904,12,Good_no_defect
+1,1,1,0.9999994,17,No base visible
+1,1,1,0.9425068,4,Contamination dark
+1,1,1,0.99996674,2,Chip
+0,0,0,0.04401865,12,Good_no_defect
+1,1,1,0.99999905,22,Yeast residue
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.0047552,0,Air bubble
+1,1,1,0.64957863,4,Contamination dark
+1,1,1,0.99999905,22,Yeast residue
+0,0,0,0.008847355,0,Air bubble
+0,0,0,0.04885778,12,Good_no_defect
+1,1,1,0.99992514,22,Yeast residue
+0,0,0,0.038466193,12,Good_no_defect
+1,1,1,0.99993396,16,Mold
+1,1,1,0.99998224,4,Contamination dark
+1,1,1,0.99999523,22,Yeast residue
+1,1,1,0.9999517,4,Contamination dark
+1,1,1,0.99999976,8,Foreign object - manual cleaning
+1,0,0,0.08035747,4,Contamination dark
+1,1,1,0.9999949,4,Contamination dark
+0,0,0,0.046033904,12,Good_no_defect
+0,0,0,0.049589027,12,Good_no_defect
+0,0,0,0.015424552,12,Good_no_defect
+0,0,0,0.032100707,12,Good_no_defect
+0,0,0,0.01798621,12,Good_no_defect
+0,0,0,0.008061991,12,Good_no_defect
+0,0,0,0.12085322,12,Good_no_defect
+1,1,1,0.9999999,4,Contamination dark
+1,0,0,0.39420095,19,Scuffing
+0,0,0,0.01243165,0,Air bubble
+0,0,0,0.049589027,12,Good_no_defect
+1,1,1,0.99996233,22,Yeast residue
+1,1,1,0.9999999,16,Mold
+0,0,0,0.004905406,12,Good_no_defect
+1,1,1,0.99711037,22,Yeast residue
+1,1,1,1.0,4,Contamination dark
+1,0,0,0.31489265,11,Glass shard
+0,0,0,0.016403032,12,Good_no_defect
+1,1,1,1.0,17,No base visible
+1,0,0,0.034100424,19,Scuffing
+0,1,1,0.63793355,10,Glass imperfection
+0,0,0,0.032100707,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+1,1,1,1.0,6,Crown cap
+1,1,1,0.9992446,4,Contamination dark
+1,1,1,0.9999987,4,Contamination dark
+0,0,0,0.00048785712,0,Air bubble
+1,1,1,0.99970406,19,Scuffing
+0,0,0,0.006289902,19,Scuffing
+1,1,1,0.9896718,22,Yeast residue
+1,1,1,0.99944717,16,Mold
+1,1,1,0.99999964,6,Crown cap
+1,1,1,0.99999845,17,No base visible
+1,1,1,0.99999845,17,No base visible
+0,0,0,0.03904829,12,Good_no_defect
+0,0,0,0.05419873,12,Good_no_defect
+1,1,1,1.0,22,Yeast residue
+1,1,1,1.0,1,Break / Crack
+1,1,1,1.0,22,Yeast residue
+0,0,0,0.014957086,12,Good_no_defect
+1,1,1,0.9999938,22,Yeast residue
+1,1,1,0.9999975,8,Foreign object - manual cleaning
+1,1,1,0.99605453,4,Contamination dark
+0,0,0,0.051082738,12,Good_no_defect
+1,1,1,0.9999999,17,No base visible
+1,1,1,1.0,22,Yeast residue
+1,1,1,0.9933072,4,Contamination dark
+0,0,0,0.006097562,12,Good_no_defect
+0,0,0,0.0064882697,12,Good_no_defect
+0,1,1,0.5708099,19,Scuffing
+0,0,0,0.0015011822,12,Good_no_defect
+0,0,0,0.004331502,12,Good_no_defect
+0,0,0,0.035144847,5,Contamination light
+0,0,0,0.004198795,12,Good_no_defect
+0,0,0,0.006692851,12,Good_no_defect
+0,0,0,0.02096424,12,Good_no_defect
+1,1,1,0.9999993,16,Mold
+1,1,1,0.9999453,4,Contamination dark
+0,0,0,0.0075772414,12,Good_no_defect
+1,1,1,0.9999646,4,Contamination dark
+1,1,1,0.99999917,4,Contamination dark
+1,1,1,0.99997723,16,Mold
+1,1,1,0.99948066,4,Contamination dark
+1,1,1,0.9997695,9,Foreign object - washing machine
+0,0,0,0.022629201,12,Good_no_defect
+1,1,1,0.99999905,17,No base visible
+0,1,1,0.80685264,5,Contamination light
+1,1,1,0.9999453,8,Foreign object - manual cleaning
+1,1,1,0.99996877,22,Yeast residue
+1,1,1,0.99997985,16,Mold
+1,1,1,1.0,6,Crown cap
+0,0,0,0.0053849383,12,Good_no_defect
+1,1,1,1.0,4,Contamination dark
+1,1,1,0.9999987,17,No base visible
+0,0,0,0.019124037,12,Good_no_defect
+0,0,0,0.03308598,12,Good_no_defect
+1,1,1,0.9863631,4,Contamination dark
+0,0,0,0.19559409,12,Good_no_defect
+0,0,0,0.016403032,12,Good_no_defect
+1,1,1,0.99972194,4,Contamination dark
+1,1,1,0.99999857,17,No base visible
+1,0,0,0.39747056,19,Scuffing
+1,1,1,0.99954176,4,Contamination dark
+0,0,0,0.005220126,12,Good_no_defect
+0,0,0,0.007345827,12,Good_no_defect
+1,1,1,0.8749346,4,Contamination dark
+0,0,0,0.013636836,12,Good_no_defect
+1,1,1,0.9999707,16,Mold
+1,1,1,1.0,4,Contamination dark
+1,1,1,0.99999976,1,Break / Crack
+0,0,0,0.020332353,12,Good_no_defect
+1,1,1,1.0,4,Contamination dark
+0,0,0,0.23510839,19,Scuffing
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.010986943,12,Good_no_defect
+0,0,0,0.021287354,12,Good_no_defect
+1,1,1,0.9999981,4,Contamination dark
+0,0,0,0.01001357,12,Good_no_defect
+1,1,1,0.9999417,22,Yeast residue
+0,0,0,0.013222822,12,Good_no_defect
+1,0,0,0.2821962,19,Scuffing
+1,1,1,1.0,6,Crown cap
+0,0,0,0.36026397,12,Good_no_defect
+1,1,1,0.9999969,6,Crown cap
+1,1,1,0.999608,4,Contamination dark
+1,1,1,0.9999988,17,No base visible
+0,0,0,0.21866935,19,Scuffing
+1,1,1,0.8152325,4,Contamination dark
+1,1,1,0.9999999,22,Yeast residue
+0,0,0,0.009125637,12,Good_no_defect
+0,0,0,0.15713686,19,Scuffing
+1,1,1,0.9999573,4,Contamination dark
+1,1,1,0.9585377,4,Contamination dark
+1,1,1,0.9999994,17,No base visible
+0,0,0,0.004905406,12,Good_no_defect
+1,1,1,0.99580115,4,Contamination dark
+1,1,1,0.9999453,22,Yeast residue
+0,0,0,0.0033766122,12,Good_no_defect
+1,1,1,0.9999988,22,Yeast residue
+1,1,1,0.9999988,17,No base visible
+0,0,0,0.08509905,19,Scuffing
+1,1,1,0.9999987,17,No base visible
+1,1,1,0.9744348,4,Contamination dark
+1,1,1,0.9999969,22,Yeast residue
+0,0,0,0.046724956,12,Good_no_defect
+0,0,0,0.002889581,12,Good_no_defect
+1,1,1,0.9999926,4,Contamination dark
+1,1,1,0.99997985,16,Mold
+0,0,0,0.013636836,12,Good_no_defect
+1,1,1,0.9999999,6,Crown cap
+1,1,1,1.0,17,No base visible
+1,1,1,0.99999523,8,Foreign object - manual cleaning
+1,1,1,0.9999999,22,Yeast residue
+1,1,1,1.0,4,Contamination dark
+0,0,0,0.0021157034,12,Good_no_defect
+0,0,0,0.032100707,12,Good_no_defect
+0,0,0,0.020645931,12,Good_no_defect
+0,0,0,0.006903838,12,Good_no_defect
+1,1,1,0.97737074,4,Contamination dark
+1,1,1,0.9999573,22,Yeast residue
+1,1,1,0.9992679,22,Yeast residue
+0,1,1,0.9230392,12,Good_no_defect
+1,1,1,0.648689,4,Contamination dark
+1,1,1,0.9991704,4,Contamination dark
+1,1,1,0.9999757,22,Yeast residue
+0,0,0,0.036220055,5,Contamination light
+1,1,1,1.0,17,No base visible
+0,0,0,0.002396731,12,Good_no_defect
+1,1,1,1.0,4,Contamination dark
+0,0,0,0.001284308,12,Good_no_defect
+1,1,1,0.9928786,4,Contamination dark
+0,0,0,0.0094125895,12,Good_no_defect
+0,0,0,0.0055549247,12,Good_no_defect
+0,0,0,0.007815889,5,Contamination light
+0,0,0,0.002800927,12,Good_no_defect
+1,1,1,0.9273633,4,Contamination dark
+0,0,0,0.012053779,12,Good_no_defect
+1,1,1,0.99999976,9,Foreign object - washing machine
+1,1,1,0.99999785,8,Foreign object - manual cleaning
+1,1,1,0.99993396,22,Yeast residue
+1,1,1,0.9999999,17,No base visible
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99999964,8,Foreign object - manual cleaning
+1,1,1,0.99999845,2,Chip
+1,1,1,0.9999999,17,No base visible
+1,1,1,0.99978346,22,Yeast residue
+1,1,1,0.99863297,9,Foreign object - washing machine
+0,0,0,0.0047552,12,Good_no_defect
+0,0,0,0.3208213,12,Good_no_defect
+0,0,0,0.005220126,12,Good_no_defect
+1,1,1,0.99997246,22,Yeast residue
+1,1,1,0.99999976,4,Contamination dark
+0,0,0,0.05419873,12,Good_no_defect
+1,1,1,0.9991441,4,Contamination dark
+1,1,1,0.99997413,14,Label
+0,0,0,0.01001357,12,Good_no_defect
+0,0,0,0.001648483,12,Good_no_defect
+1,1,1,0.99999964,22,Yeast residue
+0,0,0,0.12506539,20,Scuffing heavy
+1,1,1,0.9999994,16,Mold
+1,1,1,1.0,6,Crown cap
+0,0,0,0.003707253,12,Good_no_defect
+0,0,0,0.022286186,12,Good_no_defect
+0,0,0,0.01450358,12,Good_no_defect
+0,0,0,0.31405056,19,Scuffing
+1,1,1,0.99997246,10,Glass imperfection
+1,1,1,0.9999999,8,Foreign object - manual cleaning
+1,1,1,0.9999987,22,Yeast residue
+0,0,0,0.01001357,0,Air bubble
+0,0,0,0.004331502,12,Good_no_defect
+1,1,1,0.99995995,22,Yeast residue
+1,1,1,1.0,14,Label
+1,1,1,1.0,17,No base visible
+1,1,1,0.9998416,11,Glass shard
+1,1,1,0.9755769,4,Contamination dark
+1,1,1,0.9999981,22,Yeast residue
+0,0,0,0.08882029,12,Good_no_defect
+0,0,0,0.007815889,12,Good_no_defect
+0,0,0,0.002800927,12,Good_no_defect
+1,1,1,0.98866826,4,Contamination dark
+1,0,0,0.01243165,4,Contamination dark
+1,1,1,0.9999975,11,Glass shard
+1,1,1,0.99999464,22,Yeast residue
+0,0,0,0.009708476,0,Air bubble
+1,1,1,0.99999857,17,No base visible
+1,1,1,1.0,16,Mold
+1,1,1,0.99992037,22,Yeast residue
+1,1,1,0.67405045,9,Foreign object - washing machine
+1,1,1,1.0,16,Mold
+0,0,0,0.008061991,12,Good_no_defect
+0,0,0,0.018264277,12,Good_no_defect
+0,0,0,0.008577486,12,Good_no_defect
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.011331754,12,Good_no_defect
+1,0,0,0.12506539,19,Scuffing
+0,0,0,0.004468384,12,Good_no_defect
+1,0,0,0.22953519,19,Scuffing
+1,1,1,1.0,6,Crown cap
+1,1,1,0.9999993,17,No base visible
+1,1,1,0.99999905,17,No base visible
+0,0,0,0.12852514,19,Scuffing
+0,0,0,0.00307537,12,Good_no_defect
+1,1,1,0.9683812,16,Mold
+1,1,1,0.9999893,22,Yeast residue
+0,0,0,0.0057302467,19,Scuffing
+0,0,0,0.013222822,0,Air bubble
+0,0,0,0.0064882697,12,Good_no_defect
+1,0,0,0.1666754,19,Scuffing
+0,0,0,0.009125637,12,Good_no_defect
+1,1,1,0.9263037,9,Foreign object - washing machine
+1,1,1,0.99999917,17,No base visible
+1,1,1,0.9999999,6,Crown cap
+0,0,0,0.011687257,12,Good_no_defect
+1,1,1,1.0,16,Mold
+0,0,0,0.43350178,5,Contamination light
+0,0,0,0.008577486,12,Good_no_defect
+0,0,0,0.068537496,19,Scuffing
+0,0,0,0.0040701376,12,Good_no_defect
+1,1,1,0.99999976,6,Crown cap
+0,0,0,0.0055549247,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+0,0,0,0.051845465,12,Good_no_defect
+0,0,0,0.00307537,5,Contamination light
+1,1,1,0.9059898,4,Contamination dark
+1,1,1,0.5022125,4,Contamination dark
+0,0,0,0.008577486,12,Good_no_defect
+1,1,1,0.99999857,17,No base visible
+1,1,1,0.99986017,22,Yeast residue
+1,1,1,0.9999995,22,Yeast residue
+1,1,1,0.99999976,6,Crown cap
+1,1,1,0.9999999,11,Glass shard
+1,1,1,0.9999982,8,Foreign object - manual cleaning
+1,0,0,0.20689404,20,Scuffing heavy
+1,1,1,0.99242276,22,Yeast residue
+1,0,0,0.199308,4,Contamination dark
+1,0,0,0.23231015,19,Scuffing
+0,0,0,0.01001357,19,Scuffing
+1,1,1,0.99995995,22,Yeast residue
+1,1,1,0.9999453,22,Yeast residue
+1,1,1,0.9999969,1,Break / Crack
+1,1,1,1.0,2,Chip
+1,1,1,0.99998987,22,Yeast residue
+1,1,1,0.9999999,22,Yeast residue
+0,0,0,0.016403032,12,Good_no_defect
+1,1,1,0.9999546,22,Yeast residue
+1,1,1,0.9994967,4,Contamination dark
+1,1,1,0.99999845,17,No base visible
+1,1,1,0.99999964,17,No base visible
+1,1,1,0.99999976,17,No base visible
+1,1,1,0.99997246,4,Contamination dark
+1,1,1,1.0,17,No base visible
+1,1,1,0.9999989,17,No base visible
+1,1,1,0.9999994,17,No base visible
+0,0,0,0.0008040859,12,Good_no_defect
+1,1,1,0.99986863,22,Yeast residue
+1,1,1,1.0,4,Contamination dark
+0,0,0,0.0021827165,12,Good_no_defect
+0,0,0,0.037326887,0,Air bubble
+0,0,0,0.12765263,19,Scuffing
+1,1,1,0.947381,19,Scuffing
+0,0,0,0.020332353,12,Good_no_defect
+0,0,0,0.007345827,12,Good_no_defect
+0,1,1,0.9566342,12,Good_no_defect
+1,1,1,0.5015259,19,Scuffing
+0,0,0,0.4073334,12,Good_no_defect
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.014957086,12,Good_no_defect
+1,1,1,0.99999833,17,No base visible
+1,1,1,1.0,8,Foreign object - manual cleaning
+0,0,0,0.13386749,19,Scuffing
+1,1,1,0.99970406,8,Foreign object - manual cleaning
+1,1,1,1.0,8,Foreign object - manual cleaning
+0,0,0,0.006903838,12,Good_no_defect
+1,1,1,0.99999714,22,Yeast residue
+0,0,0,0.38075897,19,Scuffing
+0,0,0,0.29665425,19,Scuffing
+1,1,1,1.0,17,No base visible
+0,0,0,0.02479816,12,Good_no_defect
+0,0,0,0.0064882697,12,Good_no_defect
+1,1,1,0.6415346,19,Scuffing
+1,1,1,0.99477994,16,Mold
+1,1,1,0.71701187,4,Contamination dark
+0,0,0,0.0017007225,0,Air bubble
+1,1,1,0.9999987,4,Contamination dark
+1,1,1,0.80193585,19,Scuffing
+1,1,1,1.0,1,Break / Crack
+1,1,1,0.9999993,17,No base visible
+1,1,1,0.9999988,17,No base visible
+0,0,0,0.03461884,19,Scuffing
+1,1,1,1.0,16,Mold
+1,1,1,0.9995122,4,Contamination dark
+1,1,1,0.99999046,22,Yeast residue
+1,1,1,0.5295067,4,Contamination dark
+0,0,0,0.079210326,12,Good_no_defect
+1,1,1,0.99999845,17,No base visible
+0,0,0,0.0019267347,0,Air bubble
+1,1,1,0.99999857,17,No base visible
+1,1,1,0.9999517,22,Yeast residue
+0,0,0,0.02297737,12,Good_no_defect
+0,0,0,0.010986943,12,Good_no_defect
+1,1,1,0.99965405,22,Yeast residue
+0,0,0,0.10230471,12,Good_no_defect
+0,0,0,0.1066906,12,Good_no_defect
+0,0,0,0.30652705,0,Air bubble
+0,0,0,0.0071214284,12,Good_no_defect
+1,1,1,0.99999654,17,No base visible
+1,1,1,0.9999707,16,Mold
+1,1,1,1.0,14,Label
+1,1,1,1.0,2,Chip
+1,1,1,0.99999857,22,Yeast residue
+0,0,0,0.0019877742,12,Good_no_defect
+0,0,0,0.03963884,12,Good_no_defect
+1,1,1,0.99999976,22,Yeast residue
+1,1,1,0.99193794,5,Contamination light
+0,0,0,0.0140636265,12,Good_no_defect
+0,0,0,0.006692851,0,Air bubble
+0,0,0,0.003707253,12,Good_no_defect
+1,1,1,0.9999975,22,Yeast residue
+1,1,1,0.9999999,22,Yeast residue
+0,0,0,0.02297737,12,Good_no_defect
+1,1,1,0.9991441,4,Contamination dark
+1,1,1,0.9566342,19,Scuffing
+1,1,1,0.9999982,17,No base visible
+1,1,1,0.9998766,22,Yeast residue
+1,1,1,0.99978346,22,Yeast residue
+0,0,0,0.006903838,12,Good_no_defect
+1,1,1,1.0,11,Glass shard
+1,1,1,0.999987,9,Foreign object - washing machine
+1,1,1,0.99989104,16,Mold
+0,0,0,0.0071214284,12,Good_no_defect
+1,1,1,0.9999995,17,No base visible
+1,1,1,0.99999976,6,Crown cap
+1,1,1,0.9999994,17,No base visible
+1,1,1,0.9999546,22,Yeast residue
+1,1,1,1.0,16,Mold
+1,1,1,0.9999999,17,No base visible
+0,0,0,0.0012448432,12,Good_no_defect
+0,0,0,0.010986943,12,Good_no_defect
+0,0,0,0.112795405,19,Scuffing
+1,1,1,0.99999774,14,Label
+1,1,1,0.994615,22,Yeast residue
+0,0,0,0.013636836,12,Good_no_defect
+1,1,1,0.9999852,22,Yeast residue
+0,0,0,0.1384618,19,Scuffing
+1,1,1,0.99999964,22,Yeast residue
+1,1,1,0.99999976,6,Crown cap
+1,1,1,0.99871576,16,Mold
+0,0,0,0.07263671,12,Good_no_defect
+0,0,0,0.005060332,12,Good_no_defect
+1,1,1,0.9999988,17,No base visible
+1,1,1,0.99029154,4,Contamination dark
+1,1,1,1.0,6,Crown cap
+1,1,1,0.9999987,22,Yeast residue
+1,1,1,0.5234204,19,Scuffing
+0,0,0,0.051082738,12,Good_no_defect
+0,0,0,0.010328152,12,Good_no_defect
+1,1,1,1.0,16,Mold
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,0.9999995,14,Label
+0,0,0,0.0025509123,12,Good_no_defect
+0,0,0,0.15002882,12,Good_no_defect
+1,1,1,0.9982993,22,Yeast residue
+1,1,1,0.7620701,17,No base visible
+1,1,1,0.9999453,22,Yeast residue
+1,1,1,0.9967269,4,Contamination dark
+0,0,0,0.060086653,12,Good_no_defect
+1,1,1,0.99999905,17,No base visible
+1,1,1,1.0,6,Crown cap
+0,0,0,0.0020507434,12,Good_no_defect
+0,0,0,0.01001357,12,Good_no_defect
+0,0,0,0.019419348,12,Good_no_defect
+0,0,0,0.0053849383,12,Good_no_defect
+0,0,0,0.068537496,12,Good_no_defect
+1,1,1,0.99193794,2,Chip
+1,1,1,0.99477994,4,Contamination dark
+1,1,1,0.9999039,4,Contamination dark
+1,1,1,0.9999926,9,Foreign object - washing machine
+1,1,1,0.99997413,22,Yeast residue
+0,0,0,0.019124037,12,Good_no_defect
+1,1,1,1.0,1,Break / Crack
+0,0,0,0.018546565,12,Good_no_defect
+0,0,0,0.0094125895,12,Good_no_defect
+0,0,0,0.026759284,12,Good_no_defect
+0,0,0,0.005220126,0,Air bubble
+0,0,0,0.036769465,12,Good_no_defect
+1,1,1,0.99999917,22,Yeast residue
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99999213,22,Yeast residue
+0,0,0,0.025565214,12,Good_no_defect
+0,0,0,0.022286186,12,Good_no_defect
+0,0,0,0.007815889,12,Good_no_defect
+1,1,1,0.9999646,4,Contamination dark
+1,0,0,0.3539863,20,Scuffing heavy
+1,1,1,0.9999379,16,Mold
+0,0,0,0.0019877742,12,Good_no_defect
+0,0,0,0.008315778,12,Good_no_defect
+1,1,1,0.9981324,16,Mold
+1,1,1,0.99999785,22,Yeast residue
+0,0,0,0.0053849383,12,Good_no_defect
+1,1,1,0.99999976,6,Crown cap
+1,1,1,0.9995122,9,Foreign object - washing machine
+1,1,1,1.0,6,Crown cap
+1,1,1,1.0,17,No base visible
+0,0,0,0.0140636265,0,Air bubble
+0,0,0,0.002472623,12,Good_no_defect
+0,0,0,0.002800927,12,Good_no_defect
+1,1,1,0.99979657,22,Yeast residue
+0,0,0,0.012821214,0,Air bubble
+0,0,0,0.0140636265,12,Good_no_defect
+1,1,1,0.99929035,4,Contamination dark
+1,1,1,0.99999857,16,Mold
+0,0,0,0.0705596,12,Good_no_defect
+0,0,0,0.0025509123,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+1,1,1,1.0,22,Yeast residue
+0,0,0,0.0035936027,12,Good_no_defect
+0,0,0,0.004331502,12,Good_no_defect
+0,0,0,0.02931223,12,Good_no_defect
+1,1,1,1.0,8,Foreign object - manual cleaning
+0,0,0,0.0046095722,12,Good_no_defect
+1,1,1,1.0,11,Glass shard
+1,1,1,0.99999857,17,No base visible
+1,1,1,0.9999987,17,No base visible
+1,1,1,0.99999845,17,No base visible
+1,1,1,0.9999999,6,Crown cap
+1,1,1,0.6627965,4,Contamination dark
+0,0,0,0.0035936027,12,Good_no_defect
+1,1,1,0.9999987,17,No base visible
+1,1,1,0.9999994,16,Mold
+1,1,1,0.95791227,19,Scuffing
+0,0,0,0.03567855,19,Scuffing
+1,1,1,0.584627,4,Contamination dark
+0,0,0,0.060086653,12,Good_no_defect
+0,0,0,0.020645931,12,Good_no_defect
+0,0,0,0.0715912,12,Good_no_defect
+0,0,0,0.07477004,19,Scuffing
+1,1,1,0.9992446,4,Contamination dark
+1,1,1,1.0,17,No base visible
+1,1,1,0.99996233,17,No base visible
+1,1,1,0.99999917,22,Yeast residue
+0,0,0,0.022629201,12,Good_no_defect
+1,1,1,0.9998313,22,Yeast residue
+1,1,1,0.9990601,22,Yeast residue
+0,0,0,0.0057302467,12,Good_no_defect
+0,0,0,0.13753247,12,Good_no_defect
+0,0,0,0.005911069,12,Good_no_defect
+0,0,0,0.063714996,12,Good_no_defect
+1,1,1,1.0,4,Contamination dark
+0,0,0,0.007345827,19,Scuffing
+1,1,1,0.9999707,22,Yeast residue
+0,0,0,0.004198795,12,Good_no_defect
+1,1,1,0.99999833,17,No base visible
+1,1,1,0.99999976,17,No base visible
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99999046,16,Mold
+1,1,1,0.99992514,5,Contamination light
+1,1,1,0.9999976,22,Yeast residue
+1,1,1,0.99999785,22,Yeast residue
+1,1,1,0.9993333,2,Chip
+1,1,1,0.9999988,17,No base visible
+0,0,0,0.0047552,12,Good_no_defect
+0,0,0,0.032100707,12,Good_no_defect
+1,1,1,0.9999893,4,Contamination dark
+1,1,1,0.95257413,4,Contamination dark
+0,0,0,0.12168575,19,Scuffing
+1,1,1,0.99999976,22,Yeast residue
+1,1,1,1.0,1,Break / Crack
+1,1,1,0.9999993,22,Yeast residue
+0,0,0,0.12168575,19,Scuffing
+1,1,1,0.9999994,17,No base visible
+0,0,0,0.016914913,19,Scuffing
+0,0,0,0.0040701376,12,Good_no_defect
+1,1,1,0.9999994,2,Chip
+1,1,1,0.99999964,6,Crown cap
+1,1,1,0.99999857,6,Crown cap
+1,1,1,0.99997413,22,Yeast residue
+1,1,1,0.99999964,6,Crown cap
+0,0,0,0.3451053,19,Scuffing
+0,0,0,0.26133093,19,Scuffing
+1,1,1,0.9999982,22,Yeast residue
+0,0,0,0.009125637,12,Good_no_defect
+0,0,0,0.037892427,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+1,1,1,1.0,6,Crown cap
+0,0,0,0.008847355,12,Good_no_defect
+0,0,0,0.009708476,12,Good_no_defect
+0,0,0,0.01798621,12,Good_no_defect
+0,0,0,0.002889581,12,Good_no_defect
+0,0,0,0.096705794,12,Good_no_defect
+0,0,0,0.0053849383,12,Good_no_defect
+0,0,0,0.0055549247,12,Good_no_defect
+0,0,0,0.011331754,12,Good_no_defect
+0,0,0,0.0053849383,12,Good_no_defect
+0,0,0,0.0057302467,12,Good_no_defect
+1,1,1,0.99999845,17,No base visible
+0,0,0,0.008061991,12,Good_no_defect
+1,1,1,0.99999213,2,Chip
+1,1,1,1.0,22,Yeast residue
+0,0,0,0.059210252,19,Scuffing
+0,0,0,0.003945407,12,Good_no_defect
+0,0,0,0.19314739,12,Good_no_defect
+0,0,0,0.08882029,12,Good_no_defect
+0,1,1,0.6984323,19,Scuffing
+0,0,0,0.025178842,12,Good_no_defect
+0,1,1,0.6808786,12,Good_no_defect
+1,1,1,0.983597,16,Mold
+1,1,1,0.99999905,4,Contamination dark
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.0034834242,12,Good_no_defect
+0,1,1,0.70578504,19,Scuffing
+1,0,0,0.2798285,4,Contamination dark
+1,1,1,0.99580115,4,Contamination dark
+1,1,1,0.9019207,5,Contamination light
+1,1,1,0.99997854,22,Yeast residue
+0,0,0,0.010652511,12,Good_no_defect
+1,1,1,0.99999964,17,No base visible
+0,0,0,0.0029810327,12,Good_no_defect
+0,1,1,0.8568123,19,Scuffing
+1,1,1,0.9998416,22,Yeast residue
+1,1,1,0.9998977,22,Yeast residue
+1,1,1,0.99893504,9,Foreign object - washing machine
+0,0,0,0.0019877742,12,Good_no_defect
+1,1,1,0.99818975,4,Contamination dark
+1,1,1,0.99997413,8,Foreign object - manual cleaning
+1,1,1,1.0,6,Crown cap
+0,0,0,0.015906392,12,Good_no_defect
+1,1,1,0.99390244,16,Mold
+1,1,1,0.99996674,22,Yeast residue
+1,1,1,0.99999905,17,No base visible
+0,0,0,0.036769465,12,Good_no_defect
+1,1,1,0.9999988,22,Yeast residue
+1,1,1,0.9999379,16,Mold
+0,0,0,0.0071214284,12,Good_no_defect
+1,1,1,0.99390244,4,Contamination dark
+1,1,1,0.99966466,22,Yeast residue
+0,0,0,0.33025515,12,Good_no_defect
+0,0,0,0.0008040859,12,Good_no_defect
+1,1,1,0.9999999,22,Yeast residue
+1,1,1,0.9999987,17,No base visible
+0,1,1,0.99193794,19,Scuffing
+1,1,1,0.9999975,6,Crown cap
+1,1,1,0.99999857,17,No base visible
+1,1,1,0.9999646,22,Yeast residue
+0,0,0,0.0040701376,12,Good_no_defect
+1,1,1,1.0,22,Yeast residue
+1,1,1,0.9999994,22,Yeast residue
+0,0,0,0.0023231625,12,Good_no_defect
+1,1,1,0.9999995,11,Glass shard
+1,1,1,1.0,16,Mold
+1,1,1,0.99996674,11,Glass shard
+1,1,1,0.99999845,17,No base visible
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.024053553,12,Good_no_defect
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,1.0,22,Yeast residue
+0,0,0,0.03461884,12,Good_no_defect
+1,1,1,0.98934746,4,Contamination dark
+1,1,1,0.99701905,4,Contamination dark
+0,0,0,0.0033766122,12,Good_no_defect
+1,1,1,0.9999707,4,Contamination dark
+0,0,0,0.0075772414,12,Good_no_defect
+1,1,1,0.99999857,17,No base visible
+1,1,1,0.9999969,22,Yeast residue
+1,1,1,0.99999964,22,Yeast residue
+1,1,1,0.99351174,16,Mold
+0,0,0,0.021615332,12,Good_no_defect
+1,0,0,0.09947021,4,Contamination dark
+0,0,0,0.012053779,0,Air bubble
+0,0,0,0.004198795,12,Good_no_defect
+1,1,1,0.999884,22,Yeast residue
+1,1,1,0.9999988,22,Yeast residue
+0,0,0,0.08269734,12,Good_no_defect
+1,1,1,0.7866228,19,Scuffing
+1,1,1,0.9840936,22,Yeast residue
+1,1,1,0.9999995,6,Crown cap
+1,1,1,0.99997246,4,Contamination dark
+0,0,0,0.035144847,12,Good_no_defect
+1,1,1,0.9999546,4,Contamination dark
+0,0,0,0.018833129,12,Good_no_defect
+0,0,0,0.0034834242,12,Good_no_defect
+0,0,0,0.43638182,0,Air bubble
+0,0,0,0.004905406,12,Good_no_defect
+0,0,0,0.02096424,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+0,0,0,0.3242354,12,Good_no_defect
+0,0,0,0.016914913,12,Good_no_defect
+1,1,1,0.77321637,20,Scuffing heavy
+1,1,1,0.99193794,4,Contamination dark
+0,0,0,0.09807933,19,Scuffing
+1,1,1,1.0,22,Yeast residue
+0,0,0,0.0071214284,12,Good_no_defect
+1,1,1,1.0,4,Contamination dark
+0,0,0,0.025178842,12,Good_no_defect
+1,1,1,0.9999982,17,No base visible
+0,0,0,0.033589505,19,Scuffing
+0,0,0,0.008315778,19,Scuffing
+1,1,1,0.9980732,22,Yeast residue
+1,1,1,0.9999893,4,Contamination dark
+0,0,0,0.004331502,12,Good_no_defect
+1,1,1,0.5884162,19,Scuffing
+0,0,0,0.0057302467,12,Good_no_defect
+1,1,1,1.0,22,Yeast residue
+1,1,1,0.9999999,9,Foreign object - washing machine
+0,0,0,0.15507847,19,Scuffing
+0,0,0,0.021615332,12,Good_no_defect
+1,1,1,0.99978346,22,Yeast residue
+0,0,0,0.007345827,12,Good_no_defect
+0,0,0,0.005911069,12,Good_no_defect
+1,1,1,1.0,1,Break / Crack
+0,0,0,0.02442309,12,Good_no_defect
+0,0,0,0.1066906,12,Good_no_defect
+0,1,1,0.83973396,19,Scuffing
+0,0,0,0.109705776,19,Scuffing
+1,1,1,0.9999707,22,Yeast residue
+1,1,1,0.9999999,16,Mold
+1,1,1,0.9999987,6,Crown cap
+0,0,0,0.0031726826,12,Good_no_defect
+0,0,0,0.015424552,12,Good_no_defect
+1,1,1,0.9999999,4,Contamination dark
+1,1,1,0.80193585,4,Contamination dark
+1,1,1,0.9999994,8,Foreign object - manual cleaning
+0,0,0,0.028436033,12,Good_no_defect
+0,0,0,0.005911069,12,Good_no_defect
+1,1,1,0.99999857,16,Mold
+0,0,0,0.019419348,12,Good_no_defect
+1,1,1,0.99999714,22,Yeast residue
+1,0,0,0.16776334,19,Scuffing
+0,0,0,0.065604836,12,Good_no_defect
+0,0,0,0.0027149853,12,Good_no_defect
+1,1,1,0.9999893,4,Contamination dark
+1,1,1,1.0,17,No base visible
+0,0,0,0.037326887,12,Good_no_defect
+0,0,0,0.001284308,12,Good_no_defect
+1,1,1,0.99970406,21,Straw
+0,0,0,0.010328152,12,Good_no_defect
+1,1,1,0.9759464,4,Contamination dark
+1,0,0,0.33895183,16,Mold
+0,0,0,0.005911069,12,Good_no_defect
+1,1,1,0.99999964,17,No base visible
+1,1,1,0.99999857,17,No base visible
+1,1,1,0.99999976,17,No base visible
+0,0,0,0.008315778,12,Good_no_defect
+1,1,1,0.9999039,22,Yeast residue
+1,1,1,0.9728308,4,Contamination dark
+1,1,1,0.99997723,22,Yeast residue
+1,1,1,0.9999999,17,No base visible
+1,1,1,0.9999995,8,Foreign object - manual cleaning
+0,0,0,0.0071214284,0,Air bubble
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,0.98998636,22,Yeast residue
+0,0,0,0.0035936027,12,Good_no_defect
+1,1,1,0.9999994,8,Foreign object - manual cleaning
+1,1,1,0.99999833,17,No base visible
+1,1,1,0.9999982,17,No base visible
+1,1,1,0.9999757,16,Mold
+0,0,0,0.006097562,12,Good_no_defect
+0,0,0,0.09534947,12,Good_no_defect
+1,0,0,0.253861,10,Glass imperfection
+1,0,0,0.115960725,4,Contamination dark
+0,0,0,0.005911069,12,Good_no_defect
+1,1,1,0.99999344,9,Foreign object - washing machine
+0,0,0,0.009708476,12,Good_no_defect
+0,0,0,0.019124037,0,Air bubble
+0,0,0,0.007815889,12,Good_no_defect
+1,1,1,0.8031738,19,Scuffing
+1,1,1,0.99972194,4,Contamination dark
+1,0,0,0.3909408,4,Contamination dark
+1,1,1,0.999884,16,Mold
+0,0,0,0.004468384,12,Good_no_defect
+1,1,1,0.9999852,22,Yeast residue
+1,1,1,0.55567634,19,Scuffing
+1,1,1,0.99879336,4,Contamination dark
+1,1,1,0.99997723,4,Contamination dark
+1,1,1,1.0,6,Crown cap
+0,0,0,0.0075772414,12,Good_no_defect
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.002472623,0,Air bubble
+1,1,1,0.99970406,4,Contamination dark
+1,1,1,0.9999987,22,Yeast residue
+1,1,1,0.99701905,22,Yeast residue
+1,0,0,0.026759284,5,Contamination light
+1,1,1,0.9896718,22,Yeast residue
+0,0,0,0.044680867,19,Scuffing
+1,1,1,0.9998977,2,Chip
+1,1,1,0.99999774,4,Contamination dark
+1,1,1,0.9994116,22,Yeast residue
+0,0,0,0.24653335,12,Good_no_defect
+0,0,0,0.02479816,12,Good_no_defect
+1,1,1,0.99999213,16,Mold
+0,0,0,0.019419348,12,Good_no_defect
+1,1,1,0.51793665,19,Scuffing
+0,0,0,0.010328152,12,Good_no_defect
+1,1,1,0.9999931,4,Contamination dark
+1,1,1,0.99996233,22,Yeast residue
+0,0,0,0.04023794,19,Scuffing
+1,1,1,0.9985896,4,Contamination dark
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.026759284,5,Contamination light
+0,0,0,0.05749328,12,Good_no_defect
+0,0,0,0.020023443,12,Good_no_defect
+1,1,1,0.99999654,22,Yeast residue
+0,0,0,0.0034834242,12,Good_no_defect
+0,0,0,0.02297737,12,Good_no_defect
+1,1,1,0.9999546,22,Yeast residue
+1,1,1,0.9999988,17,No base visible
+0,0,0,0.004331502,12,Good_no_defect
+1,1,1,0.9999999,4,Contamination dark
+1,1,1,0.9999999,15,Liquid
+1,1,1,0.9999862,22,Yeast residue
+0,0,0,0.006903838,12,Good_no_defect
+1,1,1,1.0,17,No base visible
+0,0,0,0.0032730652,12,Good_no_defect
+0,0,0,0.0022518474,12,Good_no_defect
+0,0,0,0.017442483,12,Good_no_defect
+1,1,1,0.99986863,22,Yeast residue
+1,1,1,0.5898345,4,Contamination dark
+1,1,1,1.0,16,Mold
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.008315778,12,Good_no_defect
+0,0,0,0.036769465,12,Good_no_defect
+0,0,0,0.027585283,19,Scuffing
+1,1,1,0.99999726,22,Yeast residue
+1,1,1,0.99992037,2,Chip
+1,1,1,0.9999453,22,Yeast residue
+1,1,1,0.99999964,22,Yeast residue
+1,1,1,0.99996877,4,Contamination dark
+1,1,1,0.99999964,17,No base visible
+1,1,1,0.8749346,9,Foreign object - washing machine
+1,1,1,0.8568123,4,Contamination dark
+1,1,1,0.99982053,11,Glass shard
+0,0,0,0.005220126,19,Scuffing
+1,1,1,0.9999999,22,Yeast residue
+1,1,1,0.9987551,4,Contamination dark
+1,1,1,0.9999999,22,Yeast residue
+0,0,0,0.001284308,12,Good_no_defect
+1,1,1,0.9999646,4,Contamination dark
+0,0,0,0.005220126,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99886644,9,Foreign object - washing machine
+1,1,1,0.99997413,14,Label
+0,0,0,0.011331754,12,Good_no_defect
+0,0,0,0.069541745,12,Good_no_defect
+0,0,0,0.005220126,12,Good_no_defect
+1,1,1,0.99999976,22,Yeast residue
+1,1,1,0.9999707,22,Yeast residue
+1,0,0,0.21866935,5,Contamination light
+0,0,0,0.011687257,12,Good_no_defect
+1,1,1,0.99999964,1,Break / Crack
+1,0,0,0.003945407,16,Mold
+0,1,1,0.9273633,19,Scuffing
+1,1,1,1.0,17,No base visible
+1,1,1,1.0,16,Mold
+0,0,0,0.004905406,12,Good_no_defect
+1,1,1,0.9724148,16,Mold
+0,0,0,0.04023794,12,Good_no_defect
+1,1,1,0.9999833,1,Break / Crack
+1,0,0,0.1490353,5,Contamination light
+1,1,1,0.99999905,17,No base visible
+0,0,0,0.005220126,12,Good_no_defect
+0,0,0,0.012821214,12,Good_no_defect
+1,1,1,0.9991704,4,Contamination dark
+0,0,0,0.008577486,12,Good_no_defect
+1,1,1,0.9998416,11,Glass shard
+0,0,0,0.026759284,12,Good_no_defect
+1,1,1,0.5798763,20,Scuffing heavy
+0,0,0,0.067546695,12,Good_no_defect
+0,0,0,0.0035936027,12,Good_no_defect
+0,0,0,0.019419348,12,Good_no_defect
+1,1,1,1.0,15,Liquid
+1,1,1,0.99998426,4,Contamination dark
+0,0,0,0.004905406,12,Good_no_defect
+1,1,1,0.9999994,16,Mold
+0,0,0,0.0017007225,12,Good_no_defect
+1,1,1,0.99999976,4,Contamination dark
+0,0,0,0.005220126,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+1,1,1,0.9981324,22,Yeast residue
+0,0,0,0.22000709,12,Good_no_defect
+0,0,0,0.01001357,12,Good_no_defect
+0,0,0,0.009125637,12,Good_no_defect
+0,0,0,0.016914913,19,Scuffing
+1,1,1,0.9999453,22,Yeast residue
+1,1,1,0.9999999,17,No base visible
+0,0,0,0.28061637,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+0,0,0,0.0013250224,12,Good_no_defect
+0,0,0,0.0035936027,12,Good_no_defect
+1,1,1,0.99999857,5,Contamination light
+0,0,0,0.006692851,12,Good_no_defect
+1,1,1,0.8749346,4,Contamination dark
+0,0,0,0.02931223,12,Good_no_defect
+0,0,0,0.3821414,12,Good_no_defect
+1,1,1,0.99990976,16,Mold
+1,1,1,0.69097626,4,Contamination dark
+0,0,0,0.13477592,12,Good_no_defect
+0,0,0,0.0071214284,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+0,0,0,0.007345827,12,Good_no_defect
+1,1,1,1.0,10,Glass imperfection
+1,1,1,0.9999999,8,Foreign object - manual cleaning
+1,1,1,0.9999988,17,No base visible
+1,1,1,0.99990976,22,Yeast residue
+0,0,0,0.005220126,19,Scuffing
+0,1,1,0.66017234,12,Good_no_defect
+0,0,0,0.036769465,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99999845,17,No base visible
+1,1,1,0.9999546,22,Yeast residue
+1,1,1,0.99998426,4,Contamination dark
+1,1,1,0.9999994,17,No base visible
+1,1,1,0.8344069,4,Contamination dark
+0,0,0,0.006903838,12,Good_no_defect
+0,0,0,0.007815889,12,Good_no_defect
+0,0,0,0.0033766122,19,Scuffing
+1,1,1,1.0,22,Yeast residue
+1,1,1,0.75346667,19,Scuffing
+1,1,1,0.91117966,20,Scuffing heavy
+0,0,0,0.05834584,12,Good_no_defect
+0,0,0,0.0053849383,12,Good_no_defect
+1,1,1,0.96538115,4,Contamination dark
+1,1,1,0.99999833,17,No base visible
+0,0,0,0.0034834242,12,Good_no_defect
+0,0,0,0.01243165,12,Good_no_defect
+0,0,0,0.013222822,12,Good_no_defect
+1,1,1,0.9999994,22,Yeast residue
+0,0,0,0.0140636265,12,Good_no_defect
+1,1,1,0.9976769,22,Yeast residue
+0,0,0,0.0075772414,12,Good_no_defect
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.0064882697,12,Good_no_defect
+1,1,1,0.9999999,6,Crown cap
+0,0,0,0.037892427,12,Good_no_defect
+0,0,0,0.033589505,12,Good_no_defect
+1,1,1,0.99961996,22,Yeast residue
+0,0,0,0.2766905,19,Scuffing
+1,1,1,0.9916842,5,Contamination light
+1,1,1,0.99999654,22,Yeast residue
+1,1,1,0.9999982,22,Yeast residue
+0,0,0,0.0019267347,12,Good_no_defect
+0,0,0,0.0029810327,12,Good_no_defect
+0,0,0,0.0040701376,12,Good_no_defect
+1,1,1,0.9998977,4,Contamination dark
+1,1,1,0.9999994,8,Foreign object - manual cleaning
+1,1,1,1.0,4,Contamination dark
+1,1,1,0.99999845,17,No base visible
+1,1,1,0.99999917,16,Mold
+1,1,1,0.99992514,22,Yeast residue
+0,0,0,0.025957357,12,Good_no_defect
+1,1,1,1.0,11,Glass shard
+1,1,1,1.0,22,Yeast residue
+0,0,0,0.025957357,12,Good_no_defect
+1,1,1,1.0,3,Circlip
+0,0,0,0.0035936027,12,Good_no_defect
+0,0,0,0.005911069,12,Good_no_defect
+1,1,1,0.99999714,16,Mold
+0,0,0,0.036769465,12,Good_no_defect
+0,0,0,0.008577486,12,Good_no_defect
+1,1,1,0.99999917,17,No base visible
+0,0,0,0.0015487612,12,Good_no_defect
+0,0,0,0.003707253,12,Good_no_defect
+1,1,1,0.9999995,4,Contamination dark
+0,0,0,0.08509905,19,Scuffing
+1,1,1,0.9999999,17,No base visible
+1,1,1,0.9999943,22,Yeast residue
+0,0,0,0.004198795,0,Air bubble
+1,1,1,0.99999857,4,Contamination dark
+1,1,1,0.9999994,17,No base visible
+1,1,1,0.99879336,19,Scuffing
+1,1,1,0.99999905,15,Liquid
+1,1,1,0.99997723,4,Contamination dark
+0,0,0,0.3566707,12,Good_no_defect
+1,1,1,0.9921841,5,Contamination light
+1,1,1,0.99879336,2,Chip
+0,0,0,0.0053849383,12,Good_no_defect
+0,0,0,0.04401865,12,Good_no_defect
+1,1,1,0.9999949,8,Foreign object - manual cleaning
+0,0,0,0.07477004,12,Good_no_defect
+0,0,0,0.0913821,12,Good_no_defect
+0,0,0,0.3821414,12,Good_no_defect
+0,1,1,0.6261242,19,Scuffing
+0,0,0,0.01001357,12,Good_no_defect
+0,0,0,0.010652511,12,Good_no_defect
+1,1,1,0.99993396,22,Yeast residue
+1,1,1,0.9999988,17,No base visible
+1,1,1,1.0,22,Yeast residue
+0,0,0,0.008315778,12,Good_no_defect
+1,1,1,0.9999981,22,Yeast residue
+1,1,1,0.99999917,22,Yeast residue
+1,1,1,0.9230392,16,Mold
+0,0,0,0.037892427,19,Scuffing
+0,0,0,0.034100424,12,Good_no_defect
+1,1,1,0.99998426,6,Crown cap
+1,0,0,0.21866935,19,Scuffing
+1,1,1,0.99999726,22,Yeast residue
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99566853,4,Contamination dark
+1,1,1,0.9999999,17,No base visible
+0,1,1,0.61970145,19,Scuffing
+1,1,1,0.86060363,16,Mold
+1,1,1,0.9977482,4,Contamination dark
+1,1,1,0.83867973,16,Mold
+1,1,1,1.0,22,Yeast residue
+0,0,0,0.3711366,19,Scuffing
+0,0,0,0.008315778,12,Good_no_defect
+1,1,1,0.9999151,4,Contamination dark
+1,1,1,0.99965405,22,Yeast residue
+0,0,0,0.0021157034,12,Good_no_defect
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.05749328,19,Scuffing
+1,1,1,0.99979657,4,Contamination dark
+0,0,0,0.069541745,19,Scuffing
+1,1,1,0.99999857,17,No base visible
+1,1,1,0.99998426,1,Break / Crack
+0,0,0,0.0047552,12,Good_no_defect
+1,0,0,0.02442309,4,Contamination dark
+1,1,1,0.9998416,22,Yeast residue
+1,1,1,1.0,4,Contamination dark
+0,0,0,0.01798621,19,Scuffing
+1,1,1,0.9845754,22,Yeast residue
+1,1,1,0.9999833,22,Yeast residue
+1,1,1,0.9830851,16,Mold
+1,1,1,0.9980732,8,Foreign object - manual cleaning
+1,1,1,0.9999995,4,Contamination dark
+0,0,0,0.004905406,12,Good_no_defect
+0,0,0,0.01001357,12,Good_no_defect
+0,0,0,0.05834584,5,Contamination light
+1,1,1,0.9059898,19,Scuffing
+0,1,1,0.94417685,12,Good_no_defect
+1,1,1,0.9688562,4,Contamination dark
+1,1,1,0.999987,19,Scuffing
+0,0,0,0.0035936027,12,Good_no_defect
+1,1,1,0.99999857,17,No base visible
+1,1,1,1.0,6,Crown cap
+1,1,1,1.0,17,No base visible
+1,1,1,0.99999976,22,Yeast residue
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,0.9984988,22,Yeast residue
+0,0,0,0.018833129,12,Good_no_defect
+1,1,1,1.0,2,Chip
+1,1,1,0.999884,22,Yeast residue
+0,0,0,0.0064882697,12,Good_no_defect
+0,0,0,0.013222822,12,Good_no_defect
+1,1,1,0.99999833,2,Chip
+1,1,1,0.99995995,5,Contamination light
+0,0,0,0.051845465,12,Good_no_defect
+1,1,1,0.78530854,4,Contamination dark
+0,0,0,0.007815889,19,Scuffing
+0,0,0,0.007345827,12,Good_no_defect
+0,0,0,0.025957357,12,Good_no_defect
+1,1,1,0.99995995,22,Yeast residue
+1,1,1,1.0,7,Foil / Semitransparent
+0,0,0,0.007345827,12,Good_no_defect
+1,1,1,1.0,2,Chip
+0,0,0,0.0008830458,12,Good_no_defect
+1,1,1,1.0,5,Contamination light
+0,0,0,0.024053553,12,Good_no_defect
+0,0,0,0.002889581,12,Good_no_defect
+1,1,1,0.99999964,17,No base visible
+1,1,1,0.5708099,5,Contamination light
+1,1,1,0.9999987,17,No base visible
+1,1,1,0.99998987,16,Mold
+0,0,0,0.0064882697,12,Good_no_defect
+1,1,1,1.0,4,Contamination dark
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99966466,16,Mold
+1,1,1,0.99999845,17,No base visible
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,0.64957863,19,Scuffing
+0,0,0,0.005060332,12,Good_no_defect
+1,1,1,0.99998224,16,Mold
+0,1,1,0.8509647,19,Scuffing
+1,1,1,1.0,6,Crown cap
+0,0,0,0.006097562,12,Good_no_defect
+1,1,1,0.9999999,17,No base visible
+0,0,0,0.008061991,12,Good_no_defect
+1,1,1,0.9999417,22,Yeast residue
+0,0,0,0.010652511,0,Air bubble
+1,1,1,0.9994116,11,Glass shard
+1,1,1,0.9059898,4,Contamination dark
+0,0,0,0.008577486,12,Good_no_defect
+0,0,0,0.001867566,12,Good_no_defect
+1,1,1,1.0,17,No base visible
+1,1,1,0.9999995,22,Yeast residue
+1,1,1,0.99999964,4,Contamination dark
+1,1,1,0.7799929,20,Scuffing heavy
+0,0,0,0.018264277,19,Scuffing
+0,0,0,0.003945407,12,Good_no_defect
+0,0,0,0.011331754,12,Good_no_defect
+1,1,1,0.9999995,16,Mold
+0,0,0,0.0031726826,12,Good_no_defect
+1,1,1,0.9999995,22,Yeast residue
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.18952109,12,Good_no_defect
+0,0,0,0.3738758,19,Scuffing
+0,0,0,0.042722195,12,Good_no_defect
+1,1,1,1.0,4,Contamination dark
+1,0,0,0.18126321,8,Foreign object - manual cleaning
+0,0,0,0.04401865,12,Good_no_defect
+0,0,0,0.0140636265,12,Good_no_defect
+1,1,1,1.0,22,Yeast residue
+1,0,0,0.1666754,4,Contamination dark
+0,0,0,0.008577486,12,Good_no_defect
+1,1,1,0.99999857,17,No base visible
+1,1,1,0.99997723,22,Yeast residue
+1,1,1,0.99999106,6,Crown cap
+1,0,0,0.051845465,4,Contamination dark
+1,1,1,1.0,17,No base visible
+1,1,1,1.0,6,Crown cap
+0,0,0,0.010328152,12,Good_no_defect
+1,1,1,0.99999046,22,Yeast residue
+0,0,0,0.010986943,12,Good_no_defect
+1,1,1,1.0,17,No base visible
+1,1,1,0.9966234,22,Yeast residue
+1,1,1,0.99999905,22,Yeast residue
+1,1,1,0.9883128,4,Contamination dark
+1,1,1,1.0,16,Mold
+1,1,1,0.99948066,22,Yeast residue
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99999845,17,No base visible
+0,0,0,0.002631674,12,Good_no_defect
+1,1,1,1.0,11,Glass shard
+1,1,1,0.9999151,4,Contamination dark
+0,0,0,0.0047552,0,Air bubble
+1,1,1,1.0,6,Crown cap
+0,0,0,0.001284308,12,Good_no_defect
+1,0,1,0.46028885,4,Contamination dark
+0,0,0,0.005060332,12,Good_no_defect
+1,1,1,0.99999857,17,No base visible
+1,1,1,0.99999905,17,No base visible
+0,0,0,0.008315778,12,Good_no_defect
+0,0,0,0.096705794,12,Good_no_defect
+1,1,1,0.99999666,22,Yeast residue
+0,0,0,0.008061991,12,Good_no_defect
+0,1,1,0.99736834,12,Good_no_defect
+0,0,0,0.2821962,19,Scuffing
+1,1,1,1.0,11,Glass shard
+1,1,1,0.9999993,6,Crown cap
+0,0,0,0.015424552,12,Good_no_defect
+1,1,1,0.8933094,4,Contamination dark
+0,0,0,0.0013670257,12,Good_no_defect
+0,0,0,0.025178842,12,Good_no_defect
+1,1,1,0.99997723,22,Yeast residue
+0,0,0,0.42441198,19,Scuffing
+1,1,1,0.9999546,4,Contamination dark
+1,1,1,0.99995995,4,Contamination dark
+1,1,1,0.99999857,17,No base visible
+1,1,1,0.99999964,2,Chip
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99992037,22,Yeast residue
+1,1,1,0.99999976,17,No base visible
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.0031726826,12,Good_no_defect
+1,1,1,0.99999714,22,Yeast residue
+1,1,1,0.99999905,8,Foreign object - manual cleaning
+0,0,0,0.0075772414,0,Air bubble
+1,1,1,0.9999039,4,Contamination dark
+1,1,1,1.0,2,Chip
+1,1,1,0.99999845,17,No base visible
+1,1,1,0.999884,17,No base visible
+1,1,1,0.99999833,17,No base visible
+1,1,1,0.9995956,4,Contamination dark
+1,1,1,0.99999785,15,Liquid
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.01243165,12,Good_no_defect
+1,1,1,0.9999976,22,Yeast residue
+0,1,1,0.7826625,19,Scuffing
+1,1,1,0.99999857,17,No base visible
+1,1,1,1.0,6,Crown cap
+1,1,1,1.0,8,Foreign object - manual cleaning
+0,0,0,0.03904829,12,Good_no_defect
+0,0,0,0.02096424,12,Good_no_defect
+1,1,1,0.99896777,5,Contamination light
+1,1,1,0.99942964,4,Contamination dark
+0,0,0,0.006097562,12,Good_no_defect
+0,0,0,0.015906392,12,Good_no_defect
+1,1,1,0.99973875,22,Yeast residue
+0,0,0,0.037326887,12,Good_no_defect
+0,0,0,0.016403032,19,Scuffing
+1,1,1,0.99999833,17,No base visible
+0,0,0,0.030675802,12,Good_no_defect
+0,0,0,0.06278921,12,Good_no_defect
+1,1,1,0.99999833,17,No base visible
+0,0,0,0.020645931,12,Good_no_defect
+1,1,1,0.9999039,22,Yeast residue
+1,1,1,0.9967269,22,Yeast residue
+1,1,1,0.9999999,22,Yeast residue
+1,1,1,1.0,6,Crown cap
+1,1,1,1.0,17,No base visible
+1,1,1,0.9968273,4,Contamination dark
+0,0,0,0.032589745,12,Good_no_defect
+0,0,0,0.0033766122,12,Good_no_defect
+0,0,0,0.013636836,12,Good_no_defect
+1,1,1,0.9999987,17,No base visible
+1,1,1,0.9942697,4,Contamination dark
+0,0,0,0.0053849383,12,Good_no_defect
+0,0,0,0.033589505,12,Good_no_defect
+0,0,0,0.10521054,12,Good_no_defect
+1,1,1,0.99886644,22,Yeast residue
+1,1,1,1.0,1,Break / Crack
+0,0,0,0.096705794,12,Good_no_defect
+0,0,0,0.21076629,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+1,1,1,0.9999995,6,Crown cap
+0,0,0,0.0013670257,12,Good_no_defect
+0,0,0,0.026355354,0,Air bubble
+0,0,0,0.16776334,19,Scuffing
+1,1,1,0.99999213,17,No base visible
+0,0,0,0.015906392,12,Good_no_defect
+1,1,1,1.0,16,Mold
+0,0,0,0.005911069,12,Good_no_defect
+1,0,0,0.17553808,4,Contamination dark
+1,1,1,0.8976953,4,Contamination dark
+1,1,1,1.0,8,Foreign object - manual cleaning
+0,0,0,0.028436033,12,Good_no_defect
+1,1,1,0.9999988,17,No base visible
+1,1,1,1.0,22,Yeast residue
+0,0,0,0.079210326,19,Scuffing
+0,0,0,0.36477757,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99992967,4,Contamination dark
+1,1,1,0.9124362,4,Contamination dark
+1,1,1,0.9999993,11,Glass shard
+1,1,1,0.9999862,22,Yeast residue
+0,0,0,0.038466193,12,Good_no_defect
+1,1,1,0.999987,4,Contamination dark
+0,1,1,0.5115336,19,Scuffing
+1,1,1,0.9273633,5,Contamination light
+0,0,0,0.00307537,12,Good_no_defect
+1,1,1,0.99999046,2,Chip
+0,0,0,0.06278921,12,Good_no_defect
+1,1,1,0.9999931,22,Yeast residue
+0,0,0,0.0064882697,12,Good_no_defect
+1,1,1,0.99999464,4,Contamination dark
+1,1,1,0.9997695,22,Yeast residue
+0,0,0,0.08882029,12,Good_no_defect
+1,1,1,0.9999862,22,Yeast residue
+1,1,1,0.99899954,19,Scuffing
+0,0,0,0.0064882697,12,Good_no_defect
+0,0,0,0.02096424,19,Scuffing
+1,1,1,0.99999964,22,Yeast residue
+1,1,1,0.9999931,22,Yeast residue
+0,0,0,0.1510278,12,Good_no_defect
+1,1,1,0.99999344,22,Yeast residue
+0,0,0,0.022286186,12,Good_no_defect
+1,1,1,0.99896777,9,Foreign object - washing machine
+1,1,1,0.97702265,4,Contamination dark
+0,0,0,0.044680867,20,Scuffing heavy
+1,1,1,0.99999964,2,Chip
+1,1,1,1.0,11,Glass shard
+0,0,0,0.0071214284,12,Good_no_defect
+1,1,1,1.0,22,Yeast residue
+0,0,0,0.008847355,12,Good_no_defect
+0,0,0,0.014957086,12,Good_no_defect
+0,0,0,0.0021157034,12,Good_no_defect
+1,1,1,0.99955577,4,Contamination dark
+0,0,0,0.01001357,12,Good_no_defect
+1,1,1,0.999608,22,Yeast residue
+0,0,0,0.002631674,12,Good_no_defect
+1,1,1,1.0,17,No base visible
+0,0,0,0.0038244836,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+1,1,1,0.9999852,22,Yeast residue
+0,0,0,0.109705776,12,Good_no_defect
+0,0,0,0.047425874,12,Good_no_defect
+1,1,1,0.99999344,2,Chip
+1,1,1,1.0,22,Yeast residue
+0,0,0,0.007345827,12,Good_no_defect
+0,0,0,0.019124037,12,Good_no_defect
+1,0,1,0.49108985,4,Contamination dark
+1,1,1,1.0,6,Crown cap
+0,0,0,0.020645931,12,Good_no_defect
+0,0,0,0.02479816,12,Good_no_defect
+0,0,0,0.006692851,0,Air bubble
+0,0,0,0.019124037,12,Good_no_defect
+0,0,0,0.0075772414,12,Good_no_defect
+0,0,0,0.005220126,12,Good_no_defect
+1,1,1,0.99999905,4,Contamination dark
+1,1,1,0.95976204,16,Mold
+0,0,0,0.004331502,12,Good_no_defect
+0,0,0,0.04885778,12,Good_no_defect
+1,1,1,1.0,18,Paint residue
+0,0,0,0.028870907,12,Good_no_defect
+0,0,0,0.005220126,12,Good_no_defect
+1,1,1,1.0,16,Mold
+1,1,1,0.9999546,4,Contamination dark
+1,1,1,1.0,18,Paint residue
+0,0,0,0.1561049,12,Good_no_defect
+1,1,1,0.9999999,22,Yeast residue
+1,1,1,0.52561235,16,Mold
+1,1,1,0.99970406,4,Contamination dark
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.009708476,12,Good_no_defect
+1,0,0,0.005911069,4,Contamination dark
+0,0,0,0.010652511,12,Good_no_defect
+0,0,0,0.014957086,19,Scuffing
+1,1,1,0.9284088,4,Contamination dark
+0,0,0,0.010652511,12,Good_no_defect
+0,0,0,0.005220126,12,Good_no_defect
+1,1,1,0.9999995,17,No base visible
+0,0,0,0.023689471,12,Good_no_defect
+0,0,0,0.0015487612,12,Good_no_defect
+0,0,0,0.0055549247,12,Good_no_defect
+1,1,1,0.99995995,22,Yeast residue
+0,0,0,0.020332353,12,Good_no_defect
+0,0,0,0.010986943,12,Good_no_defect
+0,0,0,0.00066670234,12,Good_no_defect
+0,0,0,0.16132024,0,Air bubble
+0,1,1,0.76629364,12,Good_no_defect
+0,1,1,0.9124362,0,Air bubble
+0,0,0,0.016403032,12,Good_no_defect
+1,1,1,0.9999987,17,No base visible
+1,1,1,0.9991441,22,Yeast residue
+0,0,0,0.006692851,12,Good_no_defect
+0,0,0,0.006289902,12,Good_no_defect
+0,0,0,0.01243165,12,Good_no_defect
+1,1,1,0.9999982,4,Contamination dark
+0,1,1,0.53509843,12,Good_no_defect
+0,0,0,0.10818896,12,Good_no_defect
+0,0,0,0.0071214284,12,Good_no_defect
+0,0,0,0.09947021,19,Scuffing
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,0.9999999,6,Crown cap
+1,1,1,0.99999857,17,No base visible
+1,1,1,0.99999964,17,No base visible
+1,1,1,0.99477994,11,Glass shard
+0,0,0,0.034100424,12,Good_no_defect
+0,0,0,0.0040701376,12,Good_no_defect
+1,1,1,0.99999547,22,Yeast residue
+1,1,1,0.5234204,4,Contamination dark
+0,0,0,0.012053779,12,Good_no_defect
+1,1,1,0.99998224,17,No base visible
+0,0,0,0.0008040859,12,Good_no_defect
+0,0,0,0.0023231625,12,Good_no_defect
+1,1,1,1.0,17,No base visible
+0,0,0,0.0047552,12,Good_no_defect
+0,0,0,0.008315778,12,Good_no_defect
+1,1,1,1.0,17,No base visible
+1,1,1,0.9999995,17,No base visible
+1,1,1,0.99963164,19,Scuffing
+1,1,1,1.0,17,No base visible
+0,0,0,0.008847355,0,Air bubble
+0,0,0,0.0140636265,12,Good_no_defect
+0,0,0,0.0075772414,12,Good_no_defect
+1,1,1,0.99999344,11,Glass shard
+1,1,1,1.0,17,No base visible
+0,1,1,0.9073123,12,Good_no_defect
+0,1,1,0.7648916,19,Scuffing
+0,0,0,0.0020507434,12,Good_no_defect
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.002889581,0,Air bubble
+1,1,1,0.9999994,17,No base visible
+1,1,1,0.9999646,22,Yeast residue
+1,1,1,0.99999976,2,Chip
+1,1,1,0.99999964,17,No base visible
+1,1,1,1.0,17,No base visible
+0,0,0,0.0031726826,12,Good_no_defect
+0,0,0,0.01243165,12,Good_no_defect
+1,1,1,0.68763,19,Scuffing
+1,1,1,0.9914225,4,Contamination dark
+0,0,0,0.017442483,12,Good_no_defect
+1,1,1,0.9999995,22,Yeast residue
+1,1,1,0.9999981,8,Foreign object - manual cleaning
+1,0,0,0.15203226,4,Contamination dark
+1,1,1,0.9999546,22,Yeast residue
+1,1,1,0.9999993,17,No base visible
+1,1,1,0.9999852,22,Yeast residue
+0,0,0,0.013636836,19,Scuffing
+1,1,1,0.9999707,22,Yeast residue
+1,1,1,0.9908744,16,Mold
+0,0,0,0.006289902,12,Good_no_defect
+1,1,1,0.99999547,22,Yeast residue
+0,0,0,0.010652511,12,Good_no_defect
+1,1,1,0.9999995,17,No base visible
+0,0,0,0.0094125895,12,Good_no_defect
+1,1,1,0.9998977,22,Yeast residue
+0,0,0,0.0038244836,12,Good_no_defect
+1,1,1,0.99999917,17,No base visible
+0,0,0,0.002631674,12,Good_no_defect
+1,1,1,0.9980122,9,Foreign object - washing machine
+0,1,1,0.77864933,19,Scuffing
+1,1,1,0.99999833,17,No base visible
+1,1,1,0.99970406,4,Contamination dark
+1,1,1,0.99999845,17,No base visible
+1,1,1,1.0,17,No base visible
+0,0,0,0.025957357,12,Good_no_defect
+1,1,1,0.9999949,16,Mold
+0,0,0,0.013222822,12,Good_no_defect
+0,0,0,0.004905406,12,Good_no_defect
+1,1,1,0.9999999,16,Mold
+0,0,0,0.012821214,12,Good_no_defect
+1,1,1,0.99999917,17,No base visible
+1,1,1,0.9999999,6,Crown cap
+1,1,1,0.9974491,2,Chip
+1,1,1,0.9961755,4,Contamination dark
+1,1,1,0.99966466,9,Foreign object - washing machine
+0,0,0,0.022286186,12,Good_no_defect
+0,0,0,0.035144847,12,Good_no_defect
+0,0,0,0.006289902,12,Good_no_defect
+0,0,0,0.0055549247,12,Good_no_defect
+1,0,0,0.28696787,19,Scuffing
+0,0,0,0.014957086,12,Good_no_defect
+1,1,1,0.99999917,17,No base visible
+1,1,1,0.99999857,17,No base visible
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,0.9992679,4,Contamination dark
+0,0,0,0.0071214284,12,Good_no_defect
+1,1,1,0.9999485,22,Yeast residue
+1,1,1,0.99999845,6,Crown cap
+0,0,0,0.0075772414,12,Good_no_defect
+1,1,1,0.938124,19,Scuffing
+1,1,1,1.0,6,Crown cap
+0,0,0,0.042722195,0,Air bubble
+1,1,1,0.99999976,17,No base visible
+1,1,1,0.9999999,22,Yeast residue
+0,0,0,0.010652511,12,Good_no_defect
+1,1,1,0.99899954,4,Contamination dark
+1,1,1,0.99982053,4,Contamination dark
+0,0,0,0.0047552,12,Good_no_defect
+1,1,1,0.99818975,4,Contamination dark
+1,1,1,0.9991704,16,Mold
+0,0,0,0.256832,12,Good_no_defect
+1,1,1,0.99979657,19,Scuffing
+1,1,1,0.9995827,22,Yeast residue
+1,1,1,0.99999976,17,No base visible
+1,1,1,0.99998426,6,Crown cap
+1,1,1,0.7799929,4,Contamination dark
+1,0,0,0.03963884,4,Contamination dark
+0,0,0,0.001867566,12,Good_no_defect
+0,1,1,0.7185944,19,Scuffing
+1,1,1,0.9999995,17,No base visible
+0,0,0,0.023330769,12,Good_no_defect
+1,1,1,0.99999976,4,Contamination dark
+1,1,1,1.0,21,Straw
+1,1,1,0.9999982,22,Yeast residue
+1,1,1,0.99992967,4,Contamination dark
+1,1,1,0.99997246,22,Yeast residue
+1,1,1,0.99999845,17,No base visible
+0,0,0,0.15713686,12,Good_no_defect
+0,0,0,0.008315778,0,Air bubble
+0,0,0,0.14608724,19,Scuffing
+1,1,1,0.9999993,17,No base visible
+1,1,1,0.9999862,16,Mold
+0,0,0,0.0057302467,12,Good_no_defect
+0,0,0,0.0046095722,12,Good_no_defect
+1,1,1,0.9991959,16,Mold
+0,0,0,0.0094125895,12,Good_no_defect
+0,1,1,0.6315943,19,Scuffing
+1,1,1,0.880797,4,Contamination dark
+1,1,1,0.99999976,6,Crown cap
+1,1,1,0.9981324,20,Scuffing heavy
+1,1,1,0.9998977,11,Glass shard
+1,0,0,0.01798621,4,Contamination dark
+0,0,0,0.012821214,12,Good_no_defect
+1,1,1,0.9998977,22,Yeast residue
+1,1,1,0.9999999,22,Yeast residue
+1,1,1,0.9005298,19,Scuffing
+0,0,0,0.010986943,12,Good_no_defect
+0,0,0,0.04401865,12,Good_no_defect
+0,0,0,0.0034834242,0,Air bubble
+1,1,1,0.99999833,17,No base visible
+1,1,1,0.79182106,4,Contamination dark
+1,1,1,0.99566853,16,Mold
+0,1,1,0.8080672,19,Scuffing
+0,0,0,0.33982763,19,Scuffing
+1,1,1,0.9999151,22,Yeast residue
+0,0,0,0.056652427,12,Good_no_defect
+1,1,1,0.99999976,6,Crown cap
+0,0,0,0.007815889,12,Good_no_defect
+0,0,0,0.0075772414,0,Air bubble
+0,0,0,0.078078166,12,Good_no_defect
+1,1,1,0.99999046,22,Yeast residue
+1,1,1,0.99992514,22,Yeast residue
+1,1,1,0.9999987,17,No base visible
+1,1,1,0.9999975,16,Mold
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,0.99999857,17,No base visible
+1,1,1,0.99999917,17,No base visible
+1,1,1,1.0,22,Yeast residue
+1,1,1,0.99999976,22,Yeast residue
+0,0,0,0.006097562,12,Good_no_defect
+1,1,1,0.99999857,17,No base visible
+1,1,1,1.0,16,Mold
+1,1,1,1.0,6,Crown cap
+0,0,0,0.0019267347,12,Good_no_defect
+0,0,0,0.04023794,12,Good_no_defect
+1,1,1,0.99999917,6,Crown cap
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,0.99999964,8,Foreign object - manual cleaning
+1,1,1,0.9999999,6,Crown cap
+0,0,0,0.055005286,12,Good_no_defect
+1,1,1,1.0,16,Mold
+1,0,0,0.008577486,0,Air bubble
+1,1,1,0.6714706,4,Contamination dark
+1,1,1,0.99999344,22,Yeast residue
+0,1,1,0.9241418,19,Scuffing
+0,0,0,0.43014735,19,Scuffing
+1,1,1,0.9999995,22,Yeast residue
+0,0,0,0.010986943,12,Good_no_defect
+0,0,0,0.009125637,19,Scuffing
+1,1,1,0.9999993,4,Contamination dark
+1,1,1,0.9999833,22,Yeast residue
+0,0,0,0.03904829,19,Scuffing
+1,1,1,1.0,4,Contamination dark
+0,0,0,0.015906392,12,Good_no_defect
+1,1,1,1.0,4,Contamination dark
+1,1,1,0.9999988,17,No base visible
+1,1,1,0.99986863,22,Yeast residue
+0,0,0,0.0071214284,0,Air bubble
+1,1,1,0.99972194,22,Yeast residue
+1,1,1,0.99992514,22,Yeast residue
+0,0,0,0.01243165,12,Good_no_defect
+1,1,1,1.0,2,Chip
+1,1,1,1.0,4,Contamination dark
+0,0,0,0.01243165,19,Scuffing
+1,1,1,0.9994642,22,Yeast residue
+1,1,1,0.99999976,6,Crown cap
+1,1,1,0.99999964,17,No base visible
+1,1,1,0.9999999,6,Crown cap
+0,0,0,0.13386749,12,Good_no_defect
+1,1,1,0.9999151,22,Yeast residue
+1,1,1,0.99999666,22,Yeast residue
+1,1,1,1.0,17,No base visible
+1,1,1,0.9988305,10,Glass imperfection
+1,1,1,1.0,17,No base visible
+0,0,0,0.0075772414,12,Good_no_defect
+0,0,0,0.0038244836,12,Good_no_defect
+1,1,1,0.9999999,6,Crown cap
+0,0,0,0.28061637,5,Contamination light
+1,1,1,0.99999785,16,Mold
+0,0,0,0.014957086,12,Good_no_defect
+1,1,1,1.0,2,Chip
+1,1,1,0.99999213,22,Yeast residue
+0,0,0,0.024053553,12,Good_no_defect
+1,1,1,0.9999993,16,Mold
+0,0,0,0.016914913,12,Good_no_defect
+0,0,0,0.036220055,19,Scuffing
+0,0,0,0.0071214284,12,Good_no_defect
+0,0,0,0.0032730652,12,Good_no_defect
+0,0,0,0.010652511,12,Good_no_defect
+0,0,0,0.0094125895,12,Good_no_defect
+0,0,0,0.0025509123,12,Good_no_defect
+0,0,0,0.051082738,12,Good_no_defect
+1,1,1,0.99896777,16,Mold
+0,0,0,0.025565214,12,Good_no_defect
+1,0,0,0.1943678,4,Contamination dark
+1,1,1,0.9999993,16,Mold
+0,0,0,0.0038244836,12,Good_no_defect
+1,1,1,0.9999981,22,Yeast residue
+1,1,1,0.9995122,22,Yeast residue
+1,1,1,1.0,4,Contamination dark
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,0.99999833,17,No base visible
+0,0,0,0.021948254,12,Good_no_defect
+0,0,0,0.008315778,12,Good_no_defect
+1,1,1,0.96432143,16,Mold
+1,1,1,1.0,17,No base visible
+1,1,1,0.67319167,16,Mold
+1,0,1,0.47195333,19,Scuffing
+1,1,1,0.9999987,17,No base visible
+0,0,0,0.012821214,0,Air bubble
+0,0,0,0.0015487612,12,Good_no_defect
+0,0,0,0.0057302467,12,Good_no_defect
+1,1,1,0.9980122,9,Foreign object - washing machine
+0,0,0,0.22405544,12,Good_no_defect
+1,1,1,0.99999833,17,No base visible
+1,1,1,1.0,16,Mold
+1,1,1,0.99993396,5,Contamination light
+1,1,1,0.99999857,4,Contamination dark
+1,1,1,0.9999517,17,No base visible
+1,1,1,0.7248703,4,Contamination dark
+0,0,0,0.007815889,12,Good_no_defect
+1,1,1,1.0,22,Yeast residue
+1,0,0,0.0094125895,19,Scuffing
+0,0,0,0.017442483,12,Good_no_defect
+0,0,0,0.21337718,12,Good_no_defect
+1,1,1,0.9999994,17,No base visible
+1,1,1,0.9987551,18,Paint residue
+1,1,1,1.0,22,Yeast residue
+0,0,0,0.01001357,12,Good_no_defect
+1,1,1,0.9999757,22,Yeast residue
+0,0,0,0.016914913,12,Good_no_defect
+0,1,1,0.62977463,19,Scuffing
+0,0,0,0.001867566,12,Good_no_defect
+0,0,0,0.13296424,12,Good_no_defect
+1,1,1,1.0,17,No base visible
+1,1,1,0.99999917,6,Crown cap
+0,0,0,0.01450358,12,Good_no_defect
+0,0,0,0.015906392,12,Good_no_defect
+0,0,0,0.016403032,12,Good_no_defect
+1,1,1,0.9999938,9,Foreign object - washing machine
+0,0,0,0.0032730652,12,Good_no_defect
+0,0,0,0.01001357,12,Good_no_defect
+1,1,1,0.99999166,22,Yeast residue
+1,1,1,0.99955577,16,Mold
+1,1,1,1.0,22,Yeast residue
+1,1,1,0.9999999,1,Break / Crack
+1,1,1,0.67832696,16,Mold
+1,1,1,0.9999987,17,No base visible
+0,0,0,0.002631674,12,Good_no_defect
+0,0,0,0.042722195,12,Good_no_defect
+1,1,1,0.66974485,4,Contamination dark
+1,1,1,0.99997413,16,Mold
+0,1,1,0.6206216,0,Air bubble
+1,1,1,0.99999845,17,No base visible
+0,0,0,0.030214587,12,Good_no_defect
+1,1,1,1.0,2,Chip
+1,1,1,0.9994967,22,Yeast residue
+1,1,1,0.9959299,4,Contamination dark
+1,1,1,0.99999964,6,Crown cap
+1,1,1,0.86060363,19,Scuffing
+0,0,0,0.002396731,12,Good_no_defect
+0,0,0,0.0094125895,19,Scuffing
+1,1,1,0.9999833,4,Contamination dark
+1,1,1,0.99970406,16,Mold
+1,1,1,1.0,4,Contamination dark
+1,1,1,0.99999523,22,Yeast residue
+1,0,0,0.16238004,4,Contamination dark
+0,0,0,0.029760094,12,Good_no_defect
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,0.9999573,22,Yeast residue
+1,1,1,0.9995695,14,Label
+1,1,1,0.99999976,22,Yeast residue
+0,0,0,0.010652511,12,Good_no_defect
+0,0,0,0.01450358,12,Good_no_defect
+0,0,0,0.007345827,12,Good_no_defect
+1,1,1,0.99999845,17,No base visible
+0,0,0,0.006692851,12,Good_no_defect
+1,1,1,0.99999976,10,Glass imperfection
+0,0,0,0.01450358,12,Good_no_defect
+1,1,1,0.9999646,2,Chip
+1,1,1,0.99998856,22,Yeast residue
+0,0,0,0.0035936027,12,Good_no_defect
+0,0,0,0.30321574,12,Good_no_defect
+0,0,0,0.0715912,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+1,1,1,0.9999982,17,No base visible
+1,1,1,1.0,17,No base visible
+1,1,1,0.9999963,6,Crown cap
+0,0,0,0.0033766122,12,Good_no_defect
+0,0,0,0.006289902,12,Good_no_defect
+0,0,0,0.0064882697,12,Good_no_defect
+1,1,1,0.9998977,4,Contamination dark
+1,1,1,1.0,6,Crown cap
+0,0,0,0.022286186,12,Good_no_defect
+0,0,0,0.002889581,12,Good_no_defect
+1,1,1,0.9999969,11,Glass shard
+0,0,0,0.067546695,19,Scuffing
+1,1,1,0.98866826,22,Yeast residue
+1,1,1,0.5688949,4,Contamination dark
+1,1,1,0.9949397,4,Contamination dark
+1,1,1,0.99999917,22,Yeast residue
+1,0,0,0.41584745,19,Scuffing
+0,0,0,0.034100424,19,Scuffing
+0,0,0,0.0913821,19,Scuffing
+0,0,0,0.05033063,12,Good_no_defect
+1,1,1,0.99999046,9,Foreign object - washing machine
+1,1,1,0.63522243,4,Contamination dark
+1,1,1,0.99999964,16,Mold
+0,0,0,0.016403032,12,Good_no_defect
+1,1,1,0.9999999,22,Yeast residue
+1,1,1,1.0,6,Crown cap
+0,0,0,0.026355354,19,Scuffing
+0,0,0,0.08035747,12,Good_no_defect
+0,0,0,0.009708476,19,Scuffing
+1,1,1,0.99992967,22,Yeast residue
+0,0,0,0.006289902,12,Good_no_defect
+1,1,1,0.9999987,17,No base visible
+0,0,0,0.0031726826,0,Air bubble
+1,1,1,0.99999964,6,Crown cap
+0,0,0,0.046724956,12,Good_no_defect
+1,1,1,0.9999988,22,Yeast residue
+1,1,1,0.99999905,17,No base visible
+1,1,1,0.9999999,16,Mold
+1,1,1,0.9999707,22,Yeast residue
+1,1,1,0.99999833,22,Yeast residue
+1,1,1,0.99999964,8,Foreign object - manual cleaning
+1,1,1,0.99999166,4,Contamination dark
+0,0,0,0.05340333,19,Scuffing
+1,1,1,0.99903023,16,Mold
+1,1,1,0.99973875,22,Yeast residue
+0,0,0,0.115960725,12,Good_no_defect
+1,1,1,0.9999995,11,Glass shard
+1,1,1,0.99999726,22,Yeast residue
+0,0,0,0.0433658,12,Good_no_defect
+0,0,0,0.06656919,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+0,0,0,0.078078166,5,Contamination light
+0,0,0,0.004198795,12,Good_no_defect
+1,1,1,0.99999714,6,Crown cap
+1,1,1,1.0,8,Foreign object - manual cleaning
+0,0,0,0.037892427,12,Good_no_defect
+1,1,1,0.99999833,6,Crown cap
+1,1,1,0.9999981,22,Yeast residue
+1,0,0,0.26740816,16,Mold
+1,1,1,0.99999857,17,No base visible
+1,1,1,0.9999999,16,Mold
+0,0,0,0.020023443,12,Good_no_defect
+1,1,1,0.99999905,17,No base visible
+1,0,0,0.06656919,5,Contamination light
+0,0,0,0.006903838,12,Good_no_defect
+1,1,1,1.0,16,Mold
+0,0,0,0.002472623,12,Good_no_defect
+0,0,0,0.006692851,0,Air bubble
+1,1,1,0.9999379,22,Yeast residue
+1,1,1,1.0,2,Chip
+1,1,1,0.99999833,17,No base visible
+1,1,1,0.9997546,1,Break / Crack
+1,1,1,0.99992967,22,Yeast residue
+0,0,0,0.0020507434,12,Good_no_defect
+1,1,1,0.9999993,22,Yeast residue
+0,0,0,0.0017007225,0,Air bubble
+1,1,1,1.0,17,No base visible
+0,0,0,0.0715912,19,Scuffing
+1,1,1,0.9994116,22,Yeast residue
+0,0,0,0.0046095722,12,Good_no_defect
+0,0,0,0.31997076,12,Good_no_defect
+0,0,0,0.015424552,12,Good_no_defect
+0,0,0,0.005060332,12,Good_no_defect
+1,1,1,0.9964064,4,Contamination dark
+1,1,1,0.99999464,8,Foreign object - manual cleaning
+0,0,0,0.040845715,12,Good_no_defect
+1,1,1,0.9949397,4,Contamination dark
+1,1,1,0.9991704,9,Foreign object - washing machine
+0,0,0,0.08509905,19,Scuffing
+1,1,1,0.9999999,6,Crown cap
+1,1,1,0.99997413,22,Yeast residue
+0,0,0,0.26894143,19,Scuffing
+1,1,1,0.99999857,17,No base visible
+1,0,0,0.023689471,20,Scuffing heavy
+0,0,0,0.010986943,12,Good_no_defect
+1,1,1,0.9999453,22,Yeast residue
+0,0,0,0.040845715,12,Good_no_defect
+0,0,0,0.001133569,12,Good_no_defect
+1,0,0,0.06097518,16,Mold
+1,1,1,0.9992446,4,Contamination dark
+0,0,0,0.013636836,12,Good_no_defect
+1,1,1,1.0,16,Mold
+1,1,1,0.9999988,17,No base visible
+1,1,1,0.99999917,22,Yeast residue
+1,1,1,0.99893504,4,Contamination dark
+1,1,1,0.9999993,16,Mold
+1,1,1,0.9995695,16,Mold
+1,1,1,0.9999995,9,Foreign object - washing machine
+1,1,1,0.9999999,16,Mold
+1,1,1,0.99999833,17,No base visible
+1,1,1,1.0,22,Yeast residue
+1,1,1,0.8509647,16,Mold
+1,1,1,0.9830851,4,Contamination dark
+1,1,1,0.7879312,19,Scuffing
+0,0,0,0.0009399439,12,Good_no_defect
+1,1,1,0.9964064,19,Scuffing
+1,1,1,0.9999963,22,Yeast residue
+1,1,1,0.9999926,22,Yeast residue
+0,0,0,0.017442483,12,Good_no_defect
+0,0,0,0.012053779,12,Good_no_defect
+0,0,0,0.30321574,19,Scuffing
+1,1,1,1.0,6,Crown cap
+1,1,1,0.9999988,22,Yeast residue
+1,1,1,0.9997546,4,Contamination dark
+1,1,1,0.9999982,17,No base visible
+0,0,0,0.006097562,12,Good_no_defect
+1,1,1,0.9999862,4,Contamination dark
+1,1,1,1.0,22,Yeast residue
+1,1,1,0.54334795,19,Scuffing
+1,1,1,1.0,6,Crown cap
+0,0,0,0.019124037,0,Air bubble
+0,0,0,0.43206343,19,Scuffing
+0,0,0,0.0071214284,12,Good_no_defect
+1,1,1,0.99999917,22,Yeast residue
+0,0,0,0.45689437,19,Scuffing
+0,0,0,0.18952109,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+0,0,0,0.007815889,19,Scuffing
+1,1,1,0.99944717,4,Contamination dark
+0,0,0,0.026355354,12,Good_no_defect
+1,1,1,1.0,4,Contamination dark
+1,1,1,0.61230963,19,Scuffing
+0,0,0,0.014957086,12,Good_no_defect
+1,1,1,0.9999852,22,Yeast residue
+1,1,1,0.99997723,16,Mold
+0,0,0,0.013222822,19,Scuffing
+0,0,0,0.012821214,12,Good_no_defect
+1,1,1,0.9999975,2,Chip
+1,1,1,1.0,6,Crown cap
+1,1,1,0.9999994,16,Mold
+0,0,0,0.016914913,12,Good_no_defect
+1,1,1,0.99998224,4,Contamination dark
+1,1,1,0.9952448,4,Contamination dark
+1,1,1,0.9999993,14,Label
+0,0,0,0.08632348,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99711037,4,Contamination dark
+0,0,0,0.030675802,12,Good_no_defect
+0,0,0,0.002800927,0,Air bubble
+1,1,1,0.9999994,22,Yeast residue
+1,1,1,0.9999877,4,Contamination dark
+1,1,1,0.9999999,22,Yeast residue
+0,0,0,0.002396731,12,Good_no_defect
+0,0,0,0.0053849383,12,Good_no_defect
+0,0,0,0.004331502,12,Good_no_defect
+1,1,1,0.9999994,17,No base visible
+0,0,0,0.0046095722,12,Good_no_defect
+1,1,1,1.0,22,Yeast residue
+0,0,0,0.012053779,19,Scuffing
+1,1,1,0.99999774,17,No base visible
+1,1,1,0.99982053,22,Yeast residue
+1,1,1,0.99995995,4,Contamination dark
+0,0,0,0.004331502,0,Air bubble
+0,0,0,0.016403032,12,Good_no_defect
+1,1,1,0.99371004,4,Contamination dark
+1,1,1,0.99999976,4,Contamination dark
+1,1,1,0.99242276,4,Contamination dark
+1,1,1,1.0,2,Chip
+0,0,0,0.0064882697,12,Good_no_defect
+0,0,0,0.0057302467,0,Air bubble
+1,1,1,0.99999046,10,Glass imperfection
+0,0,0,0.013222822,0,Air bubble
+1,1,1,0.97903574,4,Contamination dark
+0,0,0,0.012821214,19,Scuffing
+0,0,0,0.064653486,19,Scuffing
+1,1,1,0.9999994,6,Crown cap
+1,1,1,0.99371004,16,Mold
+0,0,0,0.02800752,12,Good_no_defect
+1,1,1,0.9999999,6,Crown cap
+1,1,1,0.99999976,22,Yeast residue
+0,0,0,0.0019877742,12,Good_no_defect
+1,1,1,0.9959299,19,Scuffing
+1,1,1,0.99999917,22,Yeast residue
+1,1,1,0.99999857,17,No base visible
+1,1,1,0.99999785,2,Chip
+0,0,0,0.004331502,19,Scuffing
+0,0,0,0.001867566,12,Good_no_defect
+0,0,0,0.018546565,12,Good_no_defect
+1,1,1,0.9999989,17,No base visible
+0,0,0,0.010986943,12,Good_no_defect
+1,1,1,0.99999857,17,No base visible
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,0.99955577,4,Contamination dark
+1,1,1,0.99999666,4,Contamination dark
+0,0,0,0.009125637,19,Scuffing
+1,1,1,0.9999833,11,Glass shard
+1,1,1,0.9999546,22,Yeast residue
+1,1,1,0.9908744,4,Contamination dark
+0,1,1,0.55302256,19,Scuffing
+0,0,0,0.019124037,12,Good_no_defect
+1,1,1,0.99999046,22,Yeast residue
+0,0,0,0.0027149853,12,Good_no_defect
+0,0,0,0.0038244836,12,Good_no_defect
+0,0,0,0.028436033,12,Good_no_defect
+1,1,1,0.99999166,22,Yeast residue
+0,0,0,0.010986943,12,Good_no_defect
+1,1,1,1.0,22,Yeast residue
+1,1,1,1.0,16,Mold
+1,1,1,0.97023994,19,Scuffing
+1,1,1,0.9805807,11,Glass shard
+0,0,0,0.020332353,12,Good_no_defect
+0,0,0,0.034100424,12,Good_no_defect
+1,1,1,0.9998313,4,Contamination dark
+1,1,1,0.9999151,22,Yeast residue
+0,0,0,0.034100424,12,Good_no_defect
+1,1,1,0.99605453,4,Contamination dark
+0,0,0,0.015424552,12,Good_no_defect
+1,1,1,0.9998977,4,Contamination dark
+1,1,1,0.99970406,4,Contamination dark
+1,1,1,0.9999969,4,Contamination dark
+0,0,0,0.025957357,12,Good_no_defect
+1,1,1,0.99986017,22,Yeast residue
+0,1,1,0.99993396,12,Good_no_defect
+1,1,1,0.9998511,16,Mold
+0,0,0,0.008315778,12,Good_no_defect
+1,1,1,0.99999845,17,No base visible
+0,0,0,0.002800927,0,Air bubble
+1,1,1,0.99911696,4,Contamination dark
+1,1,1,0.9999646,4,Contamination dark
+1,1,1,0.9999993,2,Chip
+1,1,1,0.86431044,4,Contamination dark
+1,1,1,0.99509466,22,Yeast residue
+0,0,0,0.07263671,12,Good_no_defect
+0,0,0,0.0021827165,12,Good_no_defect
+0,0,0,0.010652511,12,Good_no_defect
+0,0,0,0.003707253,12,Good_no_defect
+1,1,1,0.99989104,22,Yeast residue
+1,1,1,0.99999213,4,Contamination dark
+1,0,0,0.3233801,4,Contamination dark
+1,1,1,0.9999999,16,Mold
+1,1,1,0.6817268,20,Scuffing heavy
+0,0,0,0.019124037,12,Good_no_defect
+0,0,0,0.014957086,12,Good_no_defect
+1,1,1,0.99999845,6,Crown cap
+1,1,1,0.9999969,22,Yeast residue
+0,1,1,0.9830851,12,Good_no_defect
+0,0,0,0.008061991,12,Good_no_defect
+0,0,0,0.0025509123,0,Air bubble
+1,1,1,0.9999852,22,Yeast residue
+1,1,1,1.0,16,Mold
+1,1,1,0.9697854,19,Scuffing
+1,1,1,0.999998,4,Contamination dark
+1,1,1,0.9999988,17,No base visible
+0,0,0,0.45859116,19,Scuffing
+1,1,1,0.9999646,22,Yeast residue
+0,0,0,0.199308,12,Good_no_defect
+1,1,1,0.9999999,6,Crown cap
+1,1,1,0.9465967,4,Contamination dark
+0,0,0,0.011331754,12,Good_no_defect
+1,1,1,0.9999999,6,Crown cap
+1,1,1,0.8499712,19,Scuffing
+0,0,0,0.018264277,12,Good_no_defect
+1,1,1,0.99997723,4,Contamination dark
+0,0,0,0.08151976,12,Good_no_defect
+1,1,1,0.99993396,22,Yeast residue
+1,0,0,0.3276683,4,Contamination dark
+1,1,1,0.9999999,22,Yeast residue
+1,1,1,0.99999857,17,No base visible
+1,1,1,0.98866826,4,Contamination dark
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99998224,10,Glass imperfection
+1,1,1,1.0,17,No base visible
+1,0,0,0.01798621,4,Contamination dark
+0,0,0,0.27435136,19,Scuffing
+1,1,1,0.9871788,22,Yeast residue
+0,0,0,0.10521054,12,Good_no_defect
+0,0,0,0.01001357,12,Good_no_defect
+1,1,1,0.99999046,4,Contamination dark
+0,0,0,0.0008559007,12,Good_no_defect
+0,0,0,0.09947021,12,Good_no_defect
+0,0,0,0.2146914,19,Scuffing
+0,0,0,0.019124037,12,Good_no_defect
+0,0,0,0.0055549247,12,Good_no_defect
+1,1,1,0.99999833,17,No base visible
+1,1,1,0.99444515,16,Mold
+0,0,0,0.0040701376,12,Good_no_defect
+0,0,0,0.002800927,5,Contamination light
+0,0,0,0.008847355,12,Good_no_defect
+0,0,0,0.0029810327,12,Good_no_defect
+1,1,1,0.99999774,22,Yeast residue
+1,1,1,0.9999994,17,No base visible
+1,0,0,0.1384618,19,Scuffing
+1,1,1,0.99999547,4,Contamination dark
+0,0,0,0.019124037,12,Good_no_defect
+1,1,1,0.99879336,4,Contamination dark
+0,0,0,0.0075772414,12,Good_no_defect
+0,0,0,0.021948254,12,Good_no_defect
+0,0,0,0.005220126,0,Air bubble
+0,0,0,0.35936412,12,Good_no_defect
+1,1,1,0.81757444,16,Mold
+0,0,0,0.013222822,12,Good_no_defect
+1,1,1,0.99996233,4,Contamination dark
+1,1,1,1.0,6,Crown cap
+0,0,0,0.002396731,12,Good_no_defect
+1,1,1,0.9999989,17,No base visible
+1,1,1,0.99999213,4,Contamination dark
+1,1,1,0.99999523,1,Break / Crack
+1,1,1,1.0,17,No base visible
+0,0,0,0.0046095722,12,Good_no_defect
+1,1,1,0.99996877,22,Yeast residue
+1,1,1,0.9969246,4,Contamination dark
+1,1,1,0.99999976,17,No base visible
+1,1,1,0.9998313,22,Yeast residue
+1,1,1,0.9999999,4,Contamination dark
+0,0,0,0.016914913,12,Good_no_defect
+0,0,0,0.0140636265,12,Good_no_defect
+1,1,1,1.0,17,No base visible
+1,1,1,0.96538115,5,Contamination light
+1,1,1,1.0,17,No base visible
+0,0,0,0.0007793661,12,Good_no_defect
+0,0,0,0.028870907,12,Good_no_defect
+0,0,0,0.051082738,19,Scuffing
+1,1,1,0.9999995,17,No base visible
+0,0,0,0.008315778,12,Good_no_defect
+1,1,1,0.70821255,20,Scuffing heavy
+1,1,1,0.99978346,4,Contamination dark
+1,1,1,0.9998416,4,Contamination dark
+0,1,1,0.5607338,12,Good_no_defect
+1,1,1,0.99999344,4,Contamination dark
+1,1,1,0.9995122,4,Contamination dark
+1,1,1,1.0,14,Label
+0,0,0,0.014957086,12,Good_no_defect
+0,0,0,0.0064882697,12,Good_no_defect
+1,1,1,0.99999714,22,Yeast residue
+1,1,1,0.99999905,6,Crown cap
+1,1,1,0.9999988,17,No base visible
+1,1,1,0.99999547,22,Yeast residue
+0,0,0,0.005060332,12,Good_no_defect
+0,0,0,0.0033766122,12,Good_no_defect
+1,1,1,0.9999999,8,Foreign object - manual cleaning
+1,0,0,0.19559409,5,Contamination light
+1,1,1,0.9999852,22,Yeast residue
+1,1,1,0.99993396,17,No base visible
+1,1,1,0.99999964,22,Yeast residue
+0,0,0,0.0071214284,12,Good_no_defect
+0,0,0,0.01001357,12,Good_no_defect
+1,1,1,1.0,11,Glass shard
+0,0,0,0.067546695,12,Good_no_defect
+0,0,0,0.014957086,12,Good_no_defect
+0,0,0,0.008315778,12,Good_no_defect
+0,0,0,0.030214587,19,Scuffing
+0,0,0,0.00307537,12,Good_no_defect
+0,0,0,0.0018102111,12,Good_no_defect
+1,1,1,0.9999943,22,Yeast residue
+1,1,1,1.0,14,Label
+0,0,0,0.27590945,5,Contamination light
+1,1,1,1.0,6,Crown cap
+1,1,1,0.8872046,4,Contamination dark
+1,1,1,0.69014156,4,Contamination dark
+1,1,1,0.9999987,17,No base visible
+0,0,0,0.0715912,12,Good_no_defect
+1,1,1,1.0,4,Contamination dark
+1,1,1,0.9219218,22,Yeast residue
+0,0,1,0.48773438,12,Good_no_defect
+1,1,1,0.9999994,22,Yeast residue
+1,1,1,0.9999982,17,No base visible
+1,1,1,0.9997546,9,Foreign object - washing machine
+0,0,0,0.01243165,12,Good_no_defect
+1,1,1,1.0,17,No base visible
+1,0,0,0.39233685,19,Scuffing
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,0.9999999,6,Crown cap
+0,0,0,0.023689471,12,Good_no_defect
+0,0,0,0.0140636265,12,Good_no_defect
+1,1,1,0.9999931,16,Mold
+1,1,1,0.99999833,11,Glass shard
+1,1,1,0.9991441,22,Yeast residue
+1,1,1,0.99979657,16,Mold
+0,0,0,0.003945407,12,Good_no_defect
+0,0,0,0.021287354,19,Scuffing
+0,0,0,0.02479816,19,Scuffing
+1,1,1,0.9999999,6,Crown cap
+1,0,0,0.29178745,19,Scuffing
+1,1,1,1.0,6,Crown cap
+0,0,0,0.08151976,19,Scuffing
+0,0,0,0.0033766122,12,Good_no_defect
+0,0,0,0.0075772414,12,Good_no_defect
+1,1,1,0.99999845,17,No base visible
+0,0,0,0.009708476,19,Scuffing
+1,1,1,0.99999845,17,No base visible
+1,1,1,1.0,14,Label
+0,0,0,0.007345827,12,Good_no_defect
+0,0,0,0.011331754,12,Good_no_defect
+0,0,0,0.0021157034,12,Good_no_defect
+0,0,0,0.009708476,12,Good_no_defect
+0,0,0,0.005911069,12,Good_no_defect
+0,0,0,0.009125637,12,Good_no_defect
+0,0,0,0.0033766122,0,Air bubble
+0,0,0,0.0075772414,0,Air bubble
+1,1,1,0.9999999,11,Glass shard
+1,1,1,1.0,21,Straw
+1,1,1,0.99999666,8,Foreign object - manual cleaning
+0,0,0,0.0034834242,12,Good_no_defect
+1,1,1,1.0,2,Chip
+1,1,1,0.9999993,17,No base visible
+1,1,1,0.7446563,4,Contamination dark
+1,1,1,1.0,6,Crown cap
+0,1,1,0.6081287,0,Air bubble
+1,1,1,1.0,6,Crown cap
+0,0,0,0.03308598,12,Good_no_defect
+1,1,1,1.0,17,No base visible
+1,1,1,0.99992037,4,Contamination dark
+1,1,1,0.9999988,6,Crown cap
+1,1,1,1.0,16,Mold
+1,1,1,1.0,4,Contamination dark
+1,1,1,0.7106283,19,Scuffing
+0,1,1,0.7592254,19,Scuffing
+1,1,1,1.0,6,Crown cap
+0,0,0,0.013222822,5,Contamination light
+1,1,1,1.0,16,Mold
+1,1,1,1.0,17,No base visible
+1,1,1,0.99990976,4,Contamination dark
+0,0,0,0.0047552,12,Good_no_defect
+0,0,0,0.03567855,12,Good_no_defect
+1,1,1,0.9999862,22,Yeast residue
+0,0,0,0.01450358,12,Good_no_defect
+0,0,0,0.05033063,12,Good_no_defect
+1,1,1,0.9999757,2,Chip
+1,1,1,0.8933094,4,Contamination dark
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.0040701376,12,Good_no_defect
+0,0,0,0.017442483,12,Good_no_defect
+1,1,1,0.9999999,22,Yeast residue
+0,0,0,0.045352582,12,Good_no_defect
+0,0,0,0.011687257,12,Good_no_defect
+0,0,0,0.006692851,12,Good_no_defect
+1,1,1,0.938124,16,Mold
+1,1,1,0.99999857,17,No base visible
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99999857,17,No base visible
+1,1,1,0.9999993,17,No base visible
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99999845,17,No base visible
+0,0,0,0.01450358,12,Good_no_defect
+0,1,1,0.63431686,12,Good_no_defect
+1,1,1,0.9999151,9,Foreign object - washing machine
+1,1,1,0.9999987,17,No base visible
+0,0,0,0.016914913,12,Good_no_defect
+1,1,1,0.9999379,8,Foreign object - manual cleaning
+0,0,0,0.23651622,12,Good_no_defect
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,0.99999046,4,Contamination dark
+1,1,1,0.9999485,9,Foreign object - washing machine
+1,1,1,0.99992037,2,Chip
+1,1,1,1.0,17,No base visible
+1,1,1,0.99999976,17,No base visible
+0,0,0,0.012053779,12,Good_no_defect
+1,1,1,0.99999166,4,Contamination dark
+1,1,1,0.99242276,16,Mold
+0,0,0,0.2821962,19,Scuffing
+0,0,0,0.0018102111,12,Good_no_defect
+0,1,1,0.79182106,12,Good_no_defect
+1,1,1,0.999998,4,Contamination dark
+1,1,1,0.9999999,16,Mold
+0,0,0,0.0071214284,12,Good_no_defect
+1,1,1,1.0,1,Break / Crack
+1,1,1,0.99979657,22,Yeast residue
+0,0,0,0.042722195,12,Good_no_defect
+1,1,1,0.86703575,4,Contamination dark
+0,0,0,0.006097562,12,Good_no_defect
+1,1,1,0.9755769,16,Mold
+1,1,1,0.99965405,22,Yeast residue
+0,0,0,0.008577486,12,Good_no_defect
+1,1,1,0.9999993,17,No base visible
+1,1,1,0.99968493,4,Contamination dark
+1,1,1,1.0,22,Yeast residue
+0,0,0,0.01798621,12,Good_no_defect
+0,0,0,0.0029810327,12,Good_no_defect
+1,1,1,1.0,22,Yeast residue
+1,1,1,1.0,22,Yeast residue
+0,0,0,0.037326887,12,Good_no_defect
+0,0,0,0.016914913,0,Air bubble
+1,1,1,0.99580115,22,Yeast residue
+1,1,1,0.99963164,22,Yeast residue
+1,1,1,1.0,8,Foreign object - manual cleaning
+0,0,0,0.04885778,12,Good_no_defect
+1,1,1,0.9999994,17,No base visible
+0,0,0,0.008061991,12,Good_no_defect
+0,0,0,0.020645931,12,Good_no_defect
+0,0,0,0.010986943,12,Good_no_defect
+1,1,1,0.9999999,16,Mold
+0,0,0,0.04401865,12,Good_no_defect
+0,0,0,0.020332353,12,Good_no_defect
+0,0,0,0.005060332,12,Good_no_defect
+1,1,1,0.99992037,4,Contamination dark
+0,0,0,0.027585283,19,Scuffing
+0,0,0,0.011331754,12,Good_no_defect
+0,0,0,0.03567855,12,Good_no_defect
+0,0,0,0.007345827,12,Good_no_defect
+0,0,0,0.013636836,12,Good_no_defect
+0,0,0,0.04023794,0,Air bubble
+1,1,1,0.950411,2,Chip
+0,0,0,0.0009399439,12,Good_no_defect
+0,0,0,0.006289902,12,Good_no_defect
+1,1,1,1.0,16,Mold
+1,1,1,0.99736834,4,Contamination dark
+0,0,0,0.0032730652,12,Good_no_defect
+1,1,1,0.9984022,22,Yeast residue
+1,1,1,0.9999993,4,Contamination dark
+1,1,1,0.9999999,17,No base visible
+1,1,1,0.9999987,16,Mold
+0,0,0,0.005220126,12,Good_no_defect
+1,1,1,0.99999666,22,Yeast residue
+0,0,0,0.0023231625,12,Good_no_defect
+1,1,1,0.9207897,19,Scuffing
+1,1,1,0.9999963,22,Yeast residue
+0,0,0,0.036769465,12,Good_no_defect
+1,1,1,0.9982993,22,Yeast residue
+0,0,0,0.13117322,5,Contamination light
+0,0,0,0.009125637,12,Good_no_defect
+0,0,0,0.0038244836,12,Good_no_defect
+1,1,1,0.9980732,22,Yeast residue
+0,0,0,0.012053779,12,Good_no_defect
+0,0,0,0.001032231,12,Good_no_defect
+0,0,0,0.021287354,12,Good_no_defect
+1,1,1,1.0,9,Foreign object - washing machine
+1,1,1,1.0,1,Break / Crack
+1,1,1,0.99999106,4,Contamination dark
+1,1,1,1.0,4,Contamination dark
+1,1,1,0.9961755,14,Label
+0,0,0,0.0057302467,12,Good_no_defect
+0,0,0,0.0055549247,12,Good_no_defect
+0,0,0,0.013636836,12,Good_no_defect
+0,0,0,0.028870907,12,Good_no_defect
+1,1,1,0.99999964,17,No base visible
+1,1,1,0.99999976,17,No base visible
+1,1,1,0.95791227,5,Contamination light
+0,0,0,0.019719128,12,Good_no_defect
+0,0,0,0.2893717,19,Scuffing
+0,0,0,0.008847355,12,Good_no_defect
+1,1,1,0.9967269,4,Contamination dark
+1,1,1,0.9999862,22,Yeast residue
+1,1,1,0.99999166,22,Yeast residue
+1,1,1,0.8152325,16,Mold
+1,1,1,1.0,17,No base visible
+1,1,1,0.9999485,9,Foreign object - washing machine
+1,1,1,0.78530854,4,Contamination dark
+0,0,0,0.010328152,0,Air bubble
+1,1,1,0.99390244,4,Contamination dark
+0,0,0,0.19682622,12,Good_no_defect
+0,0,0,0.024053553,12,Good_no_defect
+0,0,0,0.08151976,12,Good_no_defect
+1,1,1,0.99999964,22,Yeast residue
+0,0,0,0.2120688,12,Good_no_defect
+1,1,1,0.99982053,4,Contamination dark
+1,1,1,1.0,6,Crown cap
+1,1,1,1.0,22,Yeast residue
+0,0,0,0.004198795,12,Good_no_defect
+0,0,0,0.3268083,19,Scuffing
+1,1,1,0.99999523,16,Mold
+1,1,1,0.9999999,16,Mold
+1,1,1,0.9890131,16,Mold
+0,0,0,0.059210252,19,Scuffing
+0,0,0,0.002800927,12,Good_no_defect
+1,1,1,0.9999958,22,Yeast residue
+0,0,0,0.0071214284,12,Good_no_defect
+0,0,0,0.018833129,12,Good_no_defect
+1,1,1,0.99999964,17,No base visible
+1,1,1,0.99998987,8,Foreign object - manual cleaning
+1,1,1,0.99999917,22,Yeast residue
+0,0,0,0.01001357,12,Good_no_defect
+1,1,1,0.99978346,16,Mold
+0,0,0,0.011687257,12,Good_no_defect
+0,0,0,0.027585283,12,Good_no_defect
+0,0,0,0.010986943,12,Good_no_defect
+0,0,0,0.030675802,12,Good_no_defect
+1,1,1,0.99999917,17,No base visible
+1,1,1,0.99999976,4,Contamination dark
+1,1,1,0.99999964,17,No base visible
+1,1,1,1.0,6,Crown cap
+0,0,0,0.0715912,12,Good_no_defect
+0,0,0,0.001133569,0,Air bubble
+1,1,1,0.99999046,11,Glass shard
+0,0,0,0.042722195,12,Good_no_defect
+1,1,1,0.9999988,10,Glass imperfection
+0,0,0,0.002631674,12,Good_no_defect
+1,1,1,0.99999917,17,No base visible
+1,1,1,0.9728308,4,Contamination dark
+0,0,0,0.0094125895,12,Good_no_defect
+1,1,1,0.99999833,17,No base visible
+1,1,1,1.0,17,No base visible
+0,0,0,0.010652511,12,Good_no_defect
+1,1,1,0.9683812,5,Contamination light
+1,1,1,0.9585377,4,Contamination dark
+1,1,1,0.99999857,16,Mold
+0,0,0,0.05340333,19,Scuffing
+0,0,0,0.004198795,12,Good_no_defect
+0,0,0,0.24364243,12,Good_no_defect
+1,1,1,0.9964064,22,Yeast residue
+0,0,0,0.012821214,12,Good_no_defect
+1,1,1,0.99997413,4,Contamination dark
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,1.0,6,Crown cap
+0,0,0,0.01450358,12,Good_no_defect
+0,0,0,0.003945407,12,Good_no_defect
+0,1,1,0.5142174,0,Air bubble
+1,1,1,0.81167597,19,Scuffing
+1,1,1,1.0,6,Crown cap
+0,0,0,0.0035936027,12,Good_no_defect
+1,1,1,0.9999379,22,Yeast residue
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.025957357,12,Good_no_defect
+0,0,0,0.01450358,12,Good_no_defect
+0,0,0,0.0029810327,12,Good_no_defect
+0,0,0,0.01798621,12,Good_no_defect
+1,1,1,1.0,11,Glass shard
+0,0,0,0.010652511,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+0,0,0,0.090092994,12,Good_no_defect
+0,0,0,0.04885778,12,Good_no_defect
+0,0,0,0.0032730652,12,Good_no_defect
+1,1,1,1.0,2,Chip
+1,1,1,1.0,17,No base visible
+1,1,1,0.99999845,17,No base visible
+0,0,1,0.4781633,12,Good_no_defect
+0,0,0,0.003707253,12,Good_no_defect
+1,1,1,0.9969246,4,Contamination dark
+1,1,1,0.9999994,19,Scuffing
+1,1,1,0.9999893,9,Foreign object - washing machine
+1,1,1,1.0,16,Mold
+1,1,1,1.0,4,Contamination dark
+0,0,0,0.008061991,12,Good_no_defect
+1,1,1,1.0,11,Glass shard
+0,0,0,0.004468384,12,Good_no_defect
+0,0,0,0.14804721,0,Air bubble
+1,1,1,1.0,17,No base visible
+0,0,0,0.06656919,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+1,1,1,0.9999975,6,Crown cap
+1,1,1,0.9999989,17,No base visible
+0,0,0,0.023689471,12,Good_no_defect
+0,0,0,0.01243165,12,Good_no_defect
+0,0,0,0.035144847,12,Good_no_defect
+0,0,0,0.0025509123,12,Good_no_defect
+1,1,1,0.7892337,4,Contamination dark
+0,0,0,0.037892427,12,Good_no_defect
+1,1,1,0.99944717,22,Yeast residue
+0,0,0,0.007815889,12,Good_no_defect
+0,0,0,0.036220055,12,Good_no_defect
+1,1,1,0.99999905,22,Yeast residue
+1,1,1,1.0,6,Crown cap
+0,0,0,0.023330769,12,Good_no_defect
+0,0,0,0.014957086,12,Good_no_defect
+0,0,0,0.09268778,12,Good_no_defect
+0,0,0,0.029760094,12,Good_no_defect
+0,0,0,0.009125637,12,Good_no_defect
+1,1,1,0.99999833,17,No base visible
+0,0,0,0.05033063,5,Contamination light
+1,1,1,1.0,8,Foreign object - manual cleaning
+0,1,1,0.9458012,5,Contamination light
+1,1,1,0.9999999,6,Crown cap
+0,0,0,0.026355354,12,Good_no_defect
+1,1,1,0.99999905,22,Yeast residue
+0,0,0,0.01450358,12,Good_no_defect
+1,1,1,0.9999833,22,Yeast residue
+1,1,1,0.99999917,6,Crown cap
+1,1,1,1.0,1,Break / Crack
+1,1,1,1.0,17,No base visible
+1,1,1,0.9999976,15,Liquid
+1,1,1,0.9241418,16,Mold
+1,0,0,0.07369627,4,Contamination dark
+1,1,1,0.99999833,17,No base visible
+0,0,0,0.004198795,12,Good_no_defect
+0,0,0,0.0053849383,12,Good_no_defect
+0,0,0,0.28298813,12,Good_no_defect
+1,1,1,1.0,11,Glass shard
+1,1,1,0.9998313,19,Scuffing
+0,1,1,0.5794004,19,Scuffing
+0,0,0,0.03567855,12,Good_no_defect
+1,1,1,0.9999989,17,No base visible
+1,1,1,0.99986017,16,Mold
+0,1,1,0.5491571,12,Good_no_defect
+0,0,0,0.12252322,12,Good_no_defect
+0,0,0,0.0053849383,12,Good_no_defect
+0,0,0,0.026759284,19,Scuffing
+0,0,0,0.015424552,12,Good_no_defect
+1,1,1,1.0,17,No base visible
+0,0,0,0.003707253,12,Good_no_defect
+0,0,0,0.017442483,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99999976,8,Foreign object - manual cleaning
+0,0,0,0.010986943,12,Good_no_defect
+1,1,1,0.99993396,22,Yeast residue
+1,1,1,1.0,6,Crown cap
+1,1,1,0.9999485,4,Contamination dark
+1,1,1,0.630685,2,Chip
+0,0,0,0.01001357,12,Good_no_defect
+0,0,0,0.018546565,12,Good_no_defect
+0,0,0,0.0021827165,12,Good_no_defect
+0,0,0,0.014957086,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+0,1,1,0.78133065,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+1,1,1,0.9999963,22,Yeast residue
+0,0,0,0.023689471,12,Good_no_defect
+0,0,0,0.006289902,12,Good_no_defect
+1,1,1,0.9863631,4,Contamination dark
+1,1,1,1.0,2,Chip
+1,1,1,0.99371004,5,Contamination light
+0,0,0,0.008847355,12,Good_no_defect
+1,1,1,0.9559813,4,Contamination dark
+1,1,1,0.99999845,17,No base visible
+1,1,1,0.9999999,6,Crown cap
+1,1,1,0.9999999,14,Label
+0,0,0,0.016914913,0,Air bubble
+1,1,1,0.92523,22,Yeast residue
+0,0,0,0.1431877,12,Good_no_defect
+1,1,1,0.99937373,2,Chip
+0,0,0,0.067546695,12,Good_no_defect
+1,1,1,0.9999999,17,No base visible
+1,1,1,1.0,4,Contamination dark
+0,0,0,0.0033766122,19,Scuffing
+0,0,0,0.028436033,19,Scuffing
+0,0,0,0.045352582,12,Good_no_defect
+1,1,1,0.51043546,4,Contamination dark
+0,0,0,0.0027149853,12,Good_no_defect
+1,1,1,0.9999994,4,Contamination dark
+1,1,1,0.99999917,17,No base visible
+1,1,1,1.0,16,Mold
+1,1,1,1.0,11,Glass shard
+1,1,1,0.99999857,17,No base visible
+1,1,1,0.9999999,6,Crown cap
+0,0,0,0.12085322,0,Air bubble
+0,0,0,0.02297737,12,Good_no_defect
+0,0,0,0.0022518474,12,Good_no_defect
+1,1,1,1.0,16,Mold
+1,0,0,0.05340333,16,Mold
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.01001357,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99999726,6,Crown cap
+1,1,1,0.99999547,22,Yeast residue
+0,0,0,0.047425874,19,Scuffing
+1,1,1,0.99824536,4,Contamination dark
+0,0,0,0.006903838,12,Good_no_defect
+1,1,1,0.9999993,2,Chip
+0,0,0,0.055823144,19,Scuffing
+1,1,1,0.7892337,16,Mold
+0,0,0,0.007345827,12,Good_no_defect
+1,1,1,0.9693242,19,Scuffing
+1,0,0,0.20181322,4,Contamination dark
+1,1,1,0.99999976,17,No base visible
+1,1,1,0.99351174,19,Scuffing
+0,0,0,0.013636836,0,Air bubble
+1,1,1,0.99999976,22,Yeast residue
+1,1,1,0.9999877,22,Yeast residue
+1,0,0,0.3415825,19,Scuffing
+1,1,1,0.9999988,17,No base visible
+1,1,1,0.9999993,17,No base visible
+0,0,0,0.1384618,19,Scuffing
+0,0,0,0.0027149853,12,Good_no_defect
+1,1,1,0.99999857,17,No base visible
+1,1,1,1.0,8,Foreign object - manual cleaning
+0,0,0,0.028870907,12,Good_no_defect
+0,0,0,0.009708476,12,Good_no_defect
+0,0,0,0.03567855,12,Good_no_defect
+1,1,1,1.0,17,No base visible
+0,0,0,0.012053779,12,Good_no_defect
+1,1,1,0.9999994,4,Contamination dark
+1,1,1,0.99999666,22,Yeast residue
+0,0,0,0.003707253,12,Good_no_defect
+0,0,0,0.02297737,12,Good_no_defect
+0,0,0,0.004468384,12,Good_no_defect
+1,1,1,0.6918097,5,Contamination light
+1,1,1,0.99886644,17,No base visible
+1,1,1,0.99982053,14,Label
+0,0,0,0.0034834242,12,Good_no_defect
+0,0,0,0.0075772414,12,Good_no_defect
+0,0,0,0.011687257,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99999833,17,No base visible
+1,1,1,0.99999976,2,Chip
+0,0,0,0.018546565,12,Good_no_defect
+0,1,1,0.7879312,12,Good_no_defect
+0,0,0,0.025565214,12,Good_no_defect
+1,1,1,0.9999151,16,Mold
+1,1,1,0.9979493,2,Chip
+0,0,0,0.008577486,12,Good_no_defect
+1,1,1,0.9998511,11,Glass shard
+0,0,0,0.065604836,19,Scuffing
+1,1,1,0.9999926,4,Contamination dark
+1,1,1,0.8962514,4,Contamination dark
+0,0,0,0.24220563,12,Good_no_defect
+0,0,0,0.008577486,12,Good_no_defect
+1,1,1,0.9911527,2,Chip
+0,0,0,0.021615332,12,Good_no_defect
+1,1,1,0.99996877,22,Yeast residue
+0,0,0,0.0094125895,12,Good_no_defect
+1,1,1,0.99999845,17,No base visible
+1,1,1,0.99999607,4,Contamination dark
+0,0,0,0.069541745,12,Good_no_defect
+1,1,1,0.7759446,4,Contamination dark
+0,0,0,0.012821214,12,Good_no_defect
+1,1,1,0.9999988,17,No base visible
+1,1,1,0.99999964,6,Crown cap
+0,0,0,0.035144847,12,Good_no_defect
+1,1,1,0.99999845,17,No base visible
+0,0,0,0.01001357,0,Air bubble
+1,1,1,0.9999989,6,Crown cap
+0,0,0,0.001867566,12,Good_no_defect
+0,0,0,0.25238407,12,Good_no_defect
+1,1,1,0.9999988,17,No base visible
+1,1,1,0.9999999,6,Crown cap
+1,0,0,0.08035747,19,Scuffing
+0,0,0,0.0094125895,12,Good_no_defect
+0,0,0,0.009708476,12,Good_no_defect
+1,1,1,1.0,17,No base visible
+0,0,0,0.010986943,12,Good_no_defect
+1,1,1,0.99968493,22,Yeast residue
+0,0,0,0.032100707,12,Good_no_defect
+1,0,0,0.26133093,16,Mold
+0,0,0,0.09268778,12,Good_no_defect
+0,0,0,0.08632348,19,Scuffing
+1,1,1,1.0,17,No base visible
+0,0,0,0.13206616,19,Scuffing
+0,0,0,0.005220126,12,Good_no_defect
+1,1,1,1.0,3,Circlip
+1,1,1,0.9999995,22,Yeast residue
+1,1,1,1.0,4,Contamination dark
+1,1,1,0.9964064,16,Mold
+0,0,0,0.005060332,12,Good_no_defect
+0,0,0,0.05419873,12,Good_no_defect
+0,0,0,0.006097562,12,Good_no_defect
+0,0,0,0.008061991,12,Good_no_defect
+0,0,0,0.44095063,19,Scuffing
+1,1,1,0.9959299,22,Yeast residue
+0,0,0,0.0013250224,12,Good_no_defect
+1,1,1,0.8624676,4,Contamination dark
+1,1,1,0.9995695,5,Contamination light
+1,1,1,0.9976769,22,Yeast residue
+1,1,1,0.9999975,22,Yeast residue
+1,1,1,0.9999995,6,Crown cap
+1,0,0,0.3098584,19,Scuffing
+1,1,1,0.9999995,10,Glass imperfection
+1,1,1,0.67832696,19,Scuffing
+0,0,0,0.0038244836,12,Good_no_defect
+0,0,0,0.003945407,12,Good_no_defect
+0,0,0,0.064653486,12,Good_no_defect
+1,1,1,0.9998511,4,Contamination dark
+0,0,0,0.005060332,19,Scuffing
+1,1,1,0.99998987,2,Chip
+1,1,1,0.9999994,11,Glass shard
+1,1,1,0.9905874,5,Contamination light
+0,0,0,0.004331502,12,Good_no_defect
+0,0,0,0.005911069,12,Good_no_defect
+0,0,0,0.0140636265,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+1,1,1,0.99999857,2,Chip
+1,1,1,0.9999988,16,Mold
+1,1,1,0.99982053,22,Yeast residue
+1,1,1,1.0,8,Foreign object - manual cleaning
+1,1,1,1.0,19,Scuffing
+1,1,1,0.99990976,4,Contamination dark
+1,1,1,0.9926542,19,Scuffing
+0,0,0,0.0009110512,19,Scuffing
+0,0,0,0.021615332,12,Good_no_defect
+1,1,1,0.9999999,16,Mold
+1,1,1,0.9998416,4,Contamination dark
+0,0,0,0.0005703157,12,Good_no_defect
+0,0,0,0.034100424,12,Good_no_defect
+1,1,1,0.99997723,22,Yeast residue
+1,1,1,0.9999757,11,Glass shard
+0,0,0,0.01798621,0,Air bubble
+1,1,1,0.99999917,9,Foreign object - washing machine
+1,1,1,1.0,17,No base visible
+0,0,0,0.016914913,12,Good_no_defect
+0,0,0,0.010328152,12,Good_no_defect
+1,1,1,0.9999995,17,No base visible
+1,1,1,0.9992206,16,Mold
+0,0,0,0.0017007225,12,Good_no_defect
+1,1,1,1.0,6,Crown cap
+0,0,0,0.065604836,19,Scuffing
+1,1,1,1.0,17,No base visible
+1,1,1,0.98998636,22,Yeast residue
+0,0,0,0.0032730652,12,Good_no_defect
+1,1,1,0.99999976,2,Chip
+1,1,1,0.9991441,16,Mold
+0,0,0,0.01243165,12,Good_no_defect
+1,1,1,0.99998987,22,Yeast residue
+0,0,0,0.0032730652,12,Good_no_defect
+0,1,1,0.5392259,12,Good_no_defect
+1,0,0,0.036769465,5,Contamination light
+0,0,0,0.020645931,0,Air bubble
+1,1,1,0.99997413,11,Glass shard
+1,1,1,0.9840936,4,Contamination dark
+1,1,1,0.677474,4,Contamination dark
+1,1,1,0.76629364,20,Scuffing heavy
+0,0,0,0.40262696,19,Scuffing
+0,1,1,0.98866826,0,Air bubble
+1,1,1,1.0,4,Contamination dark
+1,1,1,0.59502196,16,Mold
+0,0,0,0.001867566,12,Good_no_defect
+0,0,0,0.049589027,12,Good_no_defect
+1,1,1,0.9998977,22,Yeast residue
+1,1,1,0.99992037,22,Yeast residue
+1,1,1,0.9998977,10,Glass imperfection
+1,1,1,0.99999917,17,No base visible
+1,1,1,0.99999976,2,Chip
+1,1,1,0.9949397,9,Foreign object - washing machine
+0,0,0,0.0094125895,12,Good_no_defect
+0,0,0,0.0027149853,0,Air bubble
+0,0,0,0.037892427,12,Good_no_defect
+1,1,1,0.99999714,22,Yeast residue
+1,1,1,0.9999573,22,Yeast residue
+1,1,1,1.0,6,Crown cap
+1,0,1,0.48883244,4,Contamination dark
+1,1,1,0.9999999,6,Crown cap
+0,0,0,0.009708476,12,Good_no_defect
+1,1,1,0.9999994,22,Yeast residue
+1,1,1,0.99995995,4,Contamination dark
+0,1,1,0.971564,12,Good_no_defect
+1,1,1,0.9999943,16,Mold
+0,0,0,0.011687257,12,Good_no_defect
+1,1,1,0.9999757,2,Chip
+1,1,1,0.99999857,17,No base visible
+0,0,0,0.0057302467,12,Good_no_defect
+0,0,0,0.010986943,12,Good_no_defect
+1,1,1,0.9998416,4,Contamination dark
+0,0,0,0.0020507434,12,Good_no_defect
+1,1,1,0.99997413,4,Contamination dark
+1,1,1,0.99998224,4,Contamination dark
+1,1,1,0.99999917,17,No base visible
+0,0,0,0.0019877742,12,Good_no_defect
+1,1,1,0.9974491,16,Mold
+1,1,1,0.9999931,10,Glass imperfection
+1,1,1,0.97997653,4,Contamination dark
+0,0,0,0.003707253,12,Good_no_defect
+1,1,1,1.0,17,No base visible
+1,1,1,1.0,1,Break / Crack
+1,1,1,0.9993333,9,Foreign object - washing machine
+0,0,0,0.011331754,12,Good_no_defect
+0,0,0,0.022286186,12,Good_no_defect
+1,1,1,0.9999982,17,No base visible
+1,1,1,0.99979657,10,Glass imperfection
+0,0,0,0.012053779,12,Good_no_defect
+0,0,0,0.010328152,12,Good_no_defect
+0,0,0,0.0023231625,12,Good_no_defect
+1,1,1,0.98998636,22,Yeast residue
+1,1,1,0.9999982,22,Yeast residue
+1,1,1,0.99993396,4,Contamination dark
+0,0,0,0.010986943,12,Good_no_defect
+0,0,0,0.01450358,12,Good_no_defect
+1,1,1,0.9999995,4,Contamination dark
+1,1,1,0.99903023,16,Mold
+0,0,0,0.35042137,12,Good_no_defect
+1,1,1,0.99999845,17,No base visible
+1,1,1,0.99996233,22,Yeast residue
+0,0,0,0.002889581,12,Good_no_defect
+0,0,0,0.03676947,12,Good_no_defect
+1,1,1,0.93439513,14,Label
