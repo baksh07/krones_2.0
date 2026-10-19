@@ -16,19 +16,20 @@ Usage:
         --eval-csv runs/resnet50_640/eval_test.csv \\
         --root /path/to/dataset
 """
-import argparse, json
+
+import argparse
+import json
 from pathlib import Path
 from collections import Counter, defaultdict
-import numpy as np
 import pandas as pd
 
 CONDITIONAL = {
-    "Scuffing":            75000,
-    "Air bubble":            500,
-    "Contamination light":   180,
-    "Chip":                  200,
-    "Scuffing heavy":       1200,
-    "Glass imperfection":    100,
+    "Scuffing": 75000,
+    "Air bubble": 500,
+    "Contamination light": 180,
+    "Chip": 200,
+    "Scuffing heavy": 1200,
+    "Glass imperfection": 100,
 }
 
 LOWER_BORDER = 0.3
@@ -72,91 +73,120 @@ def main(args):
     print("=" * 70)
     print(f"BORDERLINE ZONE: prob in [{LOWER_BORDER}, {UPPER_BORDER}]")
     print("=" * 70)
-    print(f"borderline: {len(border)} / {len(df)} = {len(border)/len(df)*100:.2f}%")
+    print(f"borderline: {len(border)} / {len(df)} = {len(border) / len(df) * 100:.2f}%")
 
     # of these borderline cases, how many are errors vs correct?
     n_b_err = border["error"].sum()
-    print(f"  of which errors: {n_b_err}/{len(border)} = "
-          f"{n_b_err/max(1,len(border))*100:.1f}%")
-    print(f"  (compare: overall error rate is "
-          f"{df['error'].sum()/len(df)*100:.2f}%)")
+    print(
+        f"  of which errors: {n_b_err}/{len(border)} = "
+        f"{n_b_err / max(1, len(border)) * 100:.1f}%"
+    )
+    print(
+        f"  (compare: overall error rate is {df['error'].sum() / len(df) * 100:.2f}%)"
+    )
 
     # Question 2: class composition of borderline
     print()
-    print(f"per-class composition of the borderline zone:")
-    print(f"  (n_in_borderline = how many of this class are in [0.3, 0.7])")
-    print(f"  (frac = what fraction of THIS CLASS lives in the borderline zone)")
+    print("per-class composition of the borderline zone:")
+    print("  (n_in_borderline = how many of this class are in [0.3, 0.7])")
+    print("  (frac = what fraction of THIS CLASS lives in the borderline zone)")
     rows = []
     for cls in sorted(df["class"].unique()):
         n_total = (df["class"] == cls).sum()
-        n_b = ((df["class"] == cls) &
-               (df["prob"] >= LOWER_BORDER) &
-               (df["prob"] <= UPPER_BORDER)).sum()
-        n_b_err = ((df["class"] == cls) &
-                   (df["prob"] >= LOWER_BORDER) &
-                   (df["prob"] <= UPPER_BORDER) &
-                   (df["error"] == 1)).sum()
-        rows.append({
-            "class": cls,
-            "n_total": int(n_total),
-            "n_in_borderline": int(n_b),
-            "frac_borderline": float(n_b / max(1, n_total)),
-            "n_b_errors": int(n_b_err),
-            "is_conditional": cls in CONDITIONAL,
-        })
+        n_b = (
+            (df["class"] == cls)
+            & (df["prob"] >= LOWER_BORDER)
+            & (df["prob"] <= UPPER_BORDER)
+        ).sum()
+        n_b_err = (
+            (df["class"] == cls)
+            & (df["prob"] >= LOWER_BORDER)
+            & (df["prob"] <= UPPER_BORDER)
+            & (df["error"] == 1)
+        ).sum()
+        rows.append(
+            {
+                "class": cls,
+                "n_total": int(n_total),
+                "n_in_borderline": int(n_b),
+                "frac_borderline": float(n_b / max(1, n_total)),
+                "n_b_errors": int(n_b_err),
+                "is_conditional": cls in CONDITIONAL,
+            }
+        )
     bdf = pd.DataFrame(rows).sort_values("n_in_borderline", ascending=False)
     print(bdf.to_string(index=False))
 
     n_cond_in_b = bdf[bdf["is_conditional"]]["n_in_borderline"].sum()
     print(f"\n  total borderline from conditional classes: {n_cond_in_b}")
-    print(f"  total borderline from non-conditional classes: {len(border) - n_cond_in_b}")
+    print(
+        f"  total borderline from non-conditional classes: {len(border) - n_cond_in_b}"
+    )
 
     # Question 3: For Scuffing, where do the borderline cases sit on the area axis?
     print()
     print("=" * 70)
-    print(f"SCUFFING area distribution in the borderline zone (threshold=75000)")
+    print("SCUFFING area distribution in the borderline zone (threshold=75000)")
     print("=" * 70)
     scuff = df[df["class"] == "Scuffing"].copy()
-    scuff_b = scuff[(scuff["prob"] >= LOWER_BORDER) & (scuff["prob"] <= UPPER_BORDER)].copy()
+    scuff_b = scuff[
+        (scuff["prob"] >= LOWER_BORDER) & (scuff["prob"] <= UPPER_BORDER)
+    ].copy()
     print(f"Scuffing samples in test: {len(scuff)}")
     print(f"Scuffing in borderline zone: {len(scuff_b)}")
     if len(scuff_b) > 0:
-        print(f"\n  area buckets of borderline Scuffing:")
-        bins = [(0, 1000), (1000, 10000), (10000, 50000),
-                (50000, 75000), (75000, 100000), (100000, 1e9)]
+        print("\n  area buckets of borderline Scuffing:")
+        bins = [
+            (0, 1000),
+            (1000, 10000),
+            (10000, 50000),
+            (50000, 75000),
+            (75000, 100000),
+            (100000, 1e9),
+        ]
         for lo, hi in bins:
             n = ((scuff_b["cond_area"] >= lo) & (scuff_b["cond_area"] < hi)).sum()
-            n_correct = ((scuff_b["cond_area"] >= lo) &
-                         (scuff_b["cond_area"] < hi) &
-                         (scuff_b["error"] == 0)).sum()
-            print(f"    area [{lo:>7}, {hi:>7}): {n:>3d} cases  "
-                  f"correct {n_correct}, errors {n - n_correct}")
+            n_correct = (
+                (scuff_b["cond_area"] >= lo)
+                & (scuff_b["cond_area"] < hi)
+                & (scuff_b["error"] == 0)
+            ).sum()
+            print(
+                f"    area [{lo:>7}, {hi:>7}): {n:>3d} cases  "
+                f"correct {n_correct}, errors {n - n_correct}"
+            )
 
     # how many borderline Scuffing cases are NEAR the threshold (might benefit from segmenter)
-    near_thr = ((scuff_b["cond_area"] >= 50000) & (scuff_b["cond_area"] <= 100000)).sum()
+    near_thr = (
+        (scuff_b["cond_area"] >= 50000) & (scuff_b["cond_area"] <= 100000)
+    ).sum()
     far_below = (scuff_b["cond_area"] < 50000).sum()
     far_above = (scuff_b["cond_area"] > 100000).sum()
-    print(f"\n  near threshold (50k-100k): {near_thr}  "
-          f"(true ambiguous cases — segmenter can help)")
-    print(f"  far below (< 50k):         {far_below}  "
-          f"(should be Good — segmenter would say no)")
-    print(f"  far above (> 100k):        {far_above}  "
-          f"(should be Faulty — segmenter would confirm)")
+    print(
+        f"\n  near threshold (50k-100k): {near_thr}  "
+        f"(true ambiguous cases — segmenter can help)"
+    )
+    print(
+        f"  far below (< 50k):         {far_below}  "
+        f"(should be Good — segmenter would say no)"
+    )
+    print(
+        f"  far above (> 100k):        {far_above}  "
+        f"(should be Faulty — segmenter would confirm)"
+    )
 
     # Question 4: How many errors specifically would the hybrid catch?
     print()
     print("=" * 70)
-    print(f"WOULD HYBRID INFERENCE FIX THESE ERRORS?")
+    print("WOULD HYBRID INFERENCE FIX THESE ERRORS?")
     print("=" * 70)
-    print(f"Reasoning: the segmenter computes Scuffing area, applies threshold 75000.")
-    print(f"For each error in the borderline zone, what does the area threshold say?")
+    print("Reasoning: the segmenter computes Scuffing area, applies threshold 75000.")
+    print("For each error in the borderline zone, what does the area threshold say?")
     print()
     # for borderline cases that are ERRORS in conditional classes, would
     # applying the area threshold yield the correct answer?
     borderline_errors = df[
-        (df["prob"] >= LOWER_BORDER) &
-        (df["prob"] <= UPPER_BORDER) &
-        (df["error"] == 1)
+        (df["prob"] >= LOWER_BORDER) & (df["prob"] <= UPPER_BORDER) & (df["error"] == 1)
     ]
     n_savable = 0
     n_total_borderline_errors = 0
@@ -177,15 +207,18 @@ def main(args):
     print(f"  of which would be FIXED by area threshold: {n_savable}")
     print(f"  remaining unfixed: {n_total_borderline_errors - n_savable}")
     print()
-    print(f"NOTE: this is an UPPER BOUND — assumes the segmenter perfectly recovers")
-    print(f"the annotation polygon area. In practice the segmenter has its own errors,")
-    print(f"so realistic gain is ~50-70% of this upper bound.")
+    print("NOTE: this is an UPPER BOUND — assumes the segmenter perfectly recovers")
+    print("the annotation polygon area. In practice the segmenter has its own errors,")
+    print("so realistic gain is ~50-70% of this upper bound.")
 
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("--eval-csv", required=True,
-                   help="path to eval_test.csv or eval_val.csv from eval.py")
+    p.add_argument(
+        "--eval-csv",
+        required=True,
+        help="path to eval_test.csv or eval_val.csv from eval.py",
+    )
     p.add_argument("--root", required=True, help="dataset root")
     args = p.parse_args()
     main(args)

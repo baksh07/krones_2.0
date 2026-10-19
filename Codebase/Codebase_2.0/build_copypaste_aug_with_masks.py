@@ -21,26 +21,33 @@ Usage:
     python build_copypaste_aug_with_masks.py --root /path/to/dataset --target 200 --seed 42
 """
 
-import os, json, argparse, random, math
+import os
+import json
+import argparse
+import random
 from collections import defaultdict, Counter
 import numpy as np
 import pandas as pd
 from PIL import Image, ImageDraw, ImageFilter
 
 RARE_CLASSES = {
-    "Insect":                 dict(placement="anywhere", max_tile_frac=0.05,
-                                   rot=(0, 360), scale=(0.85, 1.20)),
-    "Foil / Semitransparent": dict(placement="anywhere", max_tile_frac=0.10,
-                                   rot=(0, 360), scale=(0.85, 1.20)),
-    "Paint residue":          dict(placement="anywhere", max_tile_frac=0.05,
-                                   rot=(0, 360), scale=(0.85, 1.20)),
-    "Liquid":                 dict(placement="anywhere", max_tile_frac=0.10,
-                                   rot=(0, 360), scale=(0.85, 1.20)),
+    "Insect": dict(
+        placement="anywhere", max_tile_frac=0.05, rot=(0, 360), scale=(0.85, 1.20)
+    ),
+    "Foil / Semitransparent": dict(
+        placement="anywhere", max_tile_frac=0.10, rot=(0, 360), scale=(0.85, 1.20)
+    ),
+    "Paint residue": dict(
+        placement="anywhere", max_tile_frac=0.05, rot=(0, 360), scale=(0.85, 1.20)
+    ),
+    "Liquid": dict(
+        placement="anywhere", max_tile_frac=0.10, rot=(0, 360), scale=(0.85, 1.20)
+    ),
 }
 DROPPED_CLASSES = ["Circlip", "Straw"]
 
 MIN_DEFECT_AREA = 80
-FEATHER_PX  = 3
+FEATHER_PX = 3
 EDGE_MARGIN_FRAC = 0.10
 MAX_PLACE_ATTEMPTS = 30
 
@@ -86,14 +93,18 @@ def random_transform(tile, rng, rot_range, scale_range):
     return out
 
 
-def find_paste_location(dest_w, dest_h, tile_w, tile_h, roi_in_crop, rng,
-                         placement="anywhere"):
+def find_paste_location(
+    dest_w, dest_h, tile_w, tile_h, roi_in_crop, rng, placement="anywhere"
+):
     rx0, ry0, rx1, ry1 = roi_in_crop
-    rw = rx1 - rx0; rh = ry1 - ry0
+    rw = rx1 - rx0
+    rh = ry1 - ry0
     mx = int(rw * EDGE_MARGIN_FRAC)
     my = int(rh * EDGE_MARGIN_FRAC)
-    rx0 += mx; ry0 += my
-    rx1 -= mx; ry1 -= my
+    rx0 += mx
+    ry0 += my
+    rx1 -= mx
+    ry1 -= my
     if placement == "bottom_half":
         ry0 = ry0 + (ry1 - ry0) // 2
     valid_x_min = rx0
@@ -128,42 +139,42 @@ def build_paste_mask(dest_w, dest_h, tile_la, pos, alpha_threshold=64):
     mask of the actual defect region.
     """
     canvas = Image.new("L", (dest_w, dest_h), 0)
-    tile_a = tile_la.split()[-1]                        # extract alpha channel
-    canvas.paste(tile_a, pos)                            # place at paste position
+    tile_a = tile_la.split()[-1]  # extract alpha channel
+    canvas.paste(tile_a, pos)  # place at paste position
     arr = np.asarray(canvas, dtype=np.uint8)
     binary = (arr >= alpha_threshold).astype(np.uint8) * 255
     return Image.fromarray(binary, mode="L")
 
 
 def main(root, target_per_class, seed):
-    img_dir   = os.path.join(root, "train_images")
-    ann_path  = os.path.join(root, "train_annotations.json")
-    out_dir   = os.path.join(root, "audit_output")
+    img_dir = os.path.join(root, "train_images")
+    ann_path = os.path.join(root, "train_annotations.json")
+    out_dir = os.path.join(root, "audit_output")
     crops_dir = os.path.join(out_dir, "crops")
-    aug_dir   = os.path.join(out_dir, "crops_aug")
-    aug_mask_dir = os.path.join(out_dir, "crops_aug_masks")     # NEW
+    aug_dir = os.path.join(out_dir, "crops_aug")
+    aug_mask_dir = os.path.join(out_dir, "crops_aug_masks")  # NEW
     os.makedirs(aug_dir, exist_ok=True)
-    os.makedirs(aug_mask_dir, exist_ok=True)                    # NEW
+    os.makedirs(aug_mask_dir, exist_ok=True)  # NEW
 
     rng = random.Random(seed)
     np.random.seed(seed)
 
     # 1. load metadata
-    print(f"[1/5] loading metadata ...")
+    print("[1/5] loading metadata ...")
     ann = json.load(open(ann_path, "r"))
     cats = {c["id"]: c["name"] for c in ann["categories"]}
     name2id = {v: k for k, v in cats.items()}
     fname_of = {im["id"]: im["file_name"] for im in ann["images"]}
     splits_df = pd.read_csv(os.path.join(out_dir, "splits.csv"))
-    meta_df   = pd.read_csv(os.path.join(out_dir, "crops_meta.csv"))
+    meta_df = pd.read_csv(os.path.join(out_dir, "crops_meta.csv"))
 
     available = [c for c in RARE_CLASSES.keys() if c in name2id]
-    missing   = [c for c in RARE_CLASSES.keys() if c not in name2id]
+    missing = [c for c in RARE_CLASSES.keys() if c not in name2id]
     if missing:
         print(f"      WARNING: missing classes in annotations: {missing}")
 
     # 2. collect candidate defect tiles per class
-    print(f"[2/5] collecting defect tiles per class (train split only) ...")
+    print("[2/5] collecting defect tiles per class (train split only) ...")
     train_image_ids = set(splits_df[splits_df["split"] == "train"]["image_id"].tolist())
 
     class_anns = defaultdict(list)
@@ -183,7 +194,7 @@ def main(root, target_per_class, seed):
         print(f"      {c:30s}: {len(class_anns[c])} candidate annotations")
 
     # 3. collect Good destination crops
-    print(f"[3/5] collecting destination crops (Good, train only) ...")
+    print("[3/5] collecting destination crops (Good, train only) ...")
     good_train = splits_df[(splits_df["split"] == "train") & (splits_df["label"] == 0)]
     good_train = good_train.merge(meta_df, on=["image_id", "file_name"], how="left")
     print(f"      {len(good_train)} Good train crops available as backgrounds")
@@ -191,8 +202,13 @@ def main(root, target_per_class, seed):
     # 4. synthesize
     print(f"[4/5] synthesizing up to {target_per_class} images per class ...")
     n_real_train_per_class = (
-        splits_df[(splits_df["split"] == "train") & (splits_df["dominant"].isin(available))]
-        .groupby("dominant").size().to_dict())
+        splits_df[
+            (splits_df["split"] == "train") & (splits_df["dominant"].isin(available))
+        ]
+        .groupby("dominant")
+        .size()
+        .to_dict()
+    )
 
     new_rows = []
     sanity_log = []
@@ -206,10 +222,14 @@ def main(root, target_per_class, seed):
         n_real = n_real_train_per_class.get(cname, 0)
         n_synth = max(0, target_per_class - n_real)
         if n_synth == 0:
-            print(f"      [{cname}] already has {n_real} >= target {target_per_class}, no synth")
+            print(
+                f"      [{cname}] already has {n_real} >= target {target_per_class}, no synth"
+            )
             continue
-        print(f"      [{cname}] real={n_real}  synth_target={n_synth}  "
-              f"placement={cfg['placement']}  max_tile_frac={cfg['max_tile_frac']}")
+        print(
+            f"      [{cname}] real={n_real}  synth_target={n_synth}  "
+            f"placement={cfg['placement']}  max_tile_frac={cfg['max_tile_frac']}"
+        )
 
         produced = 0
         attempts = 0
@@ -247,10 +267,17 @@ def main(root, target_per_class, seed):
 
                 pos = None
                 for _ in range(MAX_PLACE_ATTEMPTS):
-                    pos = find_paste_location(dW, dH, tile.width, tile.height,
-                                              roi_in_crop, rng,
-                                              placement=cfg["placement"])
-                    if pos: break
+                    pos = find_paste_location(
+                        dW,
+                        dH,
+                        tile.width,
+                        tile.height,
+                        roi_in_crop,
+                        rng,
+                        placement=cfg["placement"],
+                    )
+                    if pos:
+                        break
                 if pos is None:
                     continue
 
@@ -265,30 +292,34 @@ def main(root, target_per_class, seed):
                 mask_path = os.path.join(aug_mask_dir, out_name)
                 mask_img.save(mask_path, "PNG")
 
-                new_rows.append({
-                    "image_id":    -1,
-                    "file_name":   out_name,
-                    "label":       1,
-                    "dominant":    cname,
-                    "borderline":  0,
-                    "strat_key":   f"1|{cname}|0",
-                    "strat_key_eff": f"1|{cname}|0",
-                    "split":       "train",
-                    "is_synth":    1,
-                    "synth_source_image_id": int(src_iid),
-                    "synth_dest_file":       d["file_name"],
-                    "paste_x":     int(pos[0]),
-                    "paste_y":     int(pos[1]),
-                    "paste_w":     int(tile.width),
-                    "paste_h":     int(tile.height),
-                })
+                new_rows.append(
+                    {
+                        "image_id": -1,
+                        "file_name": out_name,
+                        "label": 1,
+                        "dominant": cname,
+                        "borderline": 0,
+                        "strat_key": f"1|{cname}|0",
+                        "strat_key_eff": f"1|{cname}|0",
+                        "split": "train",
+                        "is_synth": 1,
+                        "synth_source_image_id": int(src_iid),
+                        "synth_dest_file": d["file_name"],
+                        "paste_x": int(pos[0]),
+                        "paste_y": int(pos[1]),
+                        "paste_w": int(tile.width),
+                        "paste_h": int(tile.height),
+                    }
+                )
                 produced += 1
         sanity_log.append((cname, n_real, produced, attempts, rejected_too_big[cname]))
-        print(f"      [{cname}] produced {produced}/{n_synth}  "
-              f"(attempts={attempts}, size-rejected={rejected_too_big[cname]})")
+        print(
+            f"      [{cname}] produced {produced}/{n_synth}  "
+            f"(attempts={attempts}, size-rejected={rejected_too_big[cname]})"
+        )
 
     # 5. write augmented splits + summary
-    print(f"[5/5] writing splits_aug.csv and summary ...")
+    print("[5/5] writing splits_aug.csv and summary ...")
     if "is_synth" not in splits_df.columns:
         splits_df["is_synth"] = 0
     if new_rows:
@@ -296,14 +327,25 @@ def main(root, target_per_class, seed):
         for col in splits_df.columns:
             if col not in new_df.columns:
                 new_df[col] = None
-        new_df = new_df[list(splits_df.columns) + [c for c in new_df.columns if c not in splits_df.columns]]
-        out_df = pd.concat([splits_df.assign(
-                                is_synth=0,
-                                synth_source_image_id=None,
-                                synth_dest_file=None,
-                                paste_x=None, paste_y=None,
-                                paste_w=None, paste_h=None),
-                            new_df], ignore_index=True)
+        new_df = new_df[
+            list(splits_df.columns)
+            + [c for c in new_df.columns if c not in splits_df.columns]
+        ]
+        out_df = pd.concat(
+            [
+                splits_df.assign(
+                    is_synth=0,
+                    synth_source_image_id=None,
+                    synth_dest_file=None,
+                    paste_x=None,
+                    paste_y=None,
+                    paste_w=None,
+                    paste_h=None,
+                ),
+                new_df,
+            ],
+            ignore_index=True,
+        )
     else:
         out_df = splits_df.assign(is_synth=0)
 
@@ -311,25 +353,34 @@ def main(root, target_per_class, seed):
 
     lines = []
     L = lines.append
-    L("="*70); L("COPY-PASTE AUGMENTATION SUMMARY (with segmentation masks)"); L("="*70)
+    L("=" * 70)
+    L("COPY-PASTE AUGMENTATION SUMMARY (with segmentation masks)")
+    L("=" * 70)
     L(f"target per class : {target_per_class}")
     L(f"seed             : {seed}")
     L(f"composite dir    : {aug_dir}")
     L(f"mask dir         : {aug_mask_dir}")
     L("")
-    L(f"DROPPED from copy-paste:")
+    L("DROPPED from copy-paste:")
     for c in DROPPED_CLASSES:
-        n_real_dropped = (splits_df[(splits_df["split"] == "train") &
-                                    (splits_df["dominant"] == c)].shape[0])
+        n_real_dropped = splits_df[
+            (splits_df["split"] == "train") & (splits_df["dominant"] == c)
+        ].shape[0]
         L(f"  - {c:<28s} ({n_real_dropped} real train images, no synth)")
     L("")
-    L(f"{'class':<28s} {'real_train':>11s} {'synth_made':>11s} {'final':>7s} {'attempts':>9s} {'too_big':>9s}")
+    L(
+        f"{'class':<28s} {'real_train':>11s} {'synth_made':>11s} {'final':>7s} {'attempts':>9s} {'too_big':>9s}"
+    )
     for cname, n_real, produced, attempts, too_big in sanity_log:
-        L(f"{cname:<28s} {n_real:>11d} {produced:>11d} {n_real+produced:>7d} {attempts:>9d} {too_big:>9d}")
+        L(
+            f"{cname:<28s} {n_real:>11d} {produced:>11d} {n_real + produced:>7d} {attempts:>9d} {too_big:>9d}"
+        )
     L("")
-    total_real = sum(r for _,r,_,_,_ in sanity_log)
-    total_synth = sum(p for _,_,p,_,_ in sanity_log)
-    L(f"totals: real={total_real}  synth={total_synth}  combined={total_real+total_synth}")
+    total_real = sum(r for _, r, _, _, _ in sanity_log)
+    total_synth = sum(p for _, _, p, _, _ in sanity_log)
+    L(
+        f"totals: real={total_real}  synth={total_synth}  combined={total_real + total_synth}"
+    )
     L("")
     report = "\n".join(lines)
     print(report)
@@ -340,8 +391,9 @@ def main(root, target_per_class, seed):
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("--root", required=True)
-    p.add_argument("--target", type=int, default=200,
-                   help="target real+synth count per rare class")
+    p.add_argument(
+        "--target", type=int, default=200, help="target real+synth count per rare class"
+    )
     p.add_argument("--seed", type=int, default=42)
     args = p.parse_args()
     main(args.root, args.target, args.seed)

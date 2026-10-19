@@ -35,26 +35,27 @@ from infer_to_submission import (  # noqa: E402
     predict_roi,
 )
 
-DATA_ROOT = Path('/home/dll0202/baksh/dataset/1st-krones-vision-ai-challenge')
-ANN_FILE = DATA_ROOT / 'train_annotations.json'
-SRC_IMG_DIR = DATA_ROOT / 'train_images'
-DEFAULT_ONNX = REPO_ROOT / 'output' / 'ROI_Detector' / 'best.onnx'
+from project_paths import DATA_ROOT
+
+ANN_FILE = DATA_ROOT / "train_annotations.json"
+SRC_IMG_DIR = DATA_ROOT / "train_images"
+DEFAULT_ONNX = REPO_ROOT / "output" / "ROI_Detector" / "best.onnx"
 
 
 def gt_roi_box(image_id: str) -> tuple[int, int, int, int] | None:
     with open(ANN_FILE) as f:
         coco = json.load(f)
-    name_to_id = {im['file_name']: im['id'] for im in coco['images']}
-    img_by_id = {im['id']: im for im in coco['images']}
+    name_to_id = {im["file_name"]: im["id"] for im in coco["images"]}
+    img_by_id = {im["id"]: im for im in coco["images"]}
     if image_id not in name_to_id:
         return None
     img_id = name_to_id[image_id]
     im = img_by_id[img_id]
-    W, H = im['width'], im['height']
-    roi_cat_id = next(c['id'] for c in coco['categories'] if c['name'] == 'Roi')
-    for ann in coco['annotations']:
-        if ann['image_id'] == img_id and ann['category_id'] == roi_cat_id:
-            rx, ry, rw, rh = ann['bbox']
+    W, H = im["width"], im["height"]
+    roi_cat_id = next(c["id"] for c in coco["categories"] if c["name"] == "Roi")
+    for ann in coco["annotations"]:
+        if ann["image_id"] == img_id and ann["category_id"] == roi_cat_id:
+            rx, ry, rw, rh = ann["bbox"]
             cx0 = max(0, int(round(rx - ROI_PADDING)))
             cy0 = max(0, int(round(ry - ROI_PADDING)))
             cx1 = min(W, int(round(rx + rw + ROI_PADDING)))
@@ -78,54 +79,62 @@ def iou(a, b):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--onnx', type=Path, default=DEFAULT_ONNX)
-    parser.add_argument('--image-id', type=str, default=None,
-                        help='Filename to test (default: first one in annotations)')
+    parser.add_argument("--onnx", type=Path, default=DEFAULT_ONNX)
+    parser.add_argument(
+        "--image-id",
+        type=str,
+        default=None,
+        help="Filename to test (default: first one in annotations)",
+    )
     args = parser.parse_args()
 
     if not args.onnx.exists():
-        sys.exit(f'ERROR: ONNX not found: {args.onnx}')
+        sys.exit(f"ERROR: ONNX not found: {args.onnx}")
 
     session = build_roi_session(args.onnx)
     inp = session.get_inputs()[0]
     outs = session.get_outputs()
-    print(f'Input:  name={inp.name}  shape={inp.shape}  dtype={inp.type}')
+    print(f"Input:  name={inp.name}  shape={inp.shape}  dtype={inp.type}")
     for o in outs:
-        print(f'Output: name={o.name}  shape={o.shape}  dtype={o.type}')
+        print(f"Output: name={o.name}  shape={o.shape}  dtype={o.type}")
     print()
 
     # Pick test image
     if args.image_id is None:
         with open(ANN_FILE) as f:
             coco = json.load(f)
-        args.image_id = coco['images'][0]['file_name']
+        args.image_id = coco["images"][0]["file_name"]
     img_path = SRC_IMG_DIR / args.image_id
     img = cv2.imread(str(img_path))
     if img is None:
-        sys.exit(f'ERROR: could not read {img_path}')
+        sys.exit(f"ERROR: could not read {img_path}")
     H, W = img.shape[:2]
-    print(f'Image: {args.image_id}  ({W}x{H})')
+    print(f"Image: {args.image_id}  ({W}x{H})")
 
     # Raw output dump (top-5 by score, assuming column 4 is score)
     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     lb, scale, pad_x, pad_y = letterbox(img_rgb)
     x = (lb.astype(np.float32) / 255.0).transpose(2, 0, 1)[None, ...]
     raw = session.run(None, {inp.name: x})[0]
-    print(f'\nRaw output shape: {raw.shape}')
-    print(f'Letterbox: scale={scale:.4f}, pad=({pad_x}, {pad_y})')
+    print(f"\nRaw output shape: {raw.shape}")
+    print(f"Letterbox: scale={scale:.4f}, pad=({pad_x}, {pad_y})")
 
     if raw.ndim == 3 and raw.shape[-1] == 6:
         dets = raw[0]
         # Top-5 by what we believe is the score column
         order = np.argsort(-dets[:, 4])[:5]
-        print('\nTop-5 detections (assuming x1,y1,x2,y2,score,cls in 640-letterbox coords):')
+        print(
+            "\nTop-5 detections (assuming x1,y1,x2,y2,score,cls in 640-letterbox coords):"
+        )
         for i, idx in enumerate(order):
             d = dets[idx]
-            print(f'  [{i}] x1={d[0]:8.2f} y1={d[1]:8.2f} '
-                  f'x2={d[2]:8.2f} y2={d[3]:8.2f} '
-                  f'score={d[4]:.4f} cls={d[5]:.0f}')
+            print(
+                f"  [{i}] x1={d[0]:8.2f} y1={d[1]:8.2f} "
+                f"x2={d[2]:8.2f} y2={d[3]:8.2f} "
+                f"score={d[4]:.4f} cls={d[5]:.0f}"
+            )
     else:
-        print('\nUnexpected output layout — print first row for inspection:')
+        print("\nUnexpected output layout — print first row for inspection:")
         print(raw.reshape(-1, raw.shape[-1])[:3])
 
     # Run the actual function and compare to GT
@@ -134,19 +143,23 @@ def main():
 
     print()
     if pred_box is None:
-        print('predict_roi() returned None — script will fall back to full image.')
+        print("predict_roi() returned None — script will fall back to full image.")
     else:
-        print(f'Predicted padded crop box: {pred_box}  '
-              f'({pred_box[2]-pred_box[0]}x{pred_box[3]-pred_box[1]})')
+        print(
+            f"Predicted padded crop box: {pred_box}  "
+            f"({pred_box[2] - pred_box[0]}x{pred_box[3] - pred_box[1]})"
+        )
     if gt_box is None:
-        print('No GT ROI annotation found for this image.')
+        print("No GT ROI annotation found for this image.")
     else:
-        print(f'GT padded crop box:        {gt_box}  '
-              f'({gt_box[2]-gt_box[0]}x{gt_box[3]-gt_box[1]})')
+        print(
+            f"GT padded crop box:        {gt_box}  "
+            f"({gt_box[2] - gt_box[0]}x{gt_box[3] - gt_box[1]})"
+        )
     if pred_box is not None and gt_box is not None:
-        print(f'IoU(pred, gt) = {iou(pred_box, gt_box):.4f}')
-        print('  Expect IoU > 0.95 if the ONNX layout assumption is correct.')
+        print(f"IoU(pred, gt) = {iou(pred_box, gt_box):.4f}")
+        print("  Expect IoU > 0.95 if the ONNX layout assumption is correct.")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -21,6 +21,7 @@ Notes:
     The actual decision threshold is applied later in evaluate_rule.py.
   - Mask areas are computed in the crop's native pixel space (not normalized).
 """
+
 import argparse
 import csv
 from pathlib import Path
@@ -32,30 +33,36 @@ from ultralytics import YOLO
 
 # Class names matching the YOLO-seg dataset (Design A, 7 classes)
 CLASS_NAMES = [
-    "Scuffing",            # 0  (conditional, threshold 75,000 px)
-    "Air bubble",          # 1  (conditional, threshold 500)
-    "Contamination light", # 2  (conditional, threshold 180)
-    "Chip",                # 3  (conditional, threshold 200)
-    "Scuffing heavy",      # 4  (conditional, threshold 1,200)
+    "Scuffing",  # 0  (conditional, threshold 75,000 px)
+    "Air bubble",  # 1  (conditional, threshold 500)
+    "Contamination light",  # 2  (conditional, threshold 180)
+    "Chip",  # 3  (conditional, threshold 200)
+    "Scuffing heavy",  # 4  (conditional, threshold 1,200)
     "Glass imperfection",  # 5  (conditional, threshold 100)
-    "Hard-Faulty",         # 6  (always Faulty)
+    "Hard-Faulty",  # 6  (always Faulty)
 ]
 N_CLASSES = len(CLASS_NAMES)
 
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--model", required=True,
-                   help="Path to trained YOLO-seg .pt checkpoint")
-    p.add_argument("--images_dir", required=True,
-                   help="Directory of crop images to run inference on")
-    p.add_argument("--out_csv", required=True,
-                   help="Output CSV path")
+    p.add_argument(
+        "--model", required=True, help="Path to trained YOLO-seg .pt checkpoint"
+    )
+    p.add_argument(
+        "--images_dir",
+        required=True,
+        help="Directory of crop images to run inference on",
+    )
+    p.add_argument("--out_csv", required=True, help="Output CSV path")
     p.add_argument("--imgsz", type=int, default=640)
-    p.add_argument("--conf", type=float, default=0.05,
-                   help="Base confidence floor for raw inference (low = catch all)")
-    p.add_argument("--iou", type=float, default=0.7,
-                   help="NMS IoU threshold")
+    p.add_argument(
+        "--conf",
+        type=float,
+        default=0.05,
+        help="Base confidence floor for raw inference (low = catch all)",
+    )
+    p.add_argument("--iou", type=float, default=0.7, help="NMS IoU threshold")
     p.add_argument("--device", default="0")
     p.add_argument("--batch", type=int, default=16)
     args = p.parse_args()
@@ -69,8 +76,13 @@ def main():
         raise FileNotFoundError(f"Images dir not found: {images_dir}")
 
     # Collect image files (Ultralytics handles dir input but we want explicit ordering)
-    img_files = sorted([f for f in images_dir.iterdir()
-                        if f.suffix.lower() in (".png", ".jpg", ".jpeg")])
+    img_files = sorted(
+        [
+            f
+            for f in images_dir.iterdir()
+            if f.suffix.lower() in (".png", ".jpg", ".jpeg")
+        ]
+    )
     if not img_files:
         raise RuntimeError(f"No images found in {images_dir}")
     print(f"Found {len(img_files)} images in {images_dir}")
@@ -93,7 +105,7 @@ def main():
 
     # Process in batches via Ultralytics' built-in batching
     for i in tqdm(range(0, len(img_files), args.batch), desc="batches"):
-        batch_files = [str(f) for f in img_files[i:i + args.batch]]
+        batch_files = [str(f) for f in img_files[i : i + args.batch]]
         results = model.predict(
             source=batch_files,
             imgsz=args.imgsz,
@@ -128,11 +140,15 @@ def main():
                     # Scale factor for area (linear scale squared)
                     area_scale = (orig_h * orig_w) / (model_h * model_w)
 
-                    mask_areas = masks.sum(axis=(1, 2)) * area_scale  # area in orig pixels
+                    mask_areas = (
+                        masks.sum(axis=(1, 2)) * area_scale
+                    )  # area in orig pixels
                 else:
                     # No mask data -> fall back to bbox area
                     bboxes = result.boxes.xyxy.cpu().numpy()
-                    mask_areas = (bboxes[:, 2] - bboxes[:, 0]) * (bboxes[:, 3] - bboxes[:, 1])
+                    mask_areas = (bboxes[:, 2] - bboxes[:, 0]) * (
+                        bboxes[:, 3] - bboxes[:, 1]
+                    )
 
                 for cid, conf, area in zip(cls_ids, confs, mask_areas):
                     if 0 <= cid < N_CLASSES:
@@ -155,20 +171,28 @@ def main():
         writer.writerows(rows)
 
     print(f"\nWrote {len(rows)} rows to {out_path}")
-    print(f"Columns: {len(header)} ({len(header)-1} per-class fields + file_name)")
+    print(f"Columns: {len(header)} ({len(header) - 1} per-class fields + file_name)")
 
     # Summary stats
     print("\nPer-class detection summary:")
-    print(f"  {'Class':<24s} {'images_with_det':>16s} {'avg_max_conf':>14s} "
-          f"{'avg_area_when_det':>18s}")
+    print(
+        f"  {'Class':<24s} {'images_with_det':>16s} {'avg_max_conf':>14s} "
+        f"{'avg_area_when_det':>18s}"
+    )
     for c in range(N_CLASSES):
         confs = [float(r[1 + c * 3]) for r in rows]
         areas = [int(r[2 + c * 3]) for r in rows]
         n_with_det = sum(1 for x in confs if x > 0)
         avg_conf = np.mean([x for x in confs if x > 0]) if n_with_det > 0 else 0.0
-        avg_area = np.mean([a for a, c_ in zip(areas, confs) if c_ > 0]) if n_with_det > 0 else 0.0
-        print(f"  {CLASS_NAMES[c]:<24s} {n_with_det:>16d} {avg_conf:>14.3f} "
-              f"{avg_area:>18.0f}")
+        avg_area = (
+            np.mean([a for a, c_ in zip(areas, confs) if c_ > 0])
+            if n_with_det > 0
+            else 0.0
+        )
+        print(
+            f"  {CLASS_NAMES[c]:<24s} {n_with_det:>16d} {avg_conf:>14.3f} "
+            f"{avg_area:>18.0f}"
+        )
 
 
 if __name__ == "__main__":

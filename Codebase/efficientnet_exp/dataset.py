@@ -20,7 +20,6 @@ Key choices documented inline:
   - Val and test get NO augmentation, only resize + normalize.
 """
 
-import os
 from pathlib import Path
 import pandas as pd
 import torch
@@ -31,7 +30,7 @@ import torchvision.transforms.v2 as T
 
 # Mean/std for ImageNet (we use ImageNet-pretrained ResNet-50, so normalize the same way)
 IMAGENET_MEAN = [0.485, 0.456, 0.406]
-IMAGENET_STD  = [0.229, 0.224, 0.225]
+IMAGENET_STD = [0.229, 0.224, 0.225]
 
 
 class KronesDataset(Dataset):
@@ -48,10 +47,10 @@ class KronesDataset(Dataset):
     # and by the per-class breakdown in eval.py.  Unknown classes get bucket -1.
     def __init__(self, root, split, img_size=512, splits_csv="splits_aug.csv"):
         assert split in ("train", "val", "test"), f"bad split: {split}"
-        self.root      = Path(root)
-        self.split     = split
-        self.img_size  = img_size
-        self.crops_dir     = self.root / "audit_output" / "crops"
+        self.root = Path(root)
+        self.split = split
+        self.img_size = img_size
+        self.crops_dir = self.root / "audit_output" / "crops"
         self.crops_aug_dir = self.root / "audit_output" / "crops_aug"
 
         df = pd.read_csv(self.root / "audit_output" / splits_csv)
@@ -73,26 +72,30 @@ class KronesDataset(Dataset):
 
         # image transforms
         if split == "train":
-            self.transform = T.Compose([
-                T.Resize((img_size, img_size), antialias=True),
-                # full 360 rotation - top-down circular images are rotationally symmetric
-                T.RandomRotation(degrees=180, expand=False),
-                T.RandomHorizontalFlip(p=0.5),
-                T.RandomVerticalFlip(p=0.5),
-                # mild photometric jitter to handle sensor/lighting variation
-                T.ColorJitter(brightness=0.15, contrast=0.15),
-                T.ToImage(),
-                T.ToDtype(torch.float32, scale=True),
-                T.Normalize(mean=IMAGENET_MEAN, std=IMAGENET_STD),
-            ])
+            self.transform = T.Compose(
+                [
+                    T.Resize((img_size, img_size), antialias=True),
+                    # full 360 rotation - top-down circular images are rotationally symmetric
+                    T.RandomRotation(degrees=180, expand=False),
+                    T.RandomHorizontalFlip(p=0.5),
+                    T.RandomVerticalFlip(p=0.5),
+                    # mild photometric jitter to handle sensor/lighting variation
+                    T.ColorJitter(brightness=0.15, contrast=0.15),
+                    T.ToImage(),
+                    T.ToDtype(torch.float32, scale=True),
+                    T.Normalize(mean=IMAGENET_MEAN, std=IMAGENET_STD),
+                ]
+            )
         else:
             # deterministic transforms for val / test
-            self.transform = T.Compose([
-                T.Resize((img_size, img_size), antialias=True),
-                T.ToImage(),
-                T.ToDtype(torch.float32, scale=True),
-                T.Normalize(mean=IMAGENET_MEAN, std=IMAGENET_STD),
-            ])
+            self.transform = T.Compose(
+                [
+                    T.Resize((img_size, img_size), antialias=True),
+                    T.ToImage(),
+                    T.ToDtype(torch.float32, scale=True),
+                    T.Normalize(mean=IMAGENET_MEAN, std=IMAGENET_STD),
+                ]
+            )
 
     def __len__(self):
         return len(self.df)
@@ -126,6 +129,7 @@ class KronesDataset(Dataset):
 # Quick smoke test if run directly
 if __name__ == "__main__":
     import sys
+
     root = sys.argv[1] if len(sys.argv) > 1 else "."
     for sp in ["train", "val", "test"]:
         ds = KronesDataset(root, sp)
@@ -133,6 +137,10 @@ if __name__ == "__main__":
     # peek one
     ds = KronesDataset(root, "train")
     img, lbl, cidx = ds[0]
-    print(f"sample 0: image {tuple(img.shape)}, label {lbl.item()}, class {ds.idx_to_class[cidx.item()]}")
+    print(
+        f"sample 0: image {tuple(img.shape)}, label {lbl.item()}, class {ds.idx_to_class[cidx.item()]}"
+    )
     w = ds.make_sampler_weights()
-    print(f"sampler weights: shape {tuple(w.shape)}, min {w.min():.2e}, max {w.max():.2e}")
+    print(
+        f"sampler weights: shape {tuple(w.shape)}, min {w.min():.2e}, max {w.max():.2e}"
+    )

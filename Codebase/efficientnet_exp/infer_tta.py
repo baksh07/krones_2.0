@@ -13,6 +13,7 @@ Run order:
     python infer_tta.py --root <DATASET> --ckpt <CKPT> --split test --threshold 0.48
         # uses chosen threshold for test
 """
+
 import argparse
 from pathlib import Path
 import numpy as np
@@ -51,9 +52,11 @@ def gather_tta(model, loader, device, autocast_dtype):
         all_probs.append(probs.cpu())
         all_labels.append(labels)
         all_classes.append(cls_idx)
-    return (torch.cat(all_probs).numpy(),
-            torch.cat(all_labels).long().numpy(),
-            torch.cat(all_classes).numpy())
+    return (
+        torch.cat(all_probs).numpy(),
+        torch.cat(all_labels).long().numpy(),
+        torch.cat(all_classes).numpy(),
+    )
 
 
 def find_best_threshold(probs, labels):
@@ -76,22 +79,31 @@ def main(args):
     # auto-detect model architecture
     model_name = ckpt["args"].get("model_name", "resnet50")
 
-    print(f"loaded ckpt epoch {ckpt['epoch']}  "
-          f"trained val F1 {ckpt.get('val_f1', float('nan')):.4f}")
+    print(
+        f"loaded ckpt epoch {ckpt['epoch']}  "
+        f"trained val F1 {ckpt.get('val_f1', float('nan')):.4f}"
+    )
     print(f"  model:      {model_name}")
     print(f"  img_size:   {img_size}")
     print(f"  splits_csv: {splits_csv}")
 
     ds = KronesDataset(args.root, args.split, img_size=img_size, splits_csv=splits_csv)
-    loader = DataLoader(ds, batch_size=args.batch_size, shuffle=False,
-                       num_workers=args.num_workers, pin_memory=True)
+    loader = DataLoader(
+        ds,
+        batch_size=args.batch_size,
+        shuffle=False,
+        num_workers=args.num_workers,
+        pin_memory=True,
+    )
     print(f"{args.split}: {len(ds)} samples")
 
-    model = build_model(num_classes=1, pretrained=False, model_name=model_name).to(device)
+    model = build_model(num_classes=1, pretrained=False, model_name=model_name).to(
+        device
+    )
     model.load_state_dict(ckpt["model"])
     autocast_dtype = torch.bfloat16
 
-    print(f"running TTA (8 passes per image: 4 rotations x 2 flips)...")
+    print("running TTA (8 passes per image: 4 rotations x 2 flips)...")
     probs, labels, cls_idx = gather_tta(model, loader, device, autocast_dtype)
 
     if args.threshold is not None:
@@ -111,37 +123,44 @@ def main(args):
     f1_05 = f1_score(labels, preds05, zero_division=0)
 
     print()
-    print("="*70)
+    print("=" * 70)
     print(f"TTA on {args.split.upper()}")
-    print("="*70)
+    print("=" * 70)
     print(f"@ thr 0.50  F1 {f1_05:.4f}     (no-TTA reference: see eval.py output)")
     print(f"@ thr {thr:.3f}  F1 {f1:.4f}   P {prec:.4f}   R {rec:.4f}")
     print(f"  confusion (rows=true, cols=pred):\n{cm}")
 
     rows = []
     for i, c in enumerate(classes):
-        mask = (cls_idx == i)
-        if mask.sum() == 0: continue
+        mask = cls_idx == i
+        if mask.sum() == 0:
+            continue
         sub_lbl = labels[mask]
         sub_pred = preds[mask]
         n = mask.sum()
         n_correct = (sub_lbl == sub_pred).sum()
-        rows.append({
-            "dominant": c,
-            "n": int(n),
-            "n_misclass": int(n - n_correct),
-            "accuracy": float(n_correct / n),
-        })
+        rows.append(
+            {
+                "dominant": c,
+                "n": int(n),
+                "n_misclass": int(n - n_correct),
+                "accuracy": float(n_correct / n),
+            }
+        )
     per_class = pd.DataFrame(rows).sort_values("n_misclass", ascending=False)
     print("\nper-class breakdown after TTA:")
     print(per_class.to_string(index=False))
 
     out = Path(args.ckpt).parent / f"tta_{args.split}.csv"
-    pd.DataFrame({
-        "label": labels, "pred": preds, "prob": probs,
-        "class_idx": cls_idx,
-        "class": [classes[i] if i >= 0 else "" for i in cls_idx],
-    }).to_csv(out, index=False)
+    pd.DataFrame(
+        {
+            "label": labels,
+            "pred": preds,
+            "prob": probs,
+            "class_idx": cls_idx,
+            "class": [classes[i] if i >= 0 else "" for i in cls_idx],
+        }
+    ).to_csv(out, index=False)
     print(f"\nper-image probs+preds written to: {out}")
     print(f"\nUSE THIS THRESHOLD FOR KAGGLE SUBMISSION: {thr:.3f}")
 

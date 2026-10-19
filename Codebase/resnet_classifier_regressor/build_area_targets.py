@@ -26,6 +26,7 @@ Optional:
     --splits_csv  /path/to/splits_aug.csv
         If provided, will join split assignment too (train/val/test).
 """
+
 import argparse
 import json
 from collections import defaultdict
@@ -36,33 +37,42 @@ import pandas as pd
 
 # Conditional class IDs and thresholds (verified against the labeling rule)
 CONDITIONAL = {
-    1:  ("air_bubble",          500),
-    3:  ("chip",                200),
-    6:  ("contamination_light", 180),
-    13: ("glass_imperfection",  100),
-    23: ("scuffing",            75000),
-    24: ("scuffing_heavy",      1200),
+    1: ("air_bubble", 500),
+    3: ("chip", 200),
+    6: ("contamination_light", 180),
+    13: ("glass_imperfection", 100),
+    23: ("scuffing", 75000),
+    24: ("scuffing_heavy", 1200),
 }
 
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--annotations", required=True,
-                   help="Path to train_annotations.json (COCO format)")
-    p.add_argument("--train_csv", required=True,
-                   help="Path to train.csv with columns: image_id, target")
-    p.add_argument("--out_csv", required=True,
-                   help="Output path for the area-targets CSV")
-    p.add_argument("--splits_csv", default=None,
-                   help="Optional: splits CSV to join split assignments")
+    p.add_argument(
+        "--annotations",
+        required=True,
+        help="Path to train_annotations.json (COCO format)",
+    )
+    p.add_argument(
+        "--train_csv",
+        required=True,
+        help="Path to train.csv with columns: image_id, target",
+    )
+    p.add_argument(
+        "--out_csv", required=True, help="Output path for the area-targets CSV"
+    )
+    p.add_argument(
+        "--splits_csv",
+        default=None,
+        help="Optional: splits CSV to join split assignments",
+    )
     args = p.parse_args()
 
     # ---- Load annotations ----
     print(f"[1/4] Loading {args.annotations} ...")
     with open(args.annotations) as f:
         coco = json.load(f)
-    print(f"      {len(coco['images'])} images, "
-          f"{len(coco['annotations'])} annotations")
+    print(f"      {len(coco['images'])} images, {len(coco['annotations'])} annotations")
 
     fname_to_cocoid = {img["file_name"]: img["id"] for img in coco["images"]}
 
@@ -82,7 +92,7 @@ def main():
     print(f"      {len(df)} rows")
 
     # ---- Build output rows ----
-    print(f"[3/4] Computing per-image area targets ...")
+    print("[3/4] Computing per-image area targets ...")
     out_rows = []
     missing = 0
     for _, row in df.iterrows():
@@ -118,13 +128,17 @@ def main():
         elif "image_id" in splits.columns:
             key = "image_id"
         else:
-            raise ValueError(f"splits CSV needs file_name or image_id column, "
-                             f"got: {list(splits.columns)}")
+            raise ValueError(
+                f"splits CSV needs file_name or image_id column, "
+                f"got: {list(splits.columns)}"
+            )
         if "split" not in splits.columns:
-            raise ValueError(f"splits CSV needs 'split' column, "
-                             f"got: {list(splits.columns)}")
-        out_df = out_df.merge(splits[[key, "split"]],
-                              left_on="file_name", right_on=key, how="left")
+            raise ValueError(
+                f"splits CSV needs 'split' column, got: {list(splits.columns)}"
+            )
+        out_df = out_df.merge(
+            splits[[key, "split"]], left_on="file_name", right_on=key, how="left"
+        )
         if key != "file_name":
             out_df = out_df.drop(columns=[key])
         n_unmatched = out_df["split"].isna().sum()
@@ -142,17 +156,21 @@ def main():
     print("=" * 75)
     print("Per-class area stats across all training images:")
     print("=" * 75)
-    print(f"{'class':25s} {'thresh':>8} {'n_pos':>8} {'min>0':>10} "
-          f"{'median>0':>10} {'max':>12}")
+    print(
+        f"{'class':25s} {'thresh':>8} {'n_pos':>8} {'min>0':>10} "
+        f"{'median>0':>10} {'max':>12}"
+    )
     print("-" * 75)
     for cid, (name, thresh) in CONDITIONAL.items():
         col = f"area_{name}"
         positives = out_df[out_df[col] > 0][col]
         n_pos = len(positives)
         if n_pos > 0:
-            print(f"{name:25s} {thresh:>8} {n_pos:>8} "
-                  f"{positives.min():>10.0f} {positives.median():>10.0f} "
-                  f"{positives.max():>12.0f}")
+            print(
+                f"{name:25s} {thresh:>8} {n_pos:>8} "
+                f"{positives.min():>10.0f} {positives.median():>10.0f} "
+                f"{positives.max():>12.0f}"
+            )
         else:
             print(f"{name:25s} {thresh:>8} {n_pos:>8}  (none)")
 
@@ -164,8 +182,10 @@ def main():
         n_cross = (out_df[col] > thresh).sum()
         n_pos = (out_df[col] > 0).sum()
         if n_pos > 0:
-            print(f"  {name:25s} {n_cross:>6} / {n_pos:>6} "
-                  f"({n_cross/n_pos*100:>5.1f}% of images that have this class)")
+            print(
+                f"  {name:25s} {n_cross:>6} / {n_pos:>6} "
+                f"({n_cross / n_pos * 100:>5.1f}% of images that have this class)"
+            )
 
 
 if __name__ == "__main__":

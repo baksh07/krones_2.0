@@ -37,20 +37,20 @@ YOLO seg label format (one line per polygon):
 
 Usage:
     python build_yolo_seg_dataset.py \\
-        --root /home/dll0202/baksh/dataset/1st-krones-vision-ai-challenge \\
+        --root <challenge-data-root> \\
         --crops_dir audit_output/crops \\
         --crops_meta audit_output/crops_meta.csv \\
         --splits_csv audit_output/splits.csv \\
         --annotations train_annotations.json \\
         --out_dir audit_output/yolo_seg_7cls
 """
+
 import argparse
 import json
 from collections import defaultdict
 from pathlib import Path
 
 import pandas as pd
-from PIL import Image
 from tqdm import tqdm
 
 
@@ -102,6 +102,7 @@ YOLO_CLASS_NAMES = [name for _, name in CONDITIONAL] + ["Hard-Faulty"]
 
 # ---- Polygon shifting ----------------------------------------------------
 
+
 def polygon_to_yolo_seg(segmentation, crop_box, crop_w, crop_h):
     """Convert COCO polygon(s) to YOLO seg coords (normalized).
 
@@ -148,22 +149,45 @@ def polygon_to_yolo_seg(segmentation, crop_box, crop_w, crop_h):
 
 # ---- Main ----------------------------------------------------------------
 
+
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--root", required=True,
-                   help="Dataset root (contains train_annotations.json, audit_output/)")
-    p.add_argument("--crops_dir", default="audit_output/crops",
-                   help="Path to GT-ROI crops dir, relative to --root")
-    p.add_argument("--crops_meta", default="audit_output/crops_meta.csv",
-                   help="Crop metadata: file_name, image_id, crop_x0/y0/x1/y1")
-    p.add_argument("--splits_csv", default="audit_output/splits.csv",
-                   help="Splits CSV with file_name and split columns")
-    p.add_argument("--annotations", default="train_annotations.json",
-                   help="COCO annotations JSON, relative to --root")
-    p.add_argument("--out_dir", default="audit_output/yolo_seg_7cls",
-                   help="Output directory, relative to --root")
-    p.add_argument("--copy_images", action="store_true", default=False,
-                   help="Copy images instead of symlinking (slower, more disk)")
+    p.add_argument(
+        "--root",
+        required=True,
+        help="Dataset root (contains train_annotations.json, audit_output/)",
+    )
+    p.add_argument(
+        "--crops_dir",
+        default="audit_output/crops",
+        help="Path to GT-ROI crops dir, relative to --root",
+    )
+    p.add_argument(
+        "--crops_meta",
+        default="audit_output/crops_meta.csv",
+        help="Crop metadata: file_name, image_id, crop_x0/y0/x1/y1",
+    )
+    p.add_argument(
+        "--splits_csv",
+        default="audit_output/splits.csv",
+        help="Splits CSV with file_name and split columns",
+    )
+    p.add_argument(
+        "--annotations",
+        default="train_annotations.json",
+        help="COCO annotations JSON, relative to --root",
+    )
+    p.add_argument(
+        "--out_dir",
+        default="audit_output/yolo_seg_7cls",
+        help="Output directory, relative to --root",
+    )
+    p.add_argument(
+        "--copy_images",
+        action="store_true",
+        default=False,
+        help="Copy images instead of symlinking (slower, more disk)",
+    )
     args = p.parse_args()
 
     root = Path(args.root)
@@ -175,14 +199,16 @@ def main():
     print(f"[1/6] Loading {args.annotations} ...")
     with open(root / args.annotations) as f:
         coco = json.load(f)
-    print(f"      {len(coco['images'])} images, "
-          f"{len(coco['annotations'])} annotations, "
-          f"{len(coco['categories'])} categories")
+    print(
+        f"      {len(coco['images'])} images, "
+        f"{len(coco['annotations'])} annotations, "
+        f"{len(coco['categories'])} categories"
+    )
 
     # Build COCO-id -> YOLO-class-id mapping
     name_to_cocoid = {c["name"]: c["id"] for c in coco["categories"]}
     cocoid_to_yolo = {}
-    print(f"[2/6] Building class mapping (Design A, 7 classes) ...")
+    print("[2/6] Building class mapping (Design A, 7 classes) ...")
     for yolo_id, name in CONDITIONAL:
         if name not in name_to_cocoid:
             raise KeyError(f"Conditional class '{name}' not in annotations")
@@ -195,50 +221,50 @@ def main():
             continue
         cocoid_to_yolo[name_to_cocoid[name]] = 6
         n_hard_mapped += 1
-    print(f"        6: Hard-Faulty (merged)    "
-          f"({n_hard_mapped}/{len(HARD_FAULTY_NAMES)} source classes)")
+    print(
+        f"        6: Hard-Faulty (merged)    "
+        f"({n_hard_mapped}/{len(HARD_FAULTY_NAMES)} source classes)"
+    )
 
     # Sanity: anything in JSON not handled?
-    accounted = (set(n for _, n in CONDITIONAL) |
-                 set(HARD_FAULTY_NAMES) | EXCLUDED)
+    accounted = set(n for _, n in CONDITIONAL) | set(HARD_FAULTY_NAMES) | EXCLUDED
     unexpected = set(name_to_cocoid.keys()) - accounted
     if unexpected:
-        print(f"        WARNING: classes in JSON not in mapping or exclude list: "
-              f"{unexpected}")
+        print(
+            f"        WARNING: classes in JSON not in mapping or exclude list: "
+            f"{unexpected}"
+        )
 
     # COCO image_id -> file_name lookup (these are ORIGINAL filenames, not crops)
-    cocoid_to_origname = {img["id"]: img["file_name"] for img in coco["images"]}
-
     # Group annotations by COCO image id
     anns_by_image = defaultdict(list)
     for ann in coco["annotations"]:
         anns_by_image[ann["image_id"]].append(ann)
 
     # ---- Load crop metadata and splits ----
-    print(f"[3/6] Loading crop metadata and splits ...")
+    print("[3/6] Loading crop metadata and splits ...")
     crops_meta = pd.read_csv(root / args.crops_meta)
     splits = pd.read_csv(root / args.splits_csv)
-    print(f"      crops_meta: {len(crops_meta)} rows, columns: "
-          f"{list(crops_meta.columns)}")
-    print(f"      splits:     {len(splits)} rows, columns: "
-          f"{list(splits.columns)}")
+    print(
+        f"      crops_meta: {len(crops_meta)} rows, columns: {list(crops_meta.columns)}"
+    )
+    print(f"      splits:     {len(splits)} rows, columns: {list(splits.columns)}")
 
-    needed = ["file_name", "image_id", "crop_x0", "crop_y0",
-              "crop_x1", "crop_y1"]
+    needed = ["file_name", "image_id", "crop_x0", "crop_y0", "crop_x1", "crop_y1"]
     for c in needed:
         if c not in crops_meta.columns:
-            raise ValueError(f"crops_meta missing column '{c}'. "
-                             f"Got: {list(crops_meta.columns)}")
+            raise ValueError(
+                f"crops_meta missing column '{c}'. Got: {list(crops_meta.columns)}"
+            )
     # crops_meta uses 'image_id' as the COCO numeric id (per audit_report.txt)
     crops_lookup = crops_meta.set_index("file_name")[
         ["image_id", "crop_x0", "crop_y0", "crop_x1", "crop_y1"]
     ].to_dict("index")
 
     if "split" not in splits.columns:
-        raise ValueError(f"splits CSV needs 'split' column. "
-                         f"Got: {list(splits.columns)}")
-    splits_lookup = dict(zip(splits["file_name"], splits["split"]))
-
+        raise ValueError(
+            f"splits CSV needs 'split' column. Got: {list(splits.columns)}"
+        )
     # ---- Create output structure ----
     for split in ["train", "val", "test"]:
         (out_dir / "images" / split).mkdir(parents=True, exist_ok=True)
@@ -247,11 +273,9 @@ def main():
     # ---- Iterate crops, write labels and link images ----
     print(f"[4/6] Building YOLO-seg labels for {len(splits)} crops ...")
 
-    stats = defaultdict(lambda: defaultdict(int))   # per-split counts
+    stats = defaultdict(lambda: defaultdict(int))  # per-split counts
     skipped_no_crop_meta = 0
     skipped_no_anns = 0
-    skipped_outside = 0
-
     for _, row in tqdm(splits.iterrows(), total=len(splits), desc="crops"):
         fname = row["file_name"]
         split = row["split"]
@@ -290,18 +314,17 @@ def main():
         for ann in anns:
             cid = ann["category_id"]
             if cid not in cocoid_to_yolo:
-                continue   # excluded class
+                continue  # excluded class
             yolo_id = cocoid_to_yolo[cid]
             polys = polygon_to_yolo_seg(
-                ann.get("segmentation", []),
-                (x0_c, y0_c, x1_c, y1_c),
-                crop_w, crop_h)
+                ann.get("segmentation", []), (x0_c, y0_c, x1_c, y1_c), crop_w, crop_h
+            )
             for p in polys:
                 label_lines.append(f"{yolo_id} {p}")
                 stats[split][f"class_{yolo_id}"] += 1
 
         if not anns:
-            skipped_no_anns += 1   # tracked but still write empty label
+            skipped_no_anns += 1  # tracked but still write empty label
 
         # Write label file (empty file = "no defects in this crop")
         label_path = out_dir / "labels" / split / (Path(fname).stem + ".txt")
@@ -316,6 +339,7 @@ def main():
             link_target.unlink()
         if args.copy_images:
             import shutil
+
             shutil.copy(img_path, link_target)
         else:
             # Use absolute symlink so Ultralytics finds the file regardless of cwd
@@ -326,21 +350,25 @@ def main():
             stats[split]["empty_labels"] += 1
 
     print()
-    print(f"[5/6] Per-split statistics:")
+    print("[5/6] Per-split statistics:")
     for split in ["train", "val", "test"]:
         s = stats[split]
-        print(f"  {split:5s}: {s['images']:5d} images  "
-              f"({s.get('empty_labels', 0)} with no defect annotations)")
+        print(
+            f"  {split:5s}: {s['images']:5d} images  "
+            f"({s.get('empty_labels', 0)} with no defect annotations)"
+        )
         for yolo_id in range(7):
             cnt = s.get(f"class_{yolo_id}", 0)
             cls_name = YOLO_CLASS_NAMES[yolo_id]
             print(f"           class {yolo_id} {cls_name:25s} {cnt:6d} polygons")
     if skipped_no_crop_meta:
-        print(f"  WARNING: skipped {skipped_no_crop_meta} crops without metadata "
-              f"or missing image files")
+        print(
+            f"  WARNING: skipped {skipped_no_crop_meta} crops without metadata "
+            f"or missing image files"
+        )
 
     # ---- Write krones_seg.yaml ----
-    print(f"[6/6] Writing krones_seg.yaml ...")
+    print("[6/6] Writing krones_seg.yaml ...")
     yaml_path = out_dir / "krones_seg.yaml"
     yaml_content = (
         f"# YOLO seg dataset config — Krones (Design A, 7 classes)\n"
@@ -364,13 +392,13 @@ def main():
     print("DATASET READY")
     print("=" * 70)
     print(f"Config: {yaml_path}")
-    print(f"\nKick off training with:")
-    print(f"  yolo segment train \\")
+    print("\nKick off training with:")
+    print("  yolo segment train \\")
     print(f"      data={yaml_path} \\")
-    print(f"      model=yolo11s-seg.pt \\")
-    print(f"      epochs=50 imgsz=640 batch=16 \\")
-    print(f"      device=0 \\")
-    print(f"      project=runs/seg name=krones_7cls_yolo11s")
+    print("      model=yolo11s-seg.pt \\")
+    print("      epochs=50 imgsz=640 batch=16 \\")
+    print("      device=0 \\")
+    print("      project=runs/seg name=krones_7cls_yolo11s")
 
 
 if __name__ == "__main__":

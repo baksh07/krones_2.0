@@ -38,20 +38,22 @@ from detectron2_train import (  # noqa: E402
     verdict_from_polygons,
 )
 
-REPO_ROOT = Path('/home/dll0202/baksh/krones_2.0')
-DATA_ROOT = Path('/home/dll0202/baksh/dataset/1st-krones-vision-ai-challenge')
-COCO_DIR = REPO_ROOT / 'Dataset' / 'coco'
-IMG_DIR = str(DATA_ROOT / 'train_images')
-TRAIN_CSV = DATA_ROOT / 'train.csv'
+from project_paths import DATA_ROOT, REPO_ROOT
+
+COCO_DIR = REPO_ROOT / "Dataset" / "coco"
+IMG_DIR = str(DATA_ROOT / "train_images")
+TRAIN_CSV = DATA_ROOT / "train.csv"
 
 THRESHOLDS = [0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70]
 
 
 def build_predictor(weights_path: Path) -> DefaultPredictor:
     cfg = get_cfg()
-    cfg.merge_from_file(model_zoo.get_config_file(
-        'COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml'
-    ))
+    cfg.merge_from_file(
+        model_zoo.get_config_file(
+            "COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml"
+        )
+    )
     cfg.MODEL.WEIGHTS = str(weights_path)
     cfg.MODEL.ROI_HEADS.NUM_CLASSES = NUM_CLASSES
     cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.05
@@ -65,15 +67,15 @@ def collect_predictions(predictor, records, label_by_filename):
     """Run model on each val image; return dict[filename -> list[(cname, score, area)]]."""
     cache: dict[str, list[tuple[str, float, float]]] = {}
     truth: dict[str, int] = {}
-    for rec in tqdm(records, unit='img'):
-        fn = Path(rec['file_name']).name
+    for rec in tqdm(records, unit="img"):
+        fn = Path(rec["file_name"]).name
         if fn not in label_by_filename:
             continue
-        img = cv2.imread(rec['file_name'])
+        img = cv2.imread(rec["file_name"])
         if img is None:
             continue
         out = predictor(img)
-        inst = out['instances'].to('cpu')
+        inst = out["instances"].to("cpu")
         dets: list[tuple[str, float, float]] = []
         if len(inst) > 0:
             scores = inst.scores.numpy()
@@ -105,57 +107,73 @@ def evaluate_at_threshold(cache, truth, thr: float):
     prec = tp / (tp + fp) if (tp + fp) else 0.0
     rec = tp / (tp + fn_) if (tp + fn_) else 0.0
     f1 = 2 * prec * rec / (prec + rec) if (prec + rec) else 0.0
-    return {'acc': acc, 'prec': prec, 'rec': rec, 'f1': f1,
-            'tn': tn, 'fp': fp, 'fn': fn_, 'tp': tp}
+    return {
+        "acc": acc,
+        "prec": prec,
+        "rec": rec,
+        "f1": f1,
+        "tn": tn,
+        "fp": fp,
+        "fn": fn_,
+        "tp": tp,
+    }
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--weights', type=Path, required=True)
-    parser.add_argument('--cache', type=Path, default=None,
-                        help='Pickle path to cache val preds (skip inference if exists)')
+    parser.add_argument("--weights", type=Path, required=True)
+    parser.add_argument(
+        "--cache",
+        type=Path,
+        default=None,
+        help="Pickle path to cache val preds (skip inference if exists)",
+    )
     args = parser.parse_args()
 
-    name = 'krones_val'
+    name = "krones_val"
     if name not in DatasetCatalog.list():
-        register_coco_instances(name, {}, str(COCO_DIR / 'krones_val.json'), IMG_DIR)
+        register_coco_instances(name, {}, str(COCO_DIR / "krones_val.json"), IMG_DIR)
     records = DatasetCatalog.get(name)
 
     df = pd.read_csv(TRAIN_CSV)
-    label_by_filename = dict(zip(df['image_id'].astype(str), df['target'].astype(int)))
+    label_by_filename = dict(zip(df["image_id"].astype(str), df["target"].astype(int)))
 
     if args.cache and args.cache.exists():
-        print(f'Loading cached predictions from {args.cache}')
-        with open(args.cache, 'rb') as f:
+        print(f"Loading cached predictions from {args.cache}")
+        with open(args.cache, "rb") as f:
             cache, truth = pickle.load(f)
     else:
-        print(f'Loading checkpoint: {args.weights}')
+        print(f"Loading checkpoint: {args.weights}")
         predictor = build_predictor(args.weights)
-        print(f'Running inference on {len(records)} val records ...')
+        print(f"Running inference on {len(records)} val records ...")
         cache, truth = collect_predictions(predictor, records, label_by_filename)
         if args.cache:
             args.cache.parent.mkdir(parents=True, exist_ok=True)
-            with open(args.cache, 'wb') as f:
+            with open(args.cache, "wb") as f:
                 pickle.dump((cache, truth), f)
-            print(f'Cached predictions to {args.cache}')
+            print(f"Cached predictions to {args.cache}")
 
-    print(f'\nVal images evaluated: {len(cache)}')
-    print(f'{"thresh":>7} | {"acc":>6} | {"prec":>6} | {"recall":>6} | {"f1":>6} | '
-          f'{"tn":>5} {"fp":>5} {"fn":>5} {"tp":>5}')
-    print('-' * 76)
+    print(f"\nVal images evaluated: {len(cache)}")
+    print(
+        f"{'thresh':>7} | {'acc':>6} | {'prec':>6} | {'recall':>6} | {'f1':>6} | "
+        f"{'tn':>5} {'fp':>5} {'fn':>5} {'tp':>5}"
+    )
+    print("-" * 76)
     rows = []
     for thr in THRESHOLDS:
         r = evaluate_at_threshold(cache, truth, thr)
         rows.append((thr, r))
-        print(f'  {thr:.2f} | {r["acc"]:.4f} | {r["prec"]:.4f} | {r["rec"]:.4f} '
-              f'| {r["f1"]:.4f} | {r["tn"]:5d} {r["fp"]:5d} {r["fn"]:5d} {r["tp"]:5d}')
+        print(
+            f"  {thr:.2f} | {r['acc']:.4f} | {r['prec']:.4f} | {r['rec']:.4f} "
+            f"| {r['f1']:.4f} | {r['tn']:5d} {r['fp']:5d} {r['fn']:5d} {r['tp']:5d}"
+        )
 
-    best_acc_thr, best_acc = max(((t, r['acc']) for t, r in rows), key=lambda x: x[1])
-    best_f1_thr, best_f1 = max(((t, r['f1']) for t, r in rows), key=lambda x: x[1])
+    best_acc_thr, best_acc = max(((t, r["acc"]) for t, r in rows), key=lambda x: x[1])
+    best_f1_thr, best_f1 = max(((t, r["f1"]) for t, r in rows), key=lambda x: x[1])
     print()
-    print(f'Best by accuracy: threshold={best_acc_thr}  acc={best_acc:.4f}')
-    print(f'Best by F1:       threshold={best_f1_thr}   f1={best_f1:.4f}')
+    print(f"Best by accuracy: threshold={best_acc_thr}  acc={best_acc:.4f}")
+    print(f"Best by F1:       threshold={best_f1_thr}   f1={best_f1:.4f}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

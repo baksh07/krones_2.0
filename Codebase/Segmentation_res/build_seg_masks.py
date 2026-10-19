@@ -29,7 +29,10 @@ Usage:
     python build_seg_masks.py --root /path/to/dataset
     python build_seg_masks.py --root /path/to/dataset --fresh   # nuke existing
 """
-import os, json, argparse, shutil
+
+import json
+import argparse
+import shutil
 from pathlib import Path
 from collections import defaultdict, Counter
 import numpy as np
@@ -40,28 +43,43 @@ from tqdm import tqdm
 
 # (channel_index, class_name, output_subdir_name)
 CONDITIONAL_CHANNELS = [
-    (1, "Scuffing",            "ch1_Scuffing"),
-    (2, "Air bubble",          "ch2_Air_bubble"),
+    (1, "Scuffing", "ch1_Scuffing"),
+    (2, "Air bubble", "ch2_Air_bubble"),
     (3, "Contamination light", "ch3_Contamination_light"),
-    (4, "Chip",                "ch4_Chip"),
-    (5, "Scuffing heavy",      "ch5_Scuffing_heavy"),
-    (6, "Glass imperfection",  "ch6_Glass_imperfection"),
+    (4, "Chip", "ch4_Chip"),
+    (5, "Scuffing heavy", "ch5_Scuffing_heavy"),
+    (6, "Glass imperfection", "ch6_Glass_imperfection"),
 ]
 ALWAYS_FAULTY_CHANNEL = (7, "ch7_always_faulty")
 
 # Classes that go into channel 7 (always-Faulty). Hard-Faulty classes from your
 # training data. Adjust if your annotation names differ.
 HARD_FAULTY_CLASSES = {
-    "Yeast residue", "Crown cap", "Mold", "No base visible",
-    "Glass shard", "Break / Crack", "Label",
-    "Foreign object - manual cleaning", "Foreign object - washing machine",
-    "Insect", "Foil / Semitransparent", "Paint residue", "Liquid",
-    "Straw", "Circlip", "Contamination dark",
+    "Yeast residue",
+    "Crown cap",
+    "Mold",
+    "No base visible",
+    "Glass shard",
+    "Break / Crack",
+    "Label",
+    "Foreign object - manual cleaning",
+    "Foreign object - washing machine",
+    "Insect",
+    "Foil / Semitransparent",
+    "Paint residue",
+    "Liquid",
+    "Straw",
+    "Circlip",
+    "Contamination dark",
 }
 
 # Classes that are always Good (excluded from all channels)
 ALWAYS_GOOD_CLASSES = {
-    "Good_no_defect", "Water drop", "No fault", "Foam residue", "Embossing",
+    "Good_no_defect",
+    "Water drop",
+    "No fault",
+    "Foam residue",
+    "Embossing",
 }
 
 
@@ -72,7 +90,7 @@ def rasterize_polygons(polygons, width, height, crop_x, crop_y):
     for poly in polygons:
         if not isinstance(poly, list) or len(poly) < 6:
             continue
-        pts = [(poly[i] - crop_x, poly[i+1] - crop_y) for i in range(0, len(poly), 2)]
+        pts = [(poly[i] - crop_x, poly[i + 1] - crop_y) for i in range(0, len(poly), 2)]
         draw.polygon(pts, fill=255)
     return np.array(mask, dtype=np.uint8)
 
@@ -103,7 +121,8 @@ def main(args):
     print(f"output            : {seg_dir}")
     for p in (crops_dir, meta_csv, splits_csv, ann_path):
         if not p.exists():
-            print(f"ERROR: missing {p}"); return
+            print(f"ERROR: missing {p}")
+            return
 
     # 1. load annotations
     print("\n[1/4] loading annotations...")
@@ -120,8 +139,13 @@ def main(args):
     missing_hard = HARD_FAULTY_CLASSES - set(name_to_id.keys())
     if missing_hard:
         print(f"  WARNING: hard-Faulty class names not in annotations: {missing_hard}")
-    extras = (set(name_to_id.keys()) - cond_names - HARD_FAULTY_CLASSES
-              - ALWAYS_GOOD_CLASSES - {"Roi", "Bottle"})
+    extras = (
+        set(name_to_id.keys())
+        - cond_names
+        - HARD_FAULTY_CLASSES
+        - ALWAYS_GOOD_CLASSES
+        - {"Roi", "Bottle"}
+    )
     if extras:
         print(f"  classes not categorized (will be ignored): {extras}")
 
@@ -150,13 +174,26 @@ def main(args):
 
     # detect crop bbox column convention
     if all(k in meta.columns for k in ("crop_x0", "crop_y0", "crop_x1", "crop_y1")):
-        get_crop_bbox = lambda r: (int(r["crop_x0"]), int(r["crop_y0"]),
-                                   int(r["crop_x1"] - r["crop_x0"]),
-                                   int(r["crop_y1"] - r["crop_y0"]))
+
+        def get_crop_bbox(row):
+            return (
+                int(row["crop_x0"]),
+                int(row["crop_y0"]),
+                int(row["crop_x1"] - row["crop_x0"]),
+                int(row["crop_y1"] - row["crop_y0"]),
+            )
+
         bbox_style = "x0,y0,x1,y1"
     elif all(k in meta.columns for k in ("crop_x", "crop_y", "crop_w", "crop_h")):
-        get_crop_bbox = lambda r: (int(r["crop_x"]), int(r["crop_y"]),
-                                   int(r["crop_w"]), int(r["crop_h"]))
+
+        def get_crop_bbox(row):
+            return (
+                int(row["crop_x"]),
+                int(row["crop_y"]),
+                int(row["crop_w"]),
+                int(row["crop_h"]),
+            )
+
         bbox_style = "x,y,w,h"
     else:
         print(f"ERROR: can't find crop bbox columns. Available: {list(meta.columns)}")
@@ -167,8 +204,11 @@ def main(args):
 
     # 3. process REAL crops
     print("\n[3/4] generating masks for real crops...")
-    real_rows = (splits[splits.get("is_synth", 0) != 1]
-                 if "is_synth" in splits.columns else splits)
+    real_rows = (
+        splits[splits.get("is_synth", 0) != 1]
+        if "is_synth" in splits.columns
+        else splits
+    )
     real_rows = real_rows.copy()
     print(f"  {len(real_rows)} real crops")
 
@@ -210,7 +250,9 @@ def main(args):
         if all_hard_polys:
             mask = rasterize_polygons(all_hard_polys, crop_w, crop_h, crop_x, crop_y)
             if mask.sum() > 0:
-                Image.fromarray(mask).save(seg_dir / ALWAYS_FAULTY_CHANNEL[1] / file_name)
+                Image.fromarray(mask).save(
+                    seg_dir / ALWAYS_FAULTY_CHANNEL[1] / file_name
+                )
                 per_channel_counts[7] += 1
                 wrote_any = True
 
@@ -223,13 +265,18 @@ def main(args):
 
     # 4. process SYNTH crops (channel 7 only)
     print("\n[4/4] copying synth masks into channel 7...")
-    synth_rows = (splits[splits.get("is_synth", 0) == 1]
-                  if "is_synth" in splits.columns else pd.DataFrame())
+    synth_rows = (
+        splits[splits.get("is_synth", 0) == 1]
+        if "is_synth" in splits.columns
+        else pd.DataFrame()
+    )
     print(f"  {len(synth_rows)} synth crops")
 
     n_synth_processed = 0
     n_synth_missing_mask = 0
-    for _, row in tqdm(synth_rows.iterrows(), total=len(synth_rows), desc="synth crops"):
+    for _, row in tqdm(
+        synth_rows.iterrows(), total=len(synth_rows), desc="synth crops"
+    ):
         file_name = row["file_name"]
         src_mask = crops_aug_masks_dir / file_name
         if not src_mask.exists():
@@ -246,7 +293,7 @@ def main(args):
     print(f"\n  synth crops processed     : {n_synth_processed}")
     print(f"  synth crops missing masks : {n_synth_missing_mask}")
     if n_synth_missing_mask > 0:
-        print(f"  WARNING: re-run build_copypaste_aug_with_masks.py to fix this.")
+        print("  WARNING: re-run build_copypaste_aug_with_masks.py to fix this.")
 
     # final summary
     print("\n" + "=" * 60)
@@ -258,8 +305,10 @@ def main(args):
     for ch_idx, cname, subdir in CONDITIONAL_CHANNELS:
         n = per_channel_counts.get(ch_idx, 0)
         print(f"  ch{ch_idx} {cname:<22s}: {n:>5d} files  ({subdir})")
-    print(f"  ch{ALWAYS_FAULTY_CHANNEL[0]} {'always-Faulty (merged)':<22s}: "
-          f"{per_channel_counts.get(7, 0):>5d} files  ({ALWAYS_FAULTY_CHANNEL[1]})")
+    print(
+        f"  ch{ALWAYS_FAULTY_CHANNEL[0]} {'always-Faulty (merged)':<22s}: "
+        f"{per_channel_counts.get(7, 0):>5d} files  ({ALWAYS_FAULTY_CHANNEL[1]})"
+    )
 
     total_files = sum(per_channel_counts.values())
     print(f"\n  total mask files: {total_files}")
@@ -275,7 +324,10 @@ def main(args):
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("--root", required=True, help="dataset root")
-    p.add_argument("--fresh", action="store_true",
-                   help="delete existing seg_masks/ before regenerating")
+    p.add_argument(
+        "--fresh",
+        action="store_true",
+        help="delete existing seg_masks/ before regenerating",
+    )
     args = p.parse_args()
     main(args)

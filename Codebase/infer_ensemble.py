@@ -40,18 +40,21 @@ from detectron2_train import (  # noqa: E402
     verdict_from_polygons,
 )
 
-DATA_ROOT = Path('/home/dll0202/baksh/dataset/1st-krones-vision-ai-challenge')
-TEST_IMG_DIR = DATA_ROOT / 'test_images'
-SAMPLE_SUB = DATA_ROOT / 'sample_submission.csv'
+from project_paths import DATA_ROOT
+
+TEST_IMG_DIR = DATA_ROOT / "test_images"
+SAMPLE_SUB = DATA_ROOT / "sample_submission.csv"
 
 UNMATCHED_PENALTY = 0.5  # detections seen by only one model get score * 0.5
 
 
 def build_predictor(weights_path: Path) -> DefaultPredictor:
     cfg = get_cfg()
-    cfg.merge_from_file(model_zoo.get_config_file(
-        'COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml'
-    ))
+    cfg.merge_from_file(
+        model_zoo.get_config_file(
+            "COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml"
+        )
+    )
     cfg.MODEL.WEIGHTS = str(weights_path)
     cfg.MODEL.ROI_HEADS.NUM_CLASSES = NUM_CLASSES
     cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.05
@@ -61,9 +64,11 @@ def build_predictor(weights_path: Path) -> DefaultPredictor:
     return DefaultPredictor(cfg)
 
 
-def detections_from_output(out, class_names: list[str]) -> list[tuple[str, float, float]]:
+def detections_from_output(
+    out, class_names: list[str]
+) -> list[tuple[str, float, float]]:
     """Return list of (class_name, score, mask_pixel_count) for one image's predictions."""
-    inst = out['instances'].to('cpu')
+    inst = out["instances"].to("cpu")
     if len(inst) == 0:
         return []
     scores = inst.scores.numpy()
@@ -116,7 +121,7 @@ def merge_detections(dets1, dets2):
 def predict_verdict_ensemble(p1, p2, image_path: Path, threshold: float) -> int:
     img = cv2.imread(str(image_path))
     if img is None:
-        print(f'WARN: could not read {image_path}; predicting Reusable=0')
+        print(f"WARN: could not read {image_path}; predicting Reusable=0")
         return 0
     out1 = p1(img)
     out2 = p2(img)
@@ -134,43 +139,45 @@ def predict_verdict_ensemble(p1, p2, image_path: Path, threshold: float) -> int:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--weights1', type=Path, required=True)
-    parser.add_argument('--weights2', type=Path, required=True)
-    parser.add_argument('--threshold', type=float, default=0.50)
-    parser.add_argument('--out', type=Path, required=True)
+    parser.add_argument("--weights1", type=Path, required=True)
+    parser.add_argument("--weights2", type=Path, required=True)
+    parser.add_argument("--threshold", type=float, default=0.50)
+    parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
 
     if not args.weights1.exists():
-        sys.exit(f'ERROR: weights1 not found: {args.weights1}')
+        sys.exit(f"ERROR: weights1 not found: {args.weights1}")
     if not args.weights2.exists():
-        sys.exit(f'ERROR: weights2 not found: {args.weights2}')
+        sys.exit(f"ERROR: weights2 not found: {args.weights2}")
     args.out.parent.mkdir(parents=True, exist_ok=True)
 
     sub = pd.read_csv(SAMPLE_SUB)
-    print(f'Loaded {len(sub)} test image_ids')
-    print(f'Loading model 1: {args.weights1}')
+    print(f"Loaded {len(sub)} test image_ids")
+    print(f"Loading model 1: {args.weights1}")
     p1 = build_predictor(args.weights1)
-    print(f'Loading model 2: {args.weights2}')
+    print(f"Loading model 2: {args.weights2}")
     p2 = build_predictor(args.weights2)
-    print(f'Running ensemble inference (threshold={args.threshold}, '
-          f'unmatched_penalty={UNMATCHED_PENALTY}) ...')
+    print(
+        f"Running ensemble inference (threshold={args.threshold}, "
+        f"unmatched_penalty={UNMATCHED_PENALTY}) ..."
+    )
 
     verdicts = []
-    for img_id in tqdm(sub['image_id'], unit='img'):
+    for img_id in tqdm(sub["image_id"], unit="img"):
         verdicts.append(
             predict_verdict_ensemble(p1, p2, TEST_IMG_DIR / img_id, args.threshold)
         )
 
-    out_df = pd.DataFrame({'image_id': sub['image_id'], 'target': verdicts})
+    out_df = pd.DataFrame({"image_id": sub["image_id"], "target": verdicts})
     out_df.to_csv(args.out, index=False)
 
     n0 = sum(1 for v in verdicts if v == 0)
     n1 = sum(1 for v in verdicts if v == 1)
-    print(f'\nWrote {args.out}')
-    print(f'  total: {len(verdicts)}')
-    print(f'  Reusable (0):       {n0} ({100*n0/len(verdicts):.1f}%)')
-    print(f'  Not Reusable (1):   {n1} ({100*n1/len(verdicts):.1f}%)')
+    print(f"\nWrote {args.out}")
+    print(f"  total: {len(verdicts)}")
+    print(f"  Reusable (0):       {n0} ({100 * n0 / len(verdicts):.1f}%)")
+    print(f"  Not Reusable (1):   {n1} ({100 * n1 / len(verdicts):.1f}%)")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

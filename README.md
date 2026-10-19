@@ -29,21 +29,25 @@ reproducible benchmark without checking the corresponding configuration.
 | --- | --- |
 | `Codebase/` | Training, evaluation, inference, ROI, segmentation, and analysis scripts, organized by experiment. |
 | `Dataset/` | Dataset conversion scripts and derived COCO/YOLO annotations and images. |
+| `krones_project/` | Shared project configuration, including repository and challenge-data paths. |
+| `tests/` | Focused tests for shared project configuration. |
 | `runs/` | Experiment outputs and training logs. |
 | `submissions/` | Generated submission CSV files from selected experiments. |
+| `pyproject.toml` | Python packaging metadata and shared development-tool configuration. |
 
 ## Data and environment
 
 The scripts expect the challenge dataset and, depending on the experiment,
 additional audit outputs and pretrained/model checkpoints. These inputs are
-not all provided by this repository. Check each script's configuration before
-running it: several scripts define `DATA_ROOT` and `REPO_ROOT` as absolute
-Linux paths and need to be updated for your machine.
+not all provided by this repository. Set `KRONES_DATA_ROOT` to the local
+challenge-data directory before running a script. If it is unset, scripts
+retain the original Linux data path. Repository output paths are resolved
+relative to the checked-out repository.
 
-There is no repository-wide dependency lockfile. The experiments use different
-computer-vision frameworks, including PyTorch/torchvision, Detectron2, and
-Ultralytics; set up an environment with versions compatible with your Python,
-CUDA, and selected experiment.
+Install the shared development tooling with `python -m pip install -e ".[dev]"`.
+The experiments use different computer-vision frameworks, including
+PyTorch/torchvision, Detectron2, and Ultralytics; install versions compatible
+with your Python, CUDA, and selected experiment separately.
 
 The supplied challenge materials include a confidentiality notice. They are
 not reproduced here; confirm that any dataset, annotations, derived assets, or
@@ -51,9 +55,14 @@ results are authorized for sharing before distributing them.
 
 ## Running an experiment
 
-From the repository root, configure the dataset and repository paths in the
-scripts for the experiment you want to run. For example, the full-image
-instance-segmentation flow is:
+Configure the data path in the environment and run the experiment you want.
+For example, in PowerShell:
+
+```powershell
+$env:KRONES_DATA_ROOT = "D:\datasets\1st-krones-vision-ai-challenge"
+```
+
+Then, from the repository root, the full-image instance-segmentation flow is:
 
 ```bash
 python Dataset/build_krones_coco.py
@@ -71,6 +80,17 @@ python Codebase/yolo_train.py
 These commands require the original dataset, the relevant framework
 dependencies, and an appropriately configured machine. See each script's
 header and configuration for its expected inputs, options, and output paths.
+
+## Development checks
+
+Install the shared development tools with `python -m pip install -e ".[dev]"`,
+then run from the repository root:
+
+```bash
+python -m ruff format Codebase Dataset krones_project tests
+python -m ruff check Codebase Dataset krones_project tests
+python -m pytest
+```
 
 ## Notes
 

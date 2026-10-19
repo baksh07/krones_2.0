@@ -21,16 +21,18 @@ Usage:
     python characterize_no_base_visible.py --root /path/to/dataset
 """
 
-import os, json, argparse, random
-from collections import Counter
+import os
+import json
+import argparse
+import random
 import numpy as np
 import pandas as pd
 from PIL import Image
 
 # threshold for "dark pixel" — bottles in your set are bright, defects are not
-DARK_PIXEL_THR = 40       # 0..255  (anything below this is "dark/empty")
-BLANK_FRAC_HI  = 0.70     # ROI >70% dark pixels  -> 'blank'
-BLANK_FRAC_LO  = 0.30     # ROI <30% dark pixels  -> 'partial' (looks normal)
+DARK_PIXEL_THR = 40  # 0..255  (anything below this is "dark/empty")
+BLANK_FRAC_HI = 0.70  # ROI >70% dark pixels  -> 'blank'
+BLANK_FRAC_LO = 0.30  # ROI <30% dark pixels  -> 'partial' (looks normal)
 N_SAMPLES_PER_BUCKET = 12
 
 
@@ -38,13 +40,14 @@ def roi_stats(img_path, roi_bbox):
     """Return (mean, std, dark_frac) inside the ROI, in 0..255 grayscale."""
     img = Image.open(img_path).convert("L")
     x, y, w, h = [int(v) for v in roi_bbox]
-    x = max(0, x); y = max(0, y)
+    x = max(0, x)
+    y = max(0, y)
     crop = img.crop((x, y, x + w, y + h))
     arr = np.asarray(crop, dtype=np.uint8)
     if arr.size == 0:
         return None
     mean = float(arr.mean())
-    std  = float(arr.std())
+    std = float(arr.std())
     dark = float((arr < DARK_PIXEL_THR).mean())
     return mean, std, dark
 
@@ -62,9 +65,9 @@ def make_grid(img_paths, out_path, tile=256, cols=4):
 
 
 def main(root):
-    ann_path  = os.path.join(root, "train_annotations.json")
-    img_dir   = os.path.join(root, "train_images")
-    out_dir   = os.path.join(root, "audit_output")
+    ann_path = os.path.join(root, "train_annotations.json")
+    img_dir = os.path.join(root, "train_images")
+    out_dir = os.path.join(root, "audit_output")
     sample_dir = os.path.join(out_dir, "nbv_samples")
     os.makedirs(sample_dir, exist_ok=True)
 
@@ -87,7 +90,9 @@ def main(root):
     for a in ann["annotations"]:
         if a["category_id"] == NBV_ID:
             nbv_image_ids.add(a["image_id"])
-    print(f"      {len(nbv_image_ids)} unique images with at least one 'No base visible' annotation")
+    print(
+        f"      {len(nbv_image_ids)} unique images with at least one 'No base visible' annotation"
+    )
 
     fname_of = {im["id"]: im["file_name"] for im in ann["images"]}
 
@@ -98,7 +103,7 @@ def main(root):
         if i % 500 == 0:
             print(f"      processed {i}/{len(nbv_image_ids)}")
         fname = fname_of[iid]
-        path  = os.path.join(img_dir, fname)
+        path = os.path.join(img_dir, fname)
         if not os.path.exists(path):
             missing += 1
             continue
@@ -109,15 +114,18 @@ def main(root):
             roi = [0, 0, img.width, img.height]
         s = roi_stats(path, roi)
         if s is None:
-            missing += 1; continue
+            missing += 1
+            continue
         mean, std, dark = s
-        rows.append({
-            "image_id":  iid,
-            "file_name": fname,
-            "roi_mean":  mean,
-            "roi_std":   std,
-            "roi_dark_frac": dark,
-        })
+        rows.append(
+            {
+                "image_id": iid,
+                "file_name": fname,
+                "roi_mean": mean,
+                "roi_std": std,
+                "roi_dark_frac": dark,
+            }
+        )
     if missing:
         print(f"      WARNING: {missing} images skipped (file not found or unreadable)")
 
@@ -127,53 +135,71 @@ def main(root):
         return
 
     print("[3/4] bucketing ...")
+
     def bucket(d):
         if d >= BLANK_FRAC_HI:
             return "blank"
         if d <= BLANK_FRAC_LO:
             return "partial"
         return "middle"
+
     df["bucket"] = df["roi_dark_frac"].apply(bucket)
 
     # save csv
     df.sort_values("roi_dark_frac").to_csv(
-        os.path.join(out_dir, "nbv_characterization.csv"), index=False)
+        os.path.join(out_dir, "nbv_characterization.csv"), index=False
+    )
 
     # summary
     counts = df["bucket"].value_counts().to_dict()
     n = len(df)
     lines = []
     L = lines.append
-    L("="*70)
+    L("=" * 70)
     L("'No base visible' characterization")
-    L("="*70)
+    L("=" * 70)
     L(f"images analyzed: {n}")
-    L(f"  blank   (ROI mostly dark, >{int(BLANK_FRAC_HI*100)}% dark px): "
-      f"{counts.get('blank',0):5d}  ({counts.get('blank',0)/n*100:5.2f}%)")
-    L(f"  middle                                               : "
-      f"{counts.get('middle',0):5d}  ({counts.get('middle',0)/n*100:5.2f}%)")
-    L(f"  partial (ROI looks normal, <{int(BLANK_FRAC_LO*100)}% dark px): "
-      f"{counts.get('partial',0):5d}  ({counts.get('partial',0)/n*100:5.2f}%)")
+    L(
+        f"  blank   (ROI mostly dark, >{int(BLANK_FRAC_HI * 100)}% dark px): "
+        f"{counts.get('blank', 0):5d}  ({counts.get('blank', 0) / n * 100:5.2f}%)"
+    )
+    L(
+        f"  middle                                               : "
+        f"{counts.get('middle', 0):5d}  ({counts.get('middle', 0) / n * 100:5.2f}%)"
+    )
+    L(
+        f"  partial (ROI looks normal, <{int(BLANK_FRAC_LO * 100)}% dark px): "
+        f"{counts.get('partial', 0):5d}  ({counts.get('partial', 0) / n * 100:5.2f}%)"
+    )
     L("")
     L("ROI stats by bucket:")
-    L(str(df.groupby("bucket")[["roi_mean","roi_std","roi_dark_frac"]]
-            .agg(["mean","median","std"]).round(2)))
+    L(
+        str(
+            df.groupby("bucket")[["roi_mean", "roi_std", "roi_dark_frac"]]
+            .agg(["mean", "median", "std"])
+            .round(2)
+        )
+    )
     L("")
     L("INTERPRETATION:")
-    blank_pct = counts.get('blank', 0) / n
-    partial_pct = counts.get('partial', 0) / n
+    blank_pct = counts.get("blank", 0) / n
+    partial_pct = counts.get("partial", 0) / n
     if partial_pct < 0.10:
-        L(f"  >>> Most NBV images are blank/dark ({blank_pct*100:.0f}%).")
+        L(f"  >>> Most NBV images are blank/dark ({blank_pct * 100:.0f}%).")
         L("  >>> An ROI-cropped model CAN still detect them (ROI interior is dark).")
         L("  >>> ROI-crop training is viable for this class.")
     elif partial_pct > 0.30:
-        L(f"  >>> {partial_pct*100:.0f}% of NBV images have a normal-looking ROI interior.")
+        L(
+            f"  >>> {partial_pct * 100:.0f}% of NBV images have a normal-looking ROI interior."
+        )
         L("  >>> An ROI-cropped model will MISS these — the defect is on the rim.")
         L("  >>> Recommend: full image, or expanded ROI (ROI + N pixels padding).")
     else:
-        L(f"  >>> Mixed: {blank_pct*100:.0f}% blank, {partial_pct*100:.0f}% partial.")
+        L(
+            f"  >>> Mixed: {blank_pct * 100:.0f}% blank, {partial_pct * 100:.0f}% partial."
+        )
         L("  >>> Borderline — expanded ROI (ROI + 50–100 px padding) is the safe bet.")
-    L("="*70)
+    L("=" * 70)
 
     print("\n".join(lines))
     with open(os.path.join(out_dir, "nbv_summary.txt"), "w") as f:
@@ -187,7 +213,9 @@ def main(root):
             continue
         # take a spread: lowest, middle, highest dark_frac
         sub = sub.sort_values("roi_dark_frac")
-        idx_pick = np.linspace(0, len(sub)-1, min(N_SAMPLES_PER_BUCKET, len(sub))).astype(int)
+        idx_pick = np.linspace(
+            0, len(sub) - 1, min(N_SAMPLES_PER_BUCKET, len(sub))
+        ).astype(int)
         picks = sub.iloc[idx_pick]
         paths = [os.path.join(img_dir, fn) for fn in picks["file_name"]]
         out_grid = os.path.join(sample_dir, f"grid_{b}.png")
@@ -204,7 +232,10 @@ def main(root):
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("--root", required=True,
-                   help="dataset root with train_images/ and train_annotations.json")
+    p.add_argument(
+        "--root",
+        required=True,
+        help="dataset root with train_images/ and train_annotations.json",
+    )
     args = p.parse_args()
     main(args.root)

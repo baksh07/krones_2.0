@@ -42,17 +42,17 @@ from detectron2_train import (  # noqa: E402
     verdict_from_polygons,
 )
 
-REPO_ROOT = Path('/home/dll0202/baksh/krones_2.0')
-DATA_ROOT = Path('/home/dll0202/baksh/dataset/1st-krones-vision-ai-challenge')
-TEST_IMG_DIR = DATA_ROOT / 'test_images'
-SAMPLE_SUB = DATA_ROOT / 'sample_submission.csv'
+from project_paths import DATA_ROOT, REPO_ROOT
+
+TEST_IMG_DIR = DATA_ROOT / "test_images"
+SAMPLE_SUB = DATA_ROOT / "sample_submission.csv"
 
 ROI_IMGSZ = 640
 ROI_PADDING = 50  # must match build_krones_coco_cropped.py
 
 
 def build_roi_session(onnx_path: Path) -> ort.InferenceSession:
-    providers = ['CUDAExecutionProvider', 'CPUExecutionProvider']
+    providers = ["CUDAExecutionProvider", "CPUExecutionProvider"]
     return ort.InferenceSession(str(onnx_path), providers=providers)
 
 
@@ -65,12 +65,13 @@ def letterbox(img: np.ndarray, size: int = ROI_IMGSZ):
     pad_x = (size - nw) // 2
     pad_y = (size - nh) // 2
     canvas = np.full((size, size, 3), 114, dtype=np.uint8)
-    canvas[pad_y:pad_y + nh, pad_x:pad_x + nw] = resized
+    canvas[pad_y : pad_y + nh, pad_x : pad_x + nw] = resized
     return canvas, scale, pad_x, pad_y
 
 
-def predict_roi(session: ort.InferenceSession,
-                img_bgr: np.ndarray) -> tuple[int, int, int, int] | None:
+def predict_roi(
+    session: ort.InferenceSession, img_bgr: np.ndarray
+) -> tuple[int, int, int, int] | None:
     """Return (x0, y0, x1, y1) in original image coords, padded by ROI_PADDING and clipped.
     Falls back to None if no detection."""
     H, W = img_bgr.shape[:2]
@@ -109,9 +110,11 @@ def predict_roi(session: ort.InferenceSession,
 
 def build_predictor(weights_path: Path) -> DefaultPredictor:
     cfg = get_cfg()
-    cfg.merge_from_file(model_zoo.get_config_file(
-        'COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml'
-    ))
+    cfg.merge_from_file(
+        model_zoo.get_config_file(
+            "COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml"
+        )
+    )
     cfg.MODEL.WEIGHTS = str(weights_path)
     cfg.MODEL.ROI_HEADS.NUM_CLASSES = NUM_CLASSES
     cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.05  # keep low so verdict logic chooses
@@ -121,14 +124,16 @@ def build_predictor(weights_path: Path) -> DefaultPredictor:
     return DefaultPredictor(cfg)
 
 
-def predict_one(predictor: DefaultPredictor,
-                roi_session: ort.InferenceSession,
-                image_path: Path,
-                threshold: float) -> tuple[int, bool]:
+def predict_one(
+    predictor: DefaultPredictor,
+    roi_session: ort.InferenceSession,
+    image_path: Path,
+    threshold: float,
+) -> tuple[int, bool]:
     """Returns (verdict, roi_found)."""
     img = cv2.imread(str(image_path))
     if img is None:
-        print(f'WARN: could not read {image_path}; predicting Reusable=0')
+        print(f"WARN: could not read {image_path}; predicting Reusable=0")
         return 0, False
 
     crop_box = predict_roi(roi_session, img)
@@ -142,7 +147,7 @@ def predict_one(predictor: DefaultPredictor,
         roi_found = True
 
     out = predictor(cropped)
-    inst = out['instances'].to('cpu')
+    inst = out["instances"].to("cpu")
     if len(inst) == 0:
         return 0, roi_found
     scores = inst.scores.numpy()
@@ -159,34 +164,46 @@ def predict_one(predictor: DefaultPredictor,
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--weights', type=Path, required=True,
-                        help='Path to defect Mask R-CNN .pth checkpoint')
-    parser.add_argument('--roi-onnx', type=Path,
-                        default=REPO_ROOT / 'output' / 'ROI_Detector' / 'best.onnx',
-                        help='Path to ROI detector ONNX')
-    parser.add_argument('--threshold', type=float, default=0.5,
-                        help='Minimum detection score to count for verdict')
-    parser.add_argument('--out', type=Path, required=True,
-                        help='Output submission.csv path')
+    parser.add_argument(
+        "--weights",
+        type=Path,
+        required=True,
+        help="Path to defect Mask R-CNN .pth checkpoint",
+    )
+    parser.add_argument(
+        "--roi-onnx",
+        type=Path,
+        default=REPO_ROOT / "output" / "ROI_Detector" / "best.onnx",
+        help="Path to ROI detector ONNX",
+    )
+    parser.add_argument(
+        "--threshold",
+        type=float,
+        default=0.5,
+        help="Minimum detection score to count for verdict",
+    )
+    parser.add_argument(
+        "--out", type=Path, required=True, help="Output submission.csv path"
+    )
     args = parser.parse_args()
 
     if not args.weights.exists():
-        sys.exit(f'ERROR: defect checkpoint not found: {args.weights}')
+        sys.exit(f"ERROR: defect checkpoint not found: {args.weights}")
     if not args.roi_onnx.exists():
-        sys.exit(f'ERROR: ROI ONNX not found: {args.roi_onnx}')
+        sys.exit(f"ERROR: ROI ONNX not found: {args.roi_onnx}")
     args.out.parent.mkdir(parents=True, exist_ok=True)
 
     sub = pd.read_csv(SAMPLE_SUB)
-    print(f'Loaded {len(sub)} test image_ids from {SAMPLE_SUB}')
-    print(f'Loading ROI detector: {args.roi_onnx}')
+    print(f"Loaded {len(sub)} test image_ids from {SAMPLE_SUB}")
+    print(f"Loading ROI detector: {args.roi_onnx}")
     roi_session = build_roi_session(args.roi_onnx)
-    print(f'Loading defect checkpoint: {args.weights}')
+    print(f"Loading defect checkpoint: {args.weights}")
     predictor = build_predictor(args.weights)
-    print(f'Running pipeline (threshold={args.threshold}) ...')
+    print(f"Running pipeline (threshold={args.threshold}) ...")
 
     verdicts = []
     n_no_roi = 0
-    for img_id in tqdm(sub['image_id'], unit='img'):
+    for img_id in tqdm(sub["image_id"], unit="img"):
         v, roi_found = predict_one(
             predictor, roi_session, TEST_IMG_DIR / img_id, args.threshold
         )
@@ -194,17 +211,17 @@ def main():
         if not roi_found:
             n_no_roi += 1
 
-    out_df = pd.DataFrame({'image_id': sub['image_id'], 'target': verdicts})
+    out_df = pd.DataFrame({"image_id": sub["image_id"], "target": verdicts})
     out_df.to_csv(args.out, index=False)
 
     n0 = sum(1 for v in verdicts if v == 0)
     n1 = sum(1 for v in verdicts if v == 1)
-    print(f'\nWrote {args.out}')
-    print(f'  total: {len(verdicts)}')
-    print(f'  Reusable (0):       {n0} ({100*n0/len(verdicts):.1f}%)')
-    print(f'  Not Reusable (1):   {n1} ({100*n1/len(verdicts):.1f}%)')
-    print(f'  ROI fallback (full image): {n_no_roi}')
+    print(f"\nWrote {args.out}")
+    print(f"  total: {len(verdicts)}")
+    print(f"  Reusable (0):       {n0} ({100 * n0 / len(verdicts):.1f}%)")
+    print(f"  Not Reusable (1):   {n1} ({100 * n1 / len(verdicts):.1f}%)")
+    print(f"  ROI fallback (full image): {n_no_roi}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

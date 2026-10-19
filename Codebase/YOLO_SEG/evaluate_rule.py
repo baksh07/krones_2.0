@@ -21,9 +21,9 @@ Usage:
         --splits_csv /path/to/splits.csv \\
         --split val
 """
+
 import argparse
 from itertools import product
-from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -32,13 +32,13 @@ import pandas as pd
 # (safe_name, display_name, area_threshold_or_None)
 # area_threshold None => treat as unconditional (any detection above conf -> Faulty)
 CLASSES = [
-    ("Scuffing",            "Scuffing",            75000),
-    ("Air_bubble",          "Air bubble",          500),
+    ("Scuffing", "Scuffing", 75000),
+    ("Air_bubble", "Air bubble", 500),
     ("Contamination_light", "Contamination light", 180),
-    ("Chip",                "Chip",                None),
-    ("Scuffing_heavy",      "Scuffing heavy",      None),
-    ("Glass_imperfection",  "Glass imperfection",  None),
-    ("Hard_Faulty",         "Hard-Faulty",         None),
+    ("Chip", "Chip", None),
+    ("Scuffing_heavy", "Scuffing heavy", None),
+    ("Glass_imperfection", "Glass imperfection", None),
+    ("Hard_Faulty", "Hard-Faulty", None),
 ]
 
 
@@ -71,22 +71,27 @@ def binary_f1(pred, gt):
     tn = int(np.sum((pred == 0) & (gt == 0)))
     precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
     recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
-    f1 = 2 * precision * recall / (precision + recall) if (precision + recall) > 0 else 0.0
+    f1 = (
+        2 * precision * recall / (precision + recall)
+        if (precision + recall) > 0
+        else 0.0
+    )
     return f1, precision, recall, (tp, fp, fn, tn)
 
 
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--predictions", required=True)
-    p.add_argument("--ground_truth", required=True,
-                   help="train_clean.csv with file_name and label column")
+    p.add_argument(
+        "--ground_truth",
+        required=True,
+        help="train_clean.csv with file_name and label column",
+    )
     p.add_argument("--splits_csv", required=True)
     p.add_argument("--split", default="val")
     p.add_argument("--label_col", default="label_recomputed")
-    p.add_argument("--out_csv", default=None,
-                   help="Save full sweep results")
-    p.add_argument("--coarse", action="store_true",
-                   help="Coarser sweep (fewer points)")
+    p.add_argument("--out_csv", default=None, help="Save full sweep results")
+    p.add_argument("--coarse", action="store_true", help="Coarser sweep (fewer points)")
     args = p.parse_args()
 
     # Load
@@ -116,7 +121,7 @@ def main():
 
     n = len(pred_df)
     n_pos = int(pred_df["label"].sum())
-    print(f"  Final: {n} images, {n_pos} Faulty ({n_pos/n:.1%})")
+    print(f"  Final: {n} images, {n_pos} Faulty ({n_pos / n:.1%})")
 
     gt = pred_df["label"].values
 
@@ -125,16 +130,20 @@ def main():
     print("\n" + "=" * 70)
     print("STAGE 1 — single-class diagnostic (rule = only this class)")
     print("=" * 70)
-    print(f"  {'Class':<22s} {'conf':>6s} {'F1':>7s} {'P':>7s} {'R':>7s} "
-          f"{'TP':>5s} {'FP':>5s} {'FN':>5s}")
+    print(
+        f"  {'Class':<22s} {'conf':>6s} {'F1':>7s} {'P':>7s} {'R':>7s} "
+        f"{'TP':>5s} {'FP':>5s} {'FN':>5s}"
+    )
     diag_conf = 0.25  # reasonable middle ground for diagnostics
     for safe_name, disp_name, _ in CLASSES:
         confs = {sn: 1.01 for sn, _, _ in CLASSES}  # all OFF
         confs[safe_name] = diag_conf
         pred = apply_rule(pred_df, confs)
         f1, prec, rec, (tp, fp, fn, _) = binary_f1(pred, gt)
-        print(f"  {disp_name:<22s} {diag_conf:>6.2f} {f1:>7.4f} "
-              f"{prec:>7.4f} {rec:>7.4f} {tp:>5d} {fp:>5d} {fn:>5d}")
+        print(
+            f"  {disp_name:<22s} {diag_conf:>6.2f} {f1:>7.4f} "
+            f"{prec:>7.4f} {rec:>7.4f} {tp:>5d} {fp:>5d} {fn:>5d}"
+        )
 
     # ---- Stage 2: full grid sweep ----
     print("\n" + "=" * 70)
@@ -143,23 +152,23 @@ def main():
 
     if args.coarse:
         conf_grid = {
-            "Hard_Faulty":          [0.20, 0.30, 0.40, 0.50],
-            "Chip":                 [0.20, 0.30, 0.40, 0.50],
-            "Glass_imperfection":   [0.20, 0.30, 0.40, 0.50],
-            "Scuffing_heavy":       [0.10, 0.20, 0.30, 1.01],   # 1.01 = OFF
-            "Scuffing":             [0.10, 0.20, 0.30, 1.01],
-            "Air_bubble":           [0.10, 0.20, 0.30, 1.01],
-            "Contamination_light":  [0.10, 0.20, 0.30, 1.01],
+            "Hard_Faulty": [0.20, 0.30, 0.40, 0.50],
+            "Chip": [0.20, 0.30, 0.40, 0.50],
+            "Glass_imperfection": [0.20, 0.30, 0.40, 0.50],
+            "Scuffing_heavy": [0.10, 0.20, 0.30, 1.01],  # 1.01 = OFF
+            "Scuffing": [0.10, 0.20, 0.30, 1.01],
+            "Air_bubble": [0.10, 0.20, 0.30, 1.01],
+            "Contamination_light": [0.10, 0.20, 0.30, 1.01],
         }
     else:
         conf_grid = {
-            "Hard_Faulty":          [0.05, 0.08, 0.10, 0.12, 0.15, 0.20, 0.25, 0.30],
-            "Chip":                 [0.05, 0.10, 0.15, 0.20, 0.25, 0.30],
-            "Glass_imperfection":   [0.10, 0.15, 0.20, 0.30, 1.01],
-            "Scuffing_heavy":       [0.05, 0.10, 0.20, 1.01],
-            "Scuffing":             [0.05, 0.10, 0.15, 0.20, 0.30, 1.01],
-            "Air_bubble":           [0.05, 0.10, 0.15, 0.20, 1.01],
-            "Contamination_light":  [0.05, 0.10, 0.15, 0.20, 0.30, 1.01],
+            "Hard_Faulty": [0.05, 0.08, 0.10, 0.12, 0.15, 0.20, 0.25, 0.30],
+            "Chip": [0.05, 0.10, 0.15, 0.20, 0.25, 0.30],
+            "Glass_imperfection": [0.10, 0.15, 0.20, 0.30, 1.01],
+            "Scuffing_heavy": [0.05, 0.10, 0.20, 1.01],
+            "Scuffing": [0.05, 0.10, 0.15, 0.20, 0.30, 1.01],
+            "Air_bubble": [0.05, 0.10, 0.15, 0.20, 1.01],
+            "Contamination_light": [0.05, 0.10, 0.15, 0.20, 0.30, 1.01],
         }
 
     keys = list(conf_grid.keys())
@@ -180,15 +189,24 @@ def main():
         confs = dict(zip(keys, vals))
         pred = apply_rule(pred_df, confs)
         f1, prec, rec, (tp, fp, fn, tn) = binary_f1(pred, gt)
-        rows.append({**{f"conf_{k}": v for k, v in confs.items()},
-                     "f1": f1, "precision": prec, "recall": rec,
-                     "tp": tp, "fp": fp, "fn": fn, "tn": tn})
+        rows.append(
+            {
+                **{f"conf_{k}": v for k, v in confs.items()},
+                "f1": f1,
+                "precision": prec,
+                "recall": rec,
+                "tp": tp,
+                "fp": fp,
+                "fn": fn,
+                "tn": tn,
+            }
+        )
         if f1 > best_f1:
             best_f1 = f1
             best_conf = dict(confs)
             best_stats = (prec, rec, tp, fp, fn, tn)
         if (i + 1) % progress_step == 0:
-            print(f"  swept {i+1}/{n_combos}  current best F1 = {best_f1:.4f}")
+            print(f"  swept {i + 1}/{n_combos}  current best F1 = {best_f1:.4f}")
 
     print(f"\n  swept all {n_combos} combos.")
 
@@ -200,7 +218,7 @@ def main():
     print(f"  Binary F1: {best_f1:.4f}")
     print(f"  Precision: {prec:.4f}   Recall: {rec:.4f}")
     print(f"  TP={tp}  FP={fp}  FN={fn}  TN={tn}")
-    print(f"\n  Confidence thresholds:")
+    print("\n  Confidence thresholds:")
     for k, v in best_conf.items():
         on_off = " (OFF)" if v >= 1.01 else ""
         print(f"    {k:<24s} {v:.2f}{on_off}")
